@@ -8,7 +8,7 @@ The assignment is to create a project using TDD in a OO way. We chose to make Ya
 Javascript/Typescript
 
 ### Framework for unit-testing
-[Mocha](https://mochajs.org/) - Test framework.
+[Mocha](https://mochajs.org/) - Test framework.<br>
 [Chai](https://www.chaijs.com/) - Assertion.
 
 ### Framework for Mocking
