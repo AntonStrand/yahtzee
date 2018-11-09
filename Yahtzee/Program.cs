@@ -12,9 +12,9 @@ namespace yahtzee
 
     public class TestClass
     {
-        public static int testingTest()
+        public static int testingTestReturningTen()
         {
-            return 42;
+            return 10;
         }
 
     }
