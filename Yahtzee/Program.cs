@@ -1,21 +1,12 @@
 ﻿using System;
 
-namespace yahtzee
+namespace Yahtzee
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+      Console.WriteLine("Hello World!");
     }
-
-    public class TestClass
-    {
-        public static int testingTestReturningTen()
-        {
-            return 10;
-        }
-
-    }
+  }
 }
