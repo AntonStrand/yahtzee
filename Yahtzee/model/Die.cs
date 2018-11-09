@@ -1,7 +1,6 @@
 using System;
 using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleToAttribute("FirstTest.cs")]
 namespace Yahtzee.model
 {
   public class Die
