@@ -18,6 +18,15 @@ namespace MyFirstUnitTests
     }
 
     [Fact]
+    public void GetSameValueTwiceIfNotThrown()
+    {
+      Die sut = new Die();
+      var expected = sut.GetValue();
+      var actual = sut.GetValue();
+      Assert.Equal(actual, expected);
+    }
+
+    [Fact]
     public void ThrowShouldGetNewValue()
     {
       Die sut = new Die();
