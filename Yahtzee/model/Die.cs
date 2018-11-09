@@ -15,8 +15,8 @@ namespace Yahtzee.model
       Throw();
     }
 
-    public int GetValue() => _random.Next(1, 6);
+    public int GetValue() => _value;
 
-    public void Throw() { }
+    public void Throw() => _value = _random.Next(1, 6);
   }
 }
