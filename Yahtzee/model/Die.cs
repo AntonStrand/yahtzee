@@ -5,6 +5,6 @@ namespace Yahtzee.model
 {
   public class Die
   {
-    public int GetValue() => 0;
+    public int GetValue() => 1;
   }
 }
