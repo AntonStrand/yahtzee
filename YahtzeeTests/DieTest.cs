@@ -45,7 +45,26 @@ namespace MyFirstUnitTests
         [Fact]
         public void CheckSoRandomWork()
         {
-            float count = 100000;
+            int count = 100000;
+            var dice = getListWithDice(count);
+
+            var actual = (float)dice.Where(val => val == 6).Count() / count;
+
+            Assert.InRange(actual, 0.12, 0.25);
+        }
+
+        [Fact]
+        public void CountNumberOfDieSides()
+        {
+            int count = 100;
+            var dice = getListWithDice(count);
+
+            var actual = dice.Distinct().ToList().Count();
+            Assert.Equal(6, actual);
+        }
+
+        private List<int> getListWithDice(int count)
+        {
             var sut = new Die();
             var dice = new List<int>();
 
@@ -55,9 +74,7 @@ namespace MyFirstUnitTests
                 dice.Add(sut.GetValue());
             }
 
-            var actual = dice.Where(val => val == 6).Count() / count;
-
-            Assert.InRange(actual, 0.12, 0.25);
+            return dice;
         }
     }
 }
