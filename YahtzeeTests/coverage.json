@@ -12,27 +12,93 @@
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/Die.cs": {
-      "Yahtzee.model.Die": {
-        "System.Int32 Yahtzee.model.Die::GetValue()": {
+    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/Dice.cs": {
+      "Yahtzee.model.Dice": {
+        "System.Void Yahtzee.model.Dice::Throw()": {
           "Lines": {
-            "17": 100204
+            "31": 5
           },
           "Branches": []
         },
-        "System.Void Yahtzee.model.Die::Throw()": {
+        "System.Void Yahtzee.model.Dice::KeepDie(Yahtzee.model.Dice/DiceList)": {
           "Lines": {
-            "19": 100205
+            "33": 7
           },
           "Branches": []
         },
-        "System.Void Yahtzee.model.Die::.ctor()": {
+        "System.Collections.Generic.List`1<System.Int32> Yahtzee.model.Dice::GetValues()": {
           "Lines": {
-            "11": 5,
-            "12": 5,
-            "13": 5,
-            "14": 5,
-            "15": 5
+            "35": 24
+          },
+          "Branches": [
+            {
+              "Line": 35,
+              "Offset": 12,
+              "EndOffset": 14,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 35,
+              "Offset": 12,
+              "EndOffset": 37,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 4
+            }
+          ]
+        },
+        "System.Collections.Generic.List`1<Yahtzee.model.Die> Yahtzee.model.Dice::GetAvailableDice()": {
+          "Lines": {
+            "37": 5
+          },
+          "Branches": []
+        },
+        "System.Void Yahtzee.model.Dice::ThrowDie(Yahtzee.model.Die)": {
+          "Lines": {
+            "39": 21
+          },
+          "Branches": []
+        },
+        "System.Void Yahtzee.model.Dice::.ctor(Yahtzee.model.Die,Yahtzee.model.Die,Yahtzee.model.Die,Yahtzee.model.Die,Yahtzee.model.Die)": {
+          "Lines": {
+            "20": 6,
+            "21": 6,
+            "22": 6,
+            "23": 6,
+            "24": 6,
+            "25": 6,
+            "26": 6,
+            "27": 6,
+            "28": 6,
+            "29": 6
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/DieImplemented.cs": {
+      "Yahtzee.model.DieImplemented": {
+        "System.Int32 Yahtzee.model.DieImplemented::GetValue()": {
+          "Lines": {
+            "17": 102004
+          },
+          "Branches": []
+        },
+        "System.Void Yahtzee.model.DieImplemented::Throw()": {
+          "Lines": {
+            "19": 102006
+          },
+          "Branches": []
+        },
+        "System.Void Yahtzee.model.DieImplemented::.ctor()": {
+          "Lines": {
+            "11": 6,
+            "12": 6,
+            "13": 6,
+            "14": 6,
+            "15": 6
           },
           "Branches": []
         }
