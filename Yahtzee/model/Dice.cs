@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Yahtzee.model
 {
@@ -13,22 +14,22 @@ namespace Yahtzee.model
       Die4,
       Die5,
     }
-    private List<Die> _allDice;
-    private List<Die> _throwDice;
+    private List<Die> _dice;
+    private List<Die> _keep;
 
     public Dice(Die d1, Die d2, Die d3, Die d4, Die d5)
     {
-      _allDice = new List<Die>();
-      _allDice.Add(d1);
-      _allDice.Add(d2);
-      _allDice.Add(d3);
-      _allDice.Add(d4);
-      _allDice.Add(d5);
-      _throwDice = new List<Die>(_allDice);
+      _dice = new List<Die>();
+      _dice.Add(d1);
+      _dice.Add(d2);
+      _dice.Add(d3);
+      _dice.Add(d4);
+      _dice.Add(d5);
+      _keep = new List<Die>();
     }
 
-    public void Throw() => _throwDice.ForEach(die => die.Throw());
+    public void Throw() => new List<Die>(_dice.Except(_keep)).ForEach(die => die.Throw());
 
-    public void KeepDie(DiceList index) => _throwDice.RemoveAt(0);
+    public void KeepDie(DiceList index) => _keep.Add(_dice[(int)index]);
   }
 }
