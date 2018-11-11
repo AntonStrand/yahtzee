@@ -19,13 +19,13 @@ namespace Yahtzee.model
 
     public Dice(Die d1, Die d2, Die d3, Die d4, Die d5)
     {
+      _keep = new List<Die>();
       _dice = new List<Die>();
       _dice.Add(d1);
       _dice.Add(d2);
       _dice.Add(d3);
       _dice.Add(d4);
       _dice.Add(d5);
-      _keep = new List<Die>();
     }
 
     public void Throw() => GetAvailableDice().ForEach(ThrowDie);
@@ -34,7 +34,7 @@ namespace Yahtzee.model
 
     public List<int> GetValues() => _dice.Select(_ => 0).ToList();
 
-    private List<Die> GetAvailableDice() => new List<Die>(_dice.Except(_keep));
+    private List<Die> GetAvailableDice() => _dice.Except(_keep).ToList();
 
     private void ThrowDie(Die die) => die.Throw();
   }
