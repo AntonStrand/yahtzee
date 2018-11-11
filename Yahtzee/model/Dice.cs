@@ -32,6 +32,8 @@ namespace Yahtzee.model
 
     public void KeepDie(DiceList index) => _keep.Add(_dice[(int)index]);
 
+    public List<int> GetValues() => new List<int>();
+
     private List<Die> GetAvailableDice() => new List<Die>(_dice.Except(_keep));
 
     private void ThrowDie(Die die) => die.Throw();
