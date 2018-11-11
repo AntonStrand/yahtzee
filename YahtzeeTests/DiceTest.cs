@@ -91,5 +91,21 @@ namespace YahtzeeTests
       var expected = 5;
       Assert.Equal(expected, actual);
     }
+
+    [Fact]
+    public void ShouldGetValuesFromDice()
+    {
+      DieStub die1 = new DieStub();
+      DieStub die2 = new DieStub();
+      DieStub die3 = new DieStub();
+      DieStub die4 = new DieStub();
+      DieStub die5 = new DieStub();
+
+      Dice sut = new Dice(die1, die2, die3, die4, die5);
+      sut.Throw();
+      var actual = sut.GetValues().Sum();
+      var expected = 5;
+      Assert.Equal(expected, actual);
+    }
   }
 }
