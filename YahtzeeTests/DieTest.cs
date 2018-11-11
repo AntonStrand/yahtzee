@@ -2,10 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
-using Yahtzee;
 using Yahtzee.model;
 
-namespace MyFirstUnitTests
+namespace YahtzeeTests
 {
   public class DieTest
   {
@@ -31,14 +30,10 @@ namespace MyFirstUnitTests
     {
       Die sut = new Die();
       int startValue = sut.GetValue();
-      List<int> actuals = new List<int>();
-      for (int i = 0; i < 100; i++)
-      {
-        sut.Throw();
-        actuals.Add(sut.GetValue());
-      }
-      var actual = actuals.Count();
-      var unchanged = actuals.Where(val => val == startValue).Count();
+      List<int> values = getListWithDiceValues(1000);
+
+      var actual = values.Count();
+      var unchanged = values.Where(val => val == startValue).Count();
       Assert.NotEqual(actual, unchanged);
     }
 
@@ -46,7 +41,7 @@ namespace MyFirstUnitTests
     public void CheckSoRandomWork()
     {
       int count = 100000;
-      var dice = getListWithDice(count);
+      var dice = getListWithDiceValues(count);
 
       var actual = (float)dice.Where(val => val == 6).Count() / count;
 
@@ -56,25 +51,25 @@ namespace MyFirstUnitTests
     [Fact]
     public void CountNumberOfDieSides()
     {
-      int count = 100;
-      var dice = getListWithDice(count);
+      int count = 1000;
+      var dice = getListWithDiceValues(count);
 
       var actual = dice.Distinct().ToList().Count();
       Assert.Equal(6, actual);
     }
 
-    private List<int> getListWithDice(int count)
+    private List<int> getListWithDiceValues(int count)
     {
       var sut = new Die();
-      var dice = new List<int>();
+      var values = new List<int>();
 
       for (int i = 0; i < count; i++)
       {
         sut.Throw();
-        dice.Add(sut.GetValue());
+        values.Add(sut.GetValue());
       }
 
-      return dice;
+      return values;
     }
   }
 }
