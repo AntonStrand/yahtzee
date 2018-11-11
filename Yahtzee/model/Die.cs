@@ -11,11 +11,11 @@ namespace Yahtzee.model
     public Die()
     {
       _random = new Random();
-      Throw();
+      _value = 1;
     }
 
     public int GetValue() => _value;
 
-    public void Throw() => _value = _random.Next(1, 7);
+    public virtual void Throw() => _value = _random.Next(1, 7);
   }
 }
