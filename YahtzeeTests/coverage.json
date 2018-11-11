@@ -1,0 +1,42 @@
+{
+  "Yahtzee.dll": {
+    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/Program.cs": {
+      "Yahtzee.Program": {
+        "System.Void Yahtzee.Program::Main(System.String[])": {
+          "Lines": {
+            "8": 0,
+            "9": 0,
+            "10": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/Die.cs": {
+      "Yahtzee.model.Die": {
+        "System.Int32 Yahtzee.model.Die::GetValue()": {
+          "Lines": {
+            "17": 100204
+          },
+          "Branches": []
+        },
+        "System.Void Yahtzee.model.Die::Throw()": {
+          "Lines": {
+            "19": 100205
+          },
+          "Branches": []
+        },
+        "System.Void Yahtzee.model.Die::.ctor()": {
+          "Lines": {
+            "11": 5,
+            "12": 5,
+            "13": 5,
+            "14": 5,
+            "15": 5
+          },
+          "Branches": []
+        }
+      }
+    }
+  }
+}

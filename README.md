@@ -17,3 +17,14 @@ C#
 ### Framework for Mocking
 
 ### Code coverage tool
+[Coverlet](https://github.com/tonerdo/coverlet/?WT.mc_id=-blog-scottha)
+
+## Scripts
+### The application
+Within the `Yahtzee` folder run `dotnet run`.
+
+### Tests
+Within the `YahtzeeTests` folder run `dotnet test`
+
+### Code coverage
+Within the `YahtzeeTests` folder run `dotnet test /p:CollectCoverage=true`
