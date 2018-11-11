@@ -28,8 +28,12 @@ namespace Yahtzee.model
       _keep = new List<Die>();
     }
 
-    public void Throw() => new List<Die>(_dice.Except(_keep)).ForEach(die => die.Throw());
+    public void Throw() => GetAvailableDice().ForEach(ThrowDie);
 
     public void KeepDie(DiceList index) => _keep.Add(_dice[(int)index]);
+
+    private List<Die> GetAvailableDice() => new List<Die>(_dice.Except(_keep));
+
+    private void ThrowDie(Die die) => die.Throw();
   }
 }
