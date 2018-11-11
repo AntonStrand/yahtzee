@@ -5,11 +5,15 @@ namespace Yahtzee.model
 {
   public class Dice
   {
-    private List<Die> _dice;
-
-    public Dice()
+    public enum DiceList
     {
+      Die1,
+      Die2,
+      Die3,
+      Die4,
+      Die5,
     }
+    private List<Die> _dice;
 
     public Dice(Die d1, Die d2, Die d3, Die d4, Die d5)
     {
@@ -22,5 +26,7 @@ namespace Yahtzee.model
     }
 
     public void Throw() => _dice.ForEach(die => die.Throw());
+
+    public void KeepDie(DiceList index) { }
   }
 }
