@@ -12,14 +12,14 @@ namespace YahtzeeTests
     [Fact]
     public void GetValueShouldReturnIntBetween1to6()
     {
-      Die sut = new Die();
+      Die sut = new DieImplemented();
       Assert.InRange(sut.GetValue(), 1, 6);
     }
 
     [Fact]
     public void GetSameValueTwiceIfNotThrown()
     {
-      Die sut = new Die();
+      Die sut = new DieImplemented();
       var expected = sut.GetValue();
       var actual = sut.GetValue();
       Assert.Equal(actual, expected);
@@ -28,7 +28,7 @@ namespace YahtzeeTests
     [Fact]
     public void ThrowShouldGetNewValue()
     {
-      Die sut = new Die();
+      DieImplemented sut = new DieImplemented();
       int startValue = sut.GetValue();
       List<int> values = getListWithDiceValues(1000);
 
@@ -49,7 +49,7 @@ namespace YahtzeeTests
     }
 
     [Fact]
-    public void CountNumberOfDieSides()
+    public void CountNumberOfDieImplementedSides()
     {
       int count = 1000;
       var dice = getListWithDiceValues(count);
@@ -60,7 +60,7 @@ namespace YahtzeeTests
 
     private List<int> getListWithDiceValues(int count)
     {
-      var sut = new Die();
+      var sut = new DieImplemented();
       var values = new List<int>();
 
       for (int i = 0; i < count; i++)
