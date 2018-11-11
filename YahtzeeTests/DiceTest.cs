@@ -102,9 +102,14 @@ namespace YahtzeeTests
       DieStub die5 = new DieStub();
 
       Dice sut = new Dice(die1, die2, die3, die4, die5);
-      sut.Throw();
+
       var actual = sut.GetValues().Sum();
-      var expected = 5;
+      var expected = 0;
+      Assert.Equal(expected, actual);
+
+      sut.Throw();
+      actual = sut.GetValues().Sum();
+      expected = 5;
       Assert.Equal(expected, actual);
     }
   }
