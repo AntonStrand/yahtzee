@@ -59,7 +59,7 @@ namespace YahtzeeTests
     }
 
     [Fact]
-    public void ShouldKeepMultipletDice()
+    public void ShouldKeepMultipleDice()
     {
       DieStub die1 = new DieStub();
       DieStub die2 = new DieStub();
@@ -75,6 +75,26 @@ namespace YahtzeeTests
       Assert.Equal(expected, die1.GetValue());
       Assert.Equal(expected, die3.GetValue());
       Assert.NotEqual(expected, die2.GetValue());
+    }
+
+    [Fact]
+    public void ShouldNotBeEffectedOfKeepingDieMultipleTimes()
+    {
+      DieStub die1 = new DieStub();
+      DieStub die2 = new DieStub();
+      DieStub die3 = new DieStub();
+      DieStub die4 = new DieStub();
+      DieStub die5 = new DieStub();
+
+      Dice sut = new Dice(die1, die2, die3, die4, die5);
+      sut.KeepDie(Dice.DiceList.Die3);
+      sut.KeepDie(Dice.DiceList.Die3);
+      sut.KeepDie(Dice.DiceList.Die3);
+      sut.KeepDie(Dice.DiceList.Die3);
+      sut.Throw();
+      var actual = sut.GetValues().Sum();
+      var expected = 4;
+      Assert.Equal(expected, actual);
     }
 
     [Fact]

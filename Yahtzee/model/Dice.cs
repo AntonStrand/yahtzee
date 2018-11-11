@@ -30,8 +30,11 @@ namespace Yahtzee.model
 
     public void Throw() => GetAvailableDice().ForEach(ThrowDie);
 
-    public void KeepDie(DiceList index) => _keep.Add(_dice[(int)index]);
-
+    public void KeepDie(DiceList index)
+    {
+      _keep.Add(_dice[(int)index]);
+      _dice.RemoveAt((int)index);
+    }
     public List<int> GetValues() => _dice.Select(die => die.GetValue()).ToList();
 
     private List<Die> GetAvailableDice() => _dice.Except(_keep).ToList();
