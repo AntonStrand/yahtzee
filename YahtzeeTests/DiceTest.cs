@@ -2,112 +2,85 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
+using Moq;
 using Yahtzee.model;
 
 namespace YahtzeeTests
 {
-  public class DieStub : Die
-  {
-    private bool _hasBeenThrown;
-    private int _value = 0;
-
-    public bool HasBeenThrown { get => _hasBeenThrown; }
-    public void Throw()
-    {
-      _hasBeenThrown = true;
-      _value = 1;
-    }
-
-    public int GetValue() => _value;
-  }
-
   public class DiceTest
   {
     [Fact]
     public void ShouldThrowAllDice()
     {
-      DieStub die1 = new DieStub();
-      DieStub die2 = new DieStub();
-      DieStub die3 = new DieStub();
-      DieStub die4 = new DieStub();
-      DieStub die5 = new DieStub();
+      var die1 = new Mock<Die>();
+      var die2 = new Mock<Die>();
+      var die3 = new Mock<Die>();
+      var die4 = new Mock<Die>();
+      var die5 = new Mock<Die>();
 
-      Dice sut = new Dice(die1, die2, die3, die4, die5);
+      Dice sut = new Dice(die1.Object, die2.Object, die3.Object, die4.Object, die5.Object);
       sut.Throw();
-      Assert.True(die1.HasBeenThrown);
-      Assert.True(die2.HasBeenThrown);
-      Assert.True(die3.HasBeenThrown);
-      Assert.True(die4.HasBeenThrown);
-      Assert.True(die5.HasBeenThrown);
+
+      die1.Verify(die => die.Throw(), Times.Exactly(1));
+      die2.Verify(die => die.Throw(), Times.Exactly(1));
+      die3.Verify(die => die.Throw(), Times.Exactly(1));
+      die4.Verify(die => die.Throw(), Times.Exactly(1));
+      die5.Verify(die => die.Throw(), Times.Exactly(1));
     }
 
     [Fact]
     public void ShouldKeepFirstDie()
     {
-      DieStub die1 = new DieStub();
-      DieStub die2 = new DieStub();
-      DieStub die3 = new DieStub();
-      DieStub die4 = new DieStub();
-      DieStub die5 = new DieStub();
+      var die1 = new Mock<Die>();
+      var die2 = new Mock<Die>();
 
-      Dice sut = new Dice(die1, die2, die3, die4, die5);
+      Dice sut = new Dice(die1.Object, die2.Object, die2.Object, die2.Object, die2.Object);
       sut.KeepDie(Dice.DiceList.Die1);
-      int expected = die1.GetValue();
       sut.Throw();
-      Assert.Equal(expected, die1.GetValue());
-      Assert.NotEqual(expected, die2.GetValue());
+
+      die1.Verify(die => die.Throw(), Times.Never());
+      die2.Verify(die => die.Throw(), Times.AtLeastOnce());
     }
 
     [Fact]
     public void ShouldKeepMultipleDice()
     {
-      DieStub die1 = new DieStub();
-      DieStub die2 = new DieStub();
-      DieStub die3 = new DieStub();
-      DieStub die4 = new DieStub();
-      DieStub die5 = new DieStub();
+      var keep1 = new Mock<Die>();
+      var keep2 = new Mock<Die>();
+      var die = new Mock<Die>();
 
-      Dice sut = new Dice(die1, die2, die3, die4, die5);
+      Dice sut = new Dice(keep1.Object, die.Object, keep2.Object, die.Object, die.Object);
       sut.KeepDie(Dice.DiceList.Die1);
       sut.KeepDie(Dice.DiceList.Die3);
-      int expected = die1.GetValue();
       sut.Throw();
-      Assert.Equal(expected, die1.GetValue());
-      Assert.Equal(expected, die3.GetValue());
-      Assert.NotEqual(expected, die2.GetValue());
+      keep1.Verify(d => d.Throw(), Times.Never());
+      keep2.Verify(d => d.Throw(), Times.Never());
+      die.Verify(d => d.Throw(), Times.AtLeastOnce());
     }
 
     [Fact]
     public void ShouldNotBeEffectedOfKeepingDieMultipleTimes()
     {
-      DieStub die1 = new DieStub();
-      DieStub die2 = new DieStub();
-      DieStub die3 = new DieStub();
-      DieStub die4 = new DieStub();
-      DieStub die5 = new DieStub();
+      var die = new Mock<Die>();
+      var keep = new Mock<Die>();
 
-      Dice sut = new Dice(die1, die2, die3, die4, die5);
+      Dice sut = new Dice(die.Object, die.Object, keep.Object, die.Object, die.Object);
       sut.KeepDie(Dice.DiceList.Die3);
       sut.KeepDie(Dice.DiceList.Die3);
       sut.KeepDie(Dice.DiceList.Die3);
       sut.KeepDie(Dice.DiceList.Die3);
+
       sut.Throw();
-      var actual = sut.GetValues().Sum();
-      var expected = 4;
-      Assert.Equal(expected, actual);
+      keep.Verify(d => d.Throw(), Times.Never());
+      die.Verify(d => d.Throw(), Times.Exactly(1));
     }
 
     [Fact]
     public void ShouldReturn5Values()
     {
-      DieStub die1 = new DieStub();
-      DieStub die2 = new DieStub();
-      DieStub die3 = new DieStub();
-      DieStub die4 = new DieStub();
-      DieStub die5 = new DieStub();
-
-      Dice sut = new Dice(die1, die2, die3, die4, die5);
+      Dice sut = new Dice(new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented());
       var actual = sut.GetValues().Count;
+
       var expected = 5;
       Assert.Equal(expected, actual);
     }
@@ -115,21 +88,22 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldGetValuesFromDice()
     {
-      DieStub die1 = new DieStub();
-      DieStub die2 = new DieStub();
-      DieStub die3 = new DieStub();
-      DieStub die4 = new DieStub();
-      DieStub die5 = new DieStub();
+      var die1 = new Mock<Die>();
+      var die2 = new Mock<Die>();
+      var die3 = new Mock<Die>();
+      var die4 = new Mock<Die>();
+      var die5 = new Mock<Die>();
 
-      Dice sut = new Dice(die1, die2, die3, die4, die5);
+      die1.Setup(die => die.GetValue()).Returns(5);
+      die2.Setup(die => die.GetValue()).Returns(5);
+      die3.Setup(die => die.GetValue()).Returns(5);
+      die4.Setup(die => die.GetValue()).Returns(5);
+      die5.Setup(die => die.GetValue()).Returns(5);
+
+      Dice sut = new Dice(die1.Object, die2.Object, die3.Object, die4.Object, die5.Object);
 
       var actual = sut.GetValues().Sum();
-      var expected = 0;
-      Assert.Equal(expected, actual);
-
-      sut.Throw();
-      actual = sut.GetValues().Sum();
-      expected = 5;
+      var expected = 25;
       Assert.Equal(expected, actual);
     }
   }

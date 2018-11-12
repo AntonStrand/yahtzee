@@ -1,6 +1,6 @@
 {
   "Yahtzee.dll": {
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/Program.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/Program.cs": {
       "Yahtzee.Program": {
         "System.Void Yahtzee.Program::Main(System.String[])": {
           "Lines": {
@@ -12,11 +12,11 @@
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/Dice.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/Dice.cs": {
       "Yahtzee.model.Dice": {
         "System.Void Yahtzee.model.Dice::Throw()": {
           "Lines": {
-            "31": 5
+            "31": 4
           },
           "Branches": []
         },
@@ -28,7 +28,7 @@
         },
         "System.Collections.Generic.List`1<System.Int32> Yahtzee.model.Dice::GetValues()": {
           "Lines": {
-            "35": 24
+            "35": 12
           },
           "Branches": [
             {
@@ -45,19 +45,19 @@
               "EndOffset": 37,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 4
+              "Hits": 2
             }
           ]
         },
         "System.Collections.Generic.List`1<Yahtzee.model.Die> Yahtzee.model.Dice::GetAvailableDice()": {
           "Lines": {
-            "37": 5
+            "37": 4
           },
           "Branches": []
         },
         "System.Void Yahtzee.model.Dice::ThrowDie(Yahtzee.model.Die)": {
           "Lines": {
-            "39": 21
+            "39": 8
           },
           "Branches": []
         },
@@ -78,27 +78,27 @@
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/DieImplemented.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/DieImplemented.cs": {
       "Yahtzee.model.DieImplemented": {
         "System.Int32 Yahtzee.model.DieImplemented::GetValue()": {
           "Lines": {
-            "17": 102004
+            "17": 102009
           },
           "Branches": []
         },
         "System.Void Yahtzee.model.DieImplemented::Throw()": {
           "Lines": {
-            "19": 102006
+            "19": 102011
           },
           "Branches": []
         },
         "System.Void Yahtzee.model.DieImplemented::.ctor()": {
           "Lines": {
-            "11": 6,
-            "12": 6,
-            "13": 6,
-            "14": 6,
-            "15": 6
+            "11": 11,
+            "12": 11,
+            "13": 11,
+            "14": 11,
+            "15": 11
           },
           "Branches": []
         }
