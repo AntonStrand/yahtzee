@@ -21,11 +21,11 @@ namespace YahtzeeTests
       Dice sut = new Dice(die1.Object, die2.Object, die3.Object, die4.Object, die5.Object);
       sut.Throw();
 
-      die1.Verify(die => die.Throw(), Times.Exactly(1));
-      die2.Verify(die => die.Throw(), Times.Exactly(1));
-      die3.Verify(die => die.Throw(), Times.Exactly(1));
-      die4.Verify(die => die.Throw(), Times.Exactly(1));
-      die5.Verify(die => die.Throw(), Times.Exactly(1));
+      die1.Verify(die => die.Throw(), Times.Once());
+      die2.Verify(die => die.Throw(), Times.Once());
+      die3.Verify(die => die.Throw(), Times.Once());
+      die4.Verify(die => die.Throw(), Times.Once());
+      die5.Verify(die => die.Throw(), Times.Once());
     }
 
     [Fact]
@@ -72,7 +72,7 @@ namespace YahtzeeTests
 
       sut.Throw();
       keep.Verify(d => d.Throw(), Times.Never());
-      die.Verify(d => d.Throw(), Times.Exactly(1));
+      die.Verify(d => d.Throw(), Times.Once());
     }
 
     [Fact]
