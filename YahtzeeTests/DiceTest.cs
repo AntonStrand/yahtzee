@@ -55,26 +55,22 @@ namespace YahtzeeTests
 
       die1.Verify(die => die.Throw(), Times.Never());
       die2.Verify(die => die.Throw(), Times.AtLeastOnce());
-
     }
 
     [Fact]
     public void ShouldKeepMultipleDice()
     {
-      DieStub die1 = new DieStub();
-      DieStub die2 = new DieStub();
-      DieStub die3 = new DieStub();
-      DieStub die4 = new DieStub();
-      DieStub die5 = new DieStub();
+      var keep1 = new Mock<Die>();
+      var keep2 = new Mock<Die>();
+      var die = new Mock<Die>();
 
-      Dice sut = new Dice(die1, die2, die3, die4, die5);
+      Dice sut = new Dice(keep1.Object, die.Object, keep2.Object, die.Object, die.Object);
       sut.KeepDie(Dice.DiceList.Die1);
       sut.KeepDie(Dice.DiceList.Die3);
-      int expected = die1.GetValue();
       sut.Throw();
-      Assert.Equal(expected, die1.GetValue());
-      Assert.Equal(expected, die3.GetValue());
-      Assert.NotEqual(expected, die2.GetValue());
+      keep1.Verify(d => d.Throw(), Times.Never());
+      keep2.Verify(d => d.Throw(), Times.Never());
+      die.Verify(d => d.Throw(), Times.AtLeastOnce());
     }
 
     [Fact]
