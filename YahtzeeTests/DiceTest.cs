@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
+using Moq;
 using Yahtzee.model;
 
 namespace YahtzeeTests
@@ -26,19 +27,19 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldThrowAllDice()
     {
-      DieStub die1 = new DieStub();
-      DieStub die2 = new DieStub();
-      DieStub die3 = new DieStub();
-      DieStub die4 = new DieStub();
-      DieStub die5 = new DieStub();
+      var die1 = new Mock<Die>();
+      var die2 = new Mock<Die>();
+      var die3 = new Mock<Die>();
+      var die4 = new Mock<Die>();
+      var die5 = new Mock<Die>();
 
-      Dice sut = new Dice(die1, die2, die3, die4, die5);
+      Dice sut = new Dice(die1.Object, die2.Object, die3.Object, die4.Object, die5.Object);
       sut.Throw();
-      Assert.True(die1.HasBeenThrown);
-      Assert.True(die2.HasBeenThrown);
-      Assert.True(die3.HasBeenThrown);
-      Assert.True(die4.HasBeenThrown);
-      Assert.True(die5.HasBeenThrown);
+      die1.Verify(die => die.Throw(), Times.Exactly(1));
+      die2.Verify(die => die.Throw(), Times.Exactly(1));
+      die3.Verify(die => die.Throw(), Times.Exactly(1));
+      die4.Verify(die => die.Throw(), Times.Exactly(1));
+      die5.Verify(die => die.Throw(), Times.Exactly(1));
     }
 
     [Fact]
