@@ -35,6 +35,7 @@ namespace YahtzeeTests
 
       Dice sut = new Dice(die1.Object, die2.Object, die3.Object, die4.Object, die5.Object);
       sut.Throw();
+
       die1.Verify(die => die.Throw(), Times.Exactly(1));
       die2.Verify(die => die.Throw(), Times.Exactly(1));
       die3.Verify(die => die.Throw(), Times.Exactly(1));
@@ -45,18 +46,16 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldKeepFirstDie()
     {
-      DieStub die1 = new DieStub();
-      DieStub die2 = new DieStub();
-      DieStub die3 = new DieStub();
-      DieStub die4 = new DieStub();
-      DieStub die5 = new DieStub();
+      var die1 = new Mock<Die>();
+      var die2 = new Mock<Die>();
 
-      Dice sut = new Dice(die1, die2, die3, die4, die5);
+      Dice sut = new Dice(die1.Object, die2.Object, die2.Object, die2.Object, die2.Object);
       sut.KeepDie(Dice.DiceList.Die1);
-      int expected = die1.GetValue();
       sut.Throw();
-      Assert.Equal(expected, die1.GetValue());
-      Assert.NotEqual(expected, die2.GetValue());
+
+      die1.Verify(die => die.Throw(), Times.Never());
+      die2.Verify(die => die.Throw(), Times.AtLeastOnce());
+
     }
 
     [Fact]
