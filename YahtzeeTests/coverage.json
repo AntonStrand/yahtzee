@@ -1,6 +1,6 @@
 {
   "Yahtzee.dll": {
-    "/home/emil/code/yahtzee/Yahtzee/Program.cs": {
+    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/Program.cs": {
       "Yahtzee.Program": {
         "System.Void Yahtzee.Program::Main(System.String[])": {
           "Lines": {
@@ -12,7 +12,45 @@
         }
       }
     },
-    "/home/emil/code/yahtzee/Yahtzee/model/Dice.cs": {
+    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/AllOptionStrategy.cs": {
+      "Yahtzee.model.AllOptionStrategy": {
+        "System.Collections.Generic.List`1<Yahtzee.model.Category> Yahtzee.model.AllOptionStrategy::GetOptions(Yahtzee.model.Dice)": {
+          "Lines": {
+            "14": 4,
+            "15": 5,
+            "16": 3,
+            "17": 3
+          },
+          "Branches": [
+            {
+              "Line": 15,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 15,
+              "Offset": 7,
+              "EndOffset": 15,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 3
+            }
+          ]
+        }
+      },
+      "Yahtzee.model.AllOptionStrategy/Pair": {
+        "System.Int32 Yahtzee.model.AllOptionStrategy/Pair::GetValue()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/Dice.cs": {
       "Yahtzee.model.Dice": {
         "System.Void Yahtzee.model.Dice::Throw()": {
           "Lines": {
@@ -63,22 +101,22 @@
         },
         "System.Void Yahtzee.model.Dice::.ctor(Yahtzee.model.Die,Yahtzee.model.Die,Yahtzee.model.Die,Yahtzee.model.Die,Yahtzee.model.Die)": {
           "Lines": {
-            "20": 6,
-            "21": 6,
-            "22": 6,
-            "23": 6,
-            "24": 6,
-            "25": 6,
-            "26": 6,
-            "27": 6,
-            "28": 6,
-            "29": 6
+            "20": 9,
+            "21": 9,
+            "22": 9,
+            "23": 9,
+            "24": 9,
+            "25": 9,
+            "26": 9,
+            "27": 9,
+            "28": 9,
+            "29": 9
           },
           "Branches": []
         }
       }
     },
-    "/home/emil/code/yahtzee/Yahtzee/model/DieImplemented.cs": {
+    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/DieImplemented.cs": {
       "Yahtzee.model.DieImplemented": {
         "System.Int32 Yahtzee.model.DieImplemented::GetValue()": {
           "Lines": {
@@ -88,17 +126,17 @@
         },
         "System.Void Yahtzee.model.DieImplemented::Throw()": {
           "Lines": {
-            "19": 102011
+            "19": 102014
           },
           "Branches": []
         },
         "System.Void Yahtzee.model.DieImplemented::.ctor()": {
           "Lines": {
-            "11": 11,
-            "12": 11,
-            "13": 11,
-            "14": 11,
-            "15": 11
+            "11": 14,
+            "12": 14,
+            "13": 14,
+            "14": 14,
+            "15": 14
           },
           "Branches": []
         }
