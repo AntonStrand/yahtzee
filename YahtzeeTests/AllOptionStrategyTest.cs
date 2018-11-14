@@ -2,6 +2,7 @@ using System;
 using Xunit;
 using Moq;
 using Yahtzee.model;
+using System.Collections.Generic;
 
 namespace YahtzeeTests
 {
@@ -40,6 +41,16 @@ namespace YahtzeeTests
       var sut = new AllOptionStrategy();
       var actual = sut.GetOptions(dice).Count;
       Assert.InRange(actual, 1, 13);
+    }
+
+    [Fact]
+    public void ShouldReturnListOfCategories()
+    {
+      Die die = new DieImplemented();
+      Dice dice = new Dice(die, die, die, die, die);
+      var sut = new AllOptionStrategy();
+      var actual = sut.GetOptions(dice);
+      Assert.IsType<List<Category>>(actual);
     }
   }
 }
