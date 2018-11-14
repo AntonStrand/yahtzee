@@ -25,10 +25,21 @@ namespace YahtzeeTests
       }
     }
 
+    [Fact]
     public void ShouldNotAcceptNull()
     {
       var sut = new AllOptionStrategy();
       Assert.Throws<ArgumentNullException>(() => sut.GetOptions(null));
+    }
+
+    [Fact]
+    public void ShouldAlwaysReturnMinimumOneOption()
+    {
+      Die die = new DieImplemented();
+      Dice dice = new Dice(die, die, die, die, die);
+      var sut = new AllOptionStrategy();
+      var actual = sut.GetOptions(dice).Count;
+      Assert.InRange(actual, 1, 13);
     }
   }
 }
