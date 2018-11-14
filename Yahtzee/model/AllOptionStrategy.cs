@@ -4,6 +4,6 @@ namespace Yahtzee.model
 {
   public class AllOptionStrategy
   {
-    public void GetOptions(Dice dice) { }
+    public void GetOptions(Dice dice) => throw new ArgumentNullException();
   }
 }
