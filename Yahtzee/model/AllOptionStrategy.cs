@@ -8,7 +8,7 @@ namespace Yahtzee.model
     public List<int> GetOptions(Dice dice)
     {
       if (dice == null) throw new ArgumentNullException();
-      return new List<int>();
+      return new List<int>() { 0 };
     }
   }
 }
