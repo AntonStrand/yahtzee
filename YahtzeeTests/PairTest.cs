@@ -23,5 +23,15 @@ namespace YahtzeeTests
       int actual = sut.GetValue();
       Assert.Equal(expected, actual);
     }
+
+    [Fact]
+    public void ShouldSetInput5ToValue10()
+    {
+      int input = 5;
+      Pair sut = new Pair(input, input);
+      int expected = 10;
+      int actual = sut.GetValue();
+      Assert.Equal(expected, actual);
+    }
   }
 }
