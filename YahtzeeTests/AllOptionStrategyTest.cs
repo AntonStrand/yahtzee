@@ -4,6 +4,7 @@ using Moq;
 using Yahtzee.model;
 using Yahtzee.model.category;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace YahtzeeTests
 {
@@ -52,6 +53,28 @@ namespace YahtzeeTests
       var sut = new AllOptionStrategy();
       var actual = sut.GetOptions(dice);
       Assert.IsType<List<Category>>(actual);
+    }
+
+    [Fact]
+    public void ShouldContainATwoPair()
+    {
+      var die1 = new Mock<Die>();
+      var die2 = new Mock<Die>();
+      var die3 = new Mock<Die>();
+      var die4 = new Mock<Die>();
+      var die5 = new Mock<Die>();
+
+      die1.Setup(die => die.GetValue()).Returns(4);
+      die2.Setup(die => die.GetValue()).Returns(4);
+      die3.Setup(die => die.GetValue()).Returns(5);
+      die4.Setup(die => die.GetValue()).Returns(5);
+      die5.Setup(die => die.GetValue()).Returns(1);
+
+      Dice dice = new Dice(die1.Object, die2.Object, die3.Object, die4.Object, die5.Object);
+      var sut = new AllOptionStrategy();
+      var actual = sut.GetOptions(dice);
+      Assert.IsType<List<Category>>(actual);
+      Assert.NotEmpty(actual.Where(category => category.GetType() == typeof(TwoPair)));
     }
   }
 }
