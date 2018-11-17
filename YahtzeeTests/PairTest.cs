@@ -6,8 +6,6 @@ namespace YahtzeeTests
 {
   public class PairTest
   {
-
-
     [Fact]
     public void ShouldNotAcceptDifferentValues()
     {
@@ -18,20 +16,18 @@ namespace YahtzeeTests
     public void ShouldSetInput4ToValue8()
     {
       int input = 4;
-      Pair sut = new Pair(input, input);
       int expected = 8;
-      int actual = sut.GetValue();
-      Assert.Equal(expected, actual);
+      Pair sut = new Pair(input, input);
+      Assert.Equal(expected, sut.GetValue());
     }
 
     [Fact]
     public void ShouldSetInput5ToValue10()
     {
       int input = 5;
-      Pair sut = new Pair(input, input);
       int expected = 10;
-      int actual = sut.GetValue();
-      Assert.Equal(expected, actual);
+      Pair sut = new Pair(input, input);
+      Assert.Equal(expected, sut.GetValue());
     }
   }
 }
