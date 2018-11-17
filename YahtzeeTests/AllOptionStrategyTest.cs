@@ -2,6 +2,7 @@ using System;
 using Xunit;
 using Moq;
 using Yahtzee.model;
+using Yahtzee.model.category;
 using System.Collections.Generic;
 
 namespace YahtzeeTests
