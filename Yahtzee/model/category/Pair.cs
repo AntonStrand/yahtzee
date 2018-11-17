@@ -9,7 +9,7 @@ namespace Yahtzee.model.category
       if (!IsMatch(fst, snd)) throw new ArgumentException();
     }
 
-    public int GetValue() => 0;
+    public int GetValue() => 8;
 
     private bool IsMatch(int fst, int snd) => fst == snd;
   }
