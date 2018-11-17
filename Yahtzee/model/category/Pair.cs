@@ -6,6 +6,10 @@ namespace Yahtzee.model.category
   {
     public Pair(int fst, int snd)
     {
+      if (fst != snd)
+      {
+        throw new ArgumentException();
+      }
     }
 
     public int GetValue() => 0;
