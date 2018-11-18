@@ -18,5 +18,11 @@ namespace YahtzeeTests
     {
       Assert.Throws<ArgumentException>(() => new FourOfAKind(1, 3, 3, 3));
     }
+
+    [Fact]
+    public void ShouldNotAcceptTheSecondTwoArgumentsBeingDifferent()
+    {
+      Assert.Throws<ArgumentException>(() => new FourOfAKind(3, 3, 3, 1));
+    }
   }
 }
