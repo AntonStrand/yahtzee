@@ -9,6 +9,6 @@ namespace Yahtzee.model.category
       if (v1 != v2 || v2 != v3) throw new ArgumentException();
     }
 
-    public int GetValue() => 0;
+    public int GetValue() => 9;
   }
 }
