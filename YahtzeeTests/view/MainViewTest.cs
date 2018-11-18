@@ -17,7 +17,7 @@ namespace YahtzeeTests
     public void DisplayInstructionsExist()
     {
       var v = new MainView();
-      Assert.Equal(v.GetType().GetMethod("DisplayInstruction").ToString(), "Void DisplayInstructions()");
+      Assert.Equal(v.GetType().GetMethod("DisplayInstructions").ToString(), "Void DisplayInstructions()");
     }
   }
 }
