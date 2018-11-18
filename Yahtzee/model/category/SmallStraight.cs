@@ -8,10 +8,11 @@ namespace Yahtzee.model.category
     public SmallStraight(List<int> values)
     {
       if (values == null) throw new ArgumentNullException();
-      if (values.Count < 5) throw new ArgumentOutOfRangeException();
-      if (values.Count > 5) throw new ArgumentOutOfRangeException();
+      if (IsOutOfRange(values)) throw new ArgumentOutOfRangeException();
     }
 
     public int GetValue() => 0;
+
+    private bool IsOutOfRange(List<int> list) => list.Count != 5;
   }
 }
