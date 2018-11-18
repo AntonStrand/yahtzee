@@ -210,27 +210,87 @@
         }
       }
     },
+    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/FullHouse.cs": {
+      "Yahtzee.model.category.FullHouse": {
+        "System.Int32 Yahtzee.model.category.FullHouse::GetValue()": {
+          "Lines": {
+            "15": 2
+          },
+          "Branches": []
+        },
+        "System.Boolean Yahtzee.model.category.FullHouse::EitherIsNull(Yahtzee.model.category.Category,Yahtzee.model.category.Category)": {
+          "Lines": {
+            "17": 6
+          },
+          "Branches": [
+            {
+              "Line": 17,
+              "Offset": 1,
+              "EndOffset": 3,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 4
+            },
+            {
+              "Line": 17,
+              "Offset": 1,
+              "EndOffset": 9,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2
+            }
+          ]
+        },
+        "System.Void Yahtzee.model.category.FullHouse::.ctor(Yahtzee.model.category.Pair,Yahtzee.model.category.ThreeOfAKind)": {
+          "Lines": {
+            "9": 6,
+            "10": 6,
+            "11": 9,
+            "12": 3,
+            "13": 3
+          },
+          "Branches": [
+            {
+              "Line": 11,
+              "Offset": 18,
+              "EndOffset": 20,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 3
+            },
+            {
+              "Line": 11,
+              "Offset": 18,
+              "EndOffset": 26,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 3
+            }
+          ]
+        }
+      }
+    },
     "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/Pair.cs": {
       "Yahtzee.model.category.Pair": {
         "System.Int32 Yahtzee.model.category.Pair::GetValue()": {
           "Lines": {
-            "14": 10
+            "14": 11
           },
           "Branches": []
         },
         "System.Boolean Yahtzee.model.category.Pair::IsMatch(System.Int32,System.Int32)": {
           "Lines": {
-            "16": 17
+            "16": 21
           },
           "Branches": []
         },
         "System.Void Yahtzee.model.category.Pair::.ctor(System.Int32,System.Int32)": {
           "Lines": {
-            "8": 17,
-            "9": 17,
-            "10": 18,
-            "11": 16,
-            "12": 16
+            "8": 21,
+            "9": 21,
+            "10": 22,
+            "11": 20,
+            "12": 20
           },
           "Branches": [
             {
@@ -247,7 +307,7 @@
               "EndOffset": 29,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 16
+              "Hits": 20
             }
           ]
         }
@@ -257,13 +317,13 @@
       "Yahtzee.model.category.ThreeOfAKind": {
         "System.Int32 Yahtzee.model.category.ThreeOfAKind::GetValue()": {
           "Lines": {
-            "15": 2
+            "15": 3
           },
           "Branches": []
         },
         "System.Boolean Yahtzee.model.category.ThreeOfAKind::IsDifferent(System.Int32,System.Int32,System.Int32)": {
           "Lines": {
-            "17": 5
+            "17": 9
           },
           "Branches": [
             {
@@ -272,7 +332,7 @@
               "EndOffset": 4,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 4
+              "Hits": 8
             },
             {
               "Line": 17,
@@ -286,11 +346,11 @@
         },
         "System.Void Yahtzee.model.category.ThreeOfAKind::.ctor(System.Int32,System.Int32,System.Int32)": {
           "Lines": {
-            "9": 5,
-            "10": 5,
-            "11": 7,
-            "12": 3,
-            "13": 3
+            "9": 9,
+            "10": 9,
+            "11": 11,
+            "12": 7,
+            "13": 7
           },
           "Branches": [
             {
@@ -307,7 +367,7 @@
               "EndOffset": 27,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 3
+              "Hits": 7
             }
           ]
         }
