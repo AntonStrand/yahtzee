@@ -33,5 +33,14 @@ namespace YahtzeeTests
       var expected = input + input + input;
       Assert.Equal(expected, sut.GetValue());
     }
+
+    [Fact]
+    public void ShouldSumAllInputsAsValue6()
+    {
+      var input = 2;
+      var sut = new ThreeOfAKind(input, input, input);
+      var expected = input + input + input;
+      Assert.Equal(expected, sut.GetValue());
+    }
   }
 }
