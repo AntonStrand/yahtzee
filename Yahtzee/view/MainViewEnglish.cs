@@ -6,7 +6,7 @@ namespace Yahtzee.view
   {
     public void DisplayInstructions()
     {
-      Console.WriteLine("Displaying Instructions");
+      Console.WriteLine("Welcome to Yahtzee");
     }
   }
 }
