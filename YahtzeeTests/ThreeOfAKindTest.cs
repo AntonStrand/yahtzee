@@ -11,5 +11,11 @@ namespace YahtzeeTests
     {
       Assert.Throws<ArgumentException>(() => new ThreeOfAKind(1, 3, 3));
     }
+
+    [Fact]
+    public void ShouldNotAcceptTheSecondTwoArgumentsBeingDifferent()
+    {
+      Assert.Throws<ArgumentException>(() => new ThreeOfAKind(3, 3, 1));
+    }
   }
 }
