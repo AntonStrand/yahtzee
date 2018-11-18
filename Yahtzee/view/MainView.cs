@@ -2,12 +2,8 @@ using System;
 
 namespace Yahtzee.view
 {
-  public class MainView
+  public interface MainView
   {
-    public virtual void DisplayInstructions()
-    {
-      Console.WriteLine("Displaying Instructions");
-    }
-
+    void DisplayInstructions();
   }
 }

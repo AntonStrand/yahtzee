@@ -9,14 +9,14 @@ namespace YahtzeeTests
     [Fact]
     public void NewMainView()
     {
-      var view = new MainView();
-      Assert.IsType<Yahtzee.view.MainView>(view);
+      var view = new EnglishMainView();
+      Assert.IsType<Yahtzee.view.EnglishMainView>(view);
     }
 
     [Fact]
     public void DisplayInstructionsExist()
     {
-      var v = new MainView();
+      var v = new EnglishMainView();
       Assert.Equal(v.GetType().GetMethod("DisplayInstructions").ToString(), "Void DisplayInstructions()");
     }
   }

@@ -11,7 +11,7 @@ namespace YahtzeeTests
     [Fact]
     public void NewMainController()
     {
-      var v = new MainView();
+      var v = new EnglishMainView();
       var c = new MainController(v);
       Assert.IsType<Yahtzee.controller.MainController>(c);
     }
@@ -19,7 +19,7 @@ namespace YahtzeeTests
     [Fact]
     public void MethodPlayExist()
     {
-      var v = new MainView();
+      var v = new EnglishMainView();
       var c = new MainController(v);
       Assert.Equal(c.GetType().GetMethod("Play").ToString(), "Void Play()");
     }

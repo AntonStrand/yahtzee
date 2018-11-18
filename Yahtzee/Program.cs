@@ -8,7 +8,7 @@ namespace Yahtzee
   {
     static void Main(string[] args)
     {
-      var v = new MainView();
+      var v = new EnglishMainView();
       var c = new MainController(v);
     }
   }
