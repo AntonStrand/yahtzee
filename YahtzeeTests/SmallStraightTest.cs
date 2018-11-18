@@ -11,21 +11,15 @@ namespace YahtzeeTests
     public void ShouldAcceptCorrectInput() => new SmallStraight(new List<int>() { 1, 2, 3, 4, 5 });
 
     [Fact]
-    public void ShouldNotAcceptNull()
-    {
-      Assert.Throws<ArgumentNullException>(() => new SmallStraight(null));
-    }
+    public void ShouldNotAcceptNull() => Assert.Throws<ArgumentNullException>(() => new SmallStraight(null));
 
     [Fact]
-    public void ShouldNotAcceptLessThan5Items()
-    {
-      Assert.Throws<ArgumentOutOfRangeException>(() => new SmallStraight(new List<int>()));
-    }
+    public void ShouldNotAcceptLessThan5Items() => AssertArgumentOutOfRangeException(new List<int>());
 
     [Fact]
-    public void ShouldNotAcceptMoreThan5Items()
-    {
-      Assert.Throws<ArgumentOutOfRangeException>(() => new SmallStraight(new List<int>() { 1, 2, 3, 4, 5, 6 }));
-    }
+    public void ShouldNotAcceptMoreThan5Items() => AssertArgumentOutOfRangeException(new List<int>() { 1, 2, 3, 4, 5, 6 });
+
+    private void AssertArgumentOutOfRangeException(List<int> input) =>
+      Assert.Throws<ArgumentOutOfRangeException>(() => new SmallStraight(input));
   }
 }
