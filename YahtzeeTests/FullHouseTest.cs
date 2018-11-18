@@ -7,19 +7,18 @@ namespace YahtzeeTests
   public class FullHouseTest
   {
     [Fact]
-    public void ShouldAcceptCorrectArguments() =>
-      new FullHouse(new Pair(1, 1), new ThreeOfAKind(2, 2, 2));
+    public void ShouldAcceptCorrectArguments() => new FullHouse(new Pair(1, 1), new ThreeOfAKind(2, 2, 2));
 
     [Fact]
-    public void ShouldNotAcceptNull() =>
-      Assert.Throws<ArgumentNullException>(() => new FullHouse(null, null));
+    public void ShouldNotAcceptNull() => AssertArgumentNullException(null, null);
 
     [Fact]
-    public void ShouldNotAcceptPairIsNull() =>
-      Assert.Throws<ArgumentNullException>(() => new FullHouse(null, new ThreeOfAKind(2, 2, 2)));
+    public void ShouldNotAcceptPairIsNull() => AssertArgumentNullException(null, new ThreeOfAKind(2, 2, 2));
 
     [Fact]
-    public void ShouldNotAcceptThreeOfAKindIsNull() =>
-      Assert.Throws<ArgumentNullException>(() => new FullHouse(new Pair(1, 1), null));
+    public void ShouldNotAcceptThreeOfAKindIsNull() => AssertArgumentNullException(new Pair(1, 1), null);
+
+    private void AssertArgumentNullException(Pair pair, ThreeOfAKind threeOfAKind) =>
+      Assert.Throws<ArgumentNullException>(() => new FullHouse(pair, threeOfAKind));
   }
 }
