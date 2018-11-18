@@ -22,12 +22,7 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldReturnValueOfBothPairs()
     {
-      var input1 = new Mock<Pair>(3, 3);
-      var input2 = new Mock<Pair>(2, 2);
-      input1.Setup(pair => pair.GetValue()).Returns(6);
-      input2.Setup(pair => pair.GetValue()).Returns(4);
-
-      var sut = new TwoPair(input1.Object, input2.Object);
+      var sut = SetupValueTest(4, 6);
 
       var expected = 10;
       var actual = sut.GetValue();
@@ -37,16 +32,21 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldReturnValueOfBothPairs1()
     {
-      var input1 = new Mock<Pair>(6, 6);
-      var input2 = new Mock<Pair>(5, 5);
-      input1.Setup(pair => pair.GetValue()).Returns(12);
-      input2.Setup(pair => pair.GetValue()).Returns(10);
-
-      var sut = new TwoPair(input1.Object, input2.Object);
+      var sut = SetupValueTest(12, 10);
 
       var expected = 22;
       var actual = sut.GetValue();
       Assert.Equal(expected, actual);
+    }
+
+    private TwoPair SetupValueTest(int p1Value, int p2Value)
+    {
+      var input1 = new Mock<Pair>(1, 1);
+      var input2 = new Mock<Pair>(2, 2);
+      input1.Setup(pair => pair.GetValue()).Returns(p1Value);
+      input2.Setup(pair => pair.GetValue()).Returns(p2Value);
+
+      return new TwoPair(input1.Object, input2.Object);
     }
   }
 }
