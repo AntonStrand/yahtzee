@@ -22,6 +22,15 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldNotAcceptTwoMiddleArgumentsBeingDifferent() => AssertArgumentException(3, 3, 1, 1);
 
+    [Fact]
+    public void ShouldSumAllInputsAndSetValueTo20()
+    {
+      var expected = 20;
+      var input = expected / 4;
+      var sut = new FourOfAKind(input, input, input, input);
+      Assert.Equal(expected, sut.GetValue());
+    }
+
     private void AssertArgumentException(int v1, int v2, int v3, int v4) =>
       Assert.Throws<ArgumentException>(() => new FourOfAKind(v1, v2, v3, v4));
   }
