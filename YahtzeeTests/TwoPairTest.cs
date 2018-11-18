@@ -22,15 +22,17 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldReturnValueOfBothPairs()
     {
-      var expected = 10;
       var input1 = new Mock<Pair>(3, 3);
-      var input2 = new Mock<Pair>(4, 4);
+      var input2 = new Mock<Pair>(2, 2);
       input1.Setup(pair => pair.GetValue()).Returns(6);
       input2.Setup(pair => pair.GetValue()).Returns(4);
 
       var sut = new TwoPair(input1.Object, input2.Object);
+
+      var expected = 10;
       var actual = sut.GetValue();
       Assert.Equal(expected, actual);
     }
+
   }
 }
