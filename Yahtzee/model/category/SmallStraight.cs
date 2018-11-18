@@ -7,7 +7,7 @@ namespace Yahtzee.model.category
   {
     public SmallStraight(List<int> values)
     {
-      throw new ArgumentNullException();
+      if (values == null) throw new ArgumentNullException();
     }
 
     public int GetValue() => 0;
