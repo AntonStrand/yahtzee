@@ -8,7 +8,7 @@ namespace YahtzeeTests
   public class MainControllerTest
   {
     [Fact]
-    public void NewMainControllerWithView()
+    public void NewMainController()
     {
       var v = new MainView();
       var c = new MainController(v);
@@ -16,7 +16,7 @@ namespace YahtzeeTests
     }
 
     [Fact]
-    public void CallFunctionStart()
+    public void MethodPlayExist()
     {
       var v = new MainView();
       var c = new MainController(v);
