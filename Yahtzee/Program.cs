@@ -10,6 +10,7 @@ namespace Yahtzee
     {
       var v = new EnglishMainView();
       var c = new MainController(v);
+      c.Play();
     }
   }
 }
