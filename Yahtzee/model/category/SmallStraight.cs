@@ -9,6 +9,7 @@ namespace Yahtzee.model.category
     {
       if (values == null) throw new ArgumentNullException();
       if (values.Count < 5) throw new ArgumentOutOfRangeException();
+      if (values.Count > 5) throw new ArgumentOutOfRangeException();
     }
 
     public int GetValue() => 0;
