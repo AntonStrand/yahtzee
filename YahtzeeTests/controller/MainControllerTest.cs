@@ -15,5 +15,13 @@ namespace YahtzeeTests
       Assert.IsType<Yahtzee.controller.MainController>(c);
     }
 
+    [Fact]
+    public void CallFunctionStart()
+    {
+      var v = new MainView();
+      var c = new MainController(v);
+      Assert.Equal(c.GetType().GetMethod("Play").ToString(), "Void Play()");
+    }
+
   }
 }
