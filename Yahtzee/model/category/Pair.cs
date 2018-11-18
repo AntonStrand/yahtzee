@@ -11,7 +11,7 @@ namespace Yahtzee.model.category
       _value = fst + snd;
     }
 
-    public int GetValue() => _value;
+    public virtual int GetValue() => _value;
 
     private bool IsMatch(int fst, int snd) => fst == snd;
   }
