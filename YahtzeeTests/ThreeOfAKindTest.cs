@@ -19,28 +19,21 @@ namespace YahtzeeTests
     }
 
     [Fact]
-    public void ShouldAcceptAllValuesAreSame()
-    {
-      var input = 3;
-      new ThreeOfAKind(input, input, input);
-    }
+    public void ShouldAcceptAllValuesAreSame() => SetupSUT(3);
 
     [Fact]
-    public void ShouldSumAllInputsAsValue9()
-    {
-      var input = 3;
-      var sut = new ThreeOfAKind(input, input, input);
-      var expected = input + input + input;
-      Assert.Equal(expected, sut.GetValue());
-    }
+    public void ShouldSumAllInputsAsValue9() => AssertSumMatch(3);
 
     [Fact]
-    public void ShouldSumAllInputsAsValue6()
+    public void ShouldSumAllInputsAsValue6() => AssertSumMatch(2);
+
+    private void AssertSumMatch(int input)
     {
-      var input = 2;
-      var sut = new ThreeOfAKind(input, input, input);
-      var expected = input + input + input;
+      var sut = SetupSUT(input);
+      var expected = input * 3;
       Assert.Equal(expected, sut.GetValue());
     }
+    private ThreeOfAKind SetupSUT(int input) => new ThreeOfAKind(input, input, input);
+
   }
 }
