@@ -27,6 +27,15 @@ namespace YahtzeeTests
       Assert.Equal(expected, sut.GetValue());
     }
 
+    [Fact]
+    public void ShouldSumInputsAndReturn21() {
+      var expected = 21;
+      var pair = new Pair(6, 6);
+      var threeOfAKind = new ThreeOfAKind(3, 3, 3);
+      var sut = new FullHouse(pair, threeOfAKind);
+      Assert.Equal(expected, sut.GetValue());
+    }
+
     private void AssertArgumentNullException(Pair pair, ThreeOfAKind threeOfAKind) =>
       Assert.Throws<ArgumentNullException>(() => new FullHouse(pair, threeOfAKind));
   }
