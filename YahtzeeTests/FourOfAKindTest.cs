@@ -14,21 +14,15 @@ namespace YahtzeeTests
     }
 
     [Fact]
-    public void ShouldNotAcceptTheFirstTwoArgumentsBeingDifferent()
-    {
-      Assert.Throws<ArgumentException>(() => new FourOfAKind(1, 3, 3, 3));
-    }
+    public void ShouldNotAcceptTheFirstTwoArgumentsBeingDifferent() => AssertArgumentException(1, 3, 3, 3);
 
     [Fact]
-    public void ShouldNotAcceptTheSecondTwoArgumentsBeingDifferent()
-    {
-      Assert.Throws<ArgumentException>(() => new FourOfAKind(3, 3, 3, 1));
-    }
+    public void ShouldNotAcceptTheSecondTwoArgumentsBeingDifferent() => AssertArgumentException(3, 3, 3, 1);
 
     [Fact]
-    public void ShouldNotAcceptTwoMiddleArgumentsBeingDifferent()
-    {
-      Assert.Throws<ArgumentException>(() => new FourOfAKind(2, 2, 1, 1));
-    }
+    public void ShouldNotAcceptTwoMiddleArgumentsBeingDifferent() => AssertArgumentException(3, 3, 1, 1);
+
+    private void AssertArgumentException(int v1, int v2, int v3, int v4) =>
+      Assert.Throws<ArgumentException>(() => new FourOfAKind(v1, v2, v3, v4));
   }
 }
