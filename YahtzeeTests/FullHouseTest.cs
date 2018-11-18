@@ -1,5 +1,6 @@
 using System;
 using Xunit;
+using Moq;
 using Yahtzee.model.category;
 
 namespace YahtzeeTests
@@ -19,15 +20,20 @@ namespace YahtzeeTests
     public void ShouldNotAcceptThreeOfAKindIsNull() => AssertArgumentNullException(new Pair(1, 1), null);
 
     [Fact]
-    public void ShouldSumInputsAndReturn16() => AssertSum(16, 5, 2);
+    public void ShouldSumInputsAndReturn16() => AssertSum(16, 10, 6);
 
     [Fact]
-    public void ShouldSumInputsAndReturn21() => AssertSum(21, 6, 3);
+    public void ShouldSumInputsAndReturn21() => AssertSum(21, 12, 9);
 
-    private void AssertSum(int expected, int pairInput, int threeOfAKindInput) {
-      var pair = new Pair(pairInput, pairInput);
-      var threeOfAKind = new ThreeOfAKind(threeOfAKindInput, threeOfAKindInput, threeOfAKindInput);
-      var sut = new FullHouse(pair, threeOfAKind);
+    private void AssertSum(int expected, int pairValue, int threeOfAKindValue)
+    {
+      var pair = new Mock<Pair>(1, 1);
+      var threeOfAKind = new Mock<ThreeOfAKind>(1, 1, 1);
+
+      pair.Setup(p => p.GetValue()).Returns(pairValue);
+      threeOfAKind.Setup(t => t.GetValue()).Returns(threeOfAKindValue);
+
+      var sut = new FullHouse(pair.Object, threeOfAKind.Object);
       Assert.Equal(expected, sut.GetValue());
     }
 

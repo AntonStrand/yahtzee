@@ -12,7 +12,7 @@ namespace Yahtzee.model.category
       _value = v1 * 3;
     }
 
-    public int GetValue() => _value;
+    public virtual int GetValue() => _value;
 
     private bool IsDifferent(int v1, int v2, int v3) => (v1 != v2 || v2 != v3);
   }
