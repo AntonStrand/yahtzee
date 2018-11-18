@@ -19,19 +19,14 @@ namespace YahtzeeTests
     public void ShouldNotAcceptThreeOfAKindIsNull() => AssertArgumentNullException(new Pair(1, 1), null);
 
     [Fact]
-    public void ShouldSumInputsAndReturn16() {
-      var expected = 16;
-      var pair = new Pair(5, 5);
-      var threeOfAKind = new ThreeOfAKind(2, 2, 2);
-      var sut = new FullHouse(pair, threeOfAKind);
-      Assert.Equal(expected, sut.GetValue());
-    }
+    public void ShouldSumInputsAndReturn16() => AssertSum(16, 5, 2);
 
     [Fact]
-    public void ShouldSumInputsAndReturn21() {
-      var expected = 21;
-      var pair = new Pair(6, 6);
-      var threeOfAKind = new ThreeOfAKind(3, 3, 3);
+    public void ShouldSumInputsAndReturn21() => AssertSum(21, 6, 3);
+
+    private void AssertSum(int expected, int pairInput, int threeOfAKindInput) {
+      var pair = new Pair(pairInput, pairInput);
+      var threeOfAKind = new ThreeOfAKind(threeOfAKindInput, threeOfAKindInput, threeOfAKindInput);
       var sut = new FullHouse(pair, threeOfAKind);
       Assert.Equal(expected, sut.GetValue());
     }
