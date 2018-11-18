@@ -18,18 +18,18 @@ namespace YahtzeeTests
     public void DisplayInstructionsExist()
     {
       var v = new EnglishMainView();
-      Assert.Equal("Void DisplayInstructions()", v.GetType().GetMethod("DisplayInstructions").ToString());
+      Assert.Equal("Void DisplayWelcomeMessage()", v.GetType().GetMethod("DisplayWelcomeMessage").ToString());
     }
 
     [Fact]
-    public void DisplayInstructionsPrints()
+    public void DisplayInstructionsPrintToConsole()
     {
       using (StringWriter sw = new StringWriter())
       {
         Console.SetOut(sw);
 
         var v = new EnglishMainView();
-        v.DisplayInstructions();
+        v.DisplayWelcomeMessage();
 
         string expected = string.Format("Welcome to Yahtzee\n");
         Assert.Equal(expected, sw.ToString());

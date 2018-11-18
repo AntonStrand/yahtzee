@@ -21,7 +21,7 @@ namespace YahtzeeTests
     {
       var v = new EnglishMainView();
       var c = new MainController(v);
-      Assert.Equal(c.GetType().GetMethod("Play").ToString(), "Void Play()");
+      Assert.Equal("Void Play()", c.GetType().GetMethod("Play").ToString());
     }
 
     [Fact]
@@ -30,8 +30,7 @@ namespace YahtzeeTests
       var mockView = new Mock<MainView>();
       var c = new MainController(mockView.Object);
       c.Play();
-      mockView.Verify(view => view.DisplayInstructions(), Times.Once());
+      mockView.Verify(view => view.DisplayWelcomeMessage(), Times.Once());
     }
-
   }
 }
