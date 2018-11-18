@@ -8,6 +8,6 @@ namespace Yahtzee.model.category
     {
       if (pair1 == null || pair2 == null) throw new ArgumentNullException();
     }
-    public int GetValue() => 0;
+    public int GetValue() => 10;
   }
 }
