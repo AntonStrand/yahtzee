@@ -21,5 +21,11 @@ namespace YahtzeeTests
     {
       Assert.Throws<ArgumentOutOfRangeException>(() => new SmallStraight(new List<int>()));
     }
+
+    [Fact]
+    public void ShouldNotAcceptMoreThan5Items()
+    {
+      Assert.Throws<ArgumentOutOfRangeException>(() => new SmallStraight(new List<int>() { 1, 2, 3, 4, 5, 6 }));
+    }
   }
 }
