@@ -13,7 +13,6 @@ namespace Yahtzee.controller
 
     public void Play()
     {
-
     }
   }
 }
