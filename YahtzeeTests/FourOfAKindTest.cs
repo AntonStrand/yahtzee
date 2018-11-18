@@ -7,11 +7,7 @@ namespace YahtzeeTests
   public class FourOfAKindTest
   {
     [Fact]
-    public void ShouldAcceptIfAllMatch()
-    {
-      var input = 1;
-      new FourOfAKind(input, input, input, input);
-    }
+    public void ShouldAcceptIfAllMatch() => SetupSUT(2);
 
     [Fact]
     public void ShouldNotAcceptTheFirstTwoArgumentsBeingDifferent() => AssertArgumentException(1, 3, 3, 3);
@@ -31,11 +27,13 @@ namespace YahtzeeTests
     private void AssertSumFromExpected(int expected)
     {
       var input = expected / 4;
-      var sut = new FourOfAKind(input, input, input, input);
+      var sut = SetupSUT(input);
       Assert.Equal(expected, sut.GetValue());
     }
 
     private void AssertArgumentException(int v1, int v2, int v3, int v4) =>
       Assert.Throws<ArgumentException>(() => new FourOfAKind(v1, v2, v3, v4));
+
+    private FourOfAKind SetupSUT(int input) => new FourOfAKind(input, input, input, input);
   }
 }
