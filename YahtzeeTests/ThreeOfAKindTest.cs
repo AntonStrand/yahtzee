@@ -17,5 +17,12 @@ namespace YahtzeeTests
     {
       Assert.Throws<ArgumentException>(() => new ThreeOfAKind(3, 3, 1));
     }
+
+    [Fact]
+    public void ShoulAcceptAllValuesAreSame()
+    {
+      var input = 3;
+      new ThreeOfAKind(input, input, input);
+    }
   }
 }
