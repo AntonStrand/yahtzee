@@ -6,6 +6,7 @@ namespace Yahtzee.model.category
   {
     public FullHouse(Pair pair, ThreeOfAKind threeOfAKind)
     {
+      if (pair == null) throw new ArgumentNullException();
       if (threeOfAKind == null) throw new ArgumentNullException();
     }
 
