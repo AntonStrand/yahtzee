@@ -19,7 +19,7 @@ namespace YahtzeeTests
     }
 
     [Fact]
-    public void ShoulAcceptAllValuesAreSame()
+    public void ShouldAcceptAllValuesAreSame()
     {
       var input = 3;
       new ThreeOfAKind(input, input, input);
