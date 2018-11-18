@@ -1,4 +1,6 @@
 ﻿using System;
+using Yahtzee.controller;
+using Yahtzee.view;
 
 namespace Yahtzee
 {
@@ -6,7 +8,8 @@ namespace Yahtzee
   {
     static void Main(string[] args)
     {
-      Console.WriteLine("Hello World!");
+      var v = new MainView();
+      var c = new MainController(v);
     }
   }
 }
