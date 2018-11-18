@@ -10,7 +10,7 @@ namespace YahtzeeTests
     public void NewMainController()
     {
       var controller = new MainController();
-      Assert.IsType(typeof(Yahtzee.controller.MainController), controller);
+      Assert.IsType<Yahtzee.controller.MainController>(controller);
     }
   }
 }
