@@ -4,15 +4,13 @@ namespace Yahtzee.model.category
 {
   public class FourOfAKind : Category
   {
-    private int _value;
-
     public FourOfAKind(int v1, int v2, int v3, int v4)
     {
-      if (v1 != v2 || v3 != v4) throw new ArgumentException();
-      if (v2 != v3) throw new ArgumentException();
-
+      if (IsDifferent(v1, v2, v3, v4)) throw new ArgumentException();
     }
 
-    public int GetValue() => _value;
+    public int GetValue() => 0;
+
+    private bool IsDifferent(int v1, int v2, int v3, int v4) => (v1 != v2 || v2 != v3 || v3 != v4);
   }
 }
