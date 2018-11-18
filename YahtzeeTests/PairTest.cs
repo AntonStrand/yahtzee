@@ -13,19 +13,13 @@ namespace YahtzeeTests
     }
 
     [Fact]
-    public void ShouldSetInput4ToValue8()
-    {
-      int input = 4;
-      int expected = 8;
-      Pair sut = new Pair(input, input);
-      Assert.Equal(expected, sut.GetValue());
-    }
+    public void ShouldSetInput4ToValue8() => AssertValue(4, 8);
 
     [Fact]
-    public void ShouldSetInput5ToValue10()
+    public void ShouldSetInput5ToValue10() => AssertValue(5, 10);
+
+    private void AssertValue(int input, int expected)
     {
-      int input = 5;
-      int expected = 10;
       Pair sut = new Pair(input, input);
       Assert.Equal(expected, sut.GetValue());
     }
