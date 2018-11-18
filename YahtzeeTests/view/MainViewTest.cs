@@ -12,5 +12,12 @@ namespace YahtzeeTests
       var view = new MainView();
       Assert.IsType<Yahtzee.view.MainView>(view);
     }
+
+    [Fact]
+    public void DisplayInstructionsExist()
+    {
+      var v = new MainView();
+      Assert.Equal(v.GetType().GetMethod("DisplayInstruction").ToString(), "Void DisplayInstructions()");
+    }
   }
 }
