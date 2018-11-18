@@ -13,7 +13,7 @@ namespace Yahtzee.controller
 
     public void Play()
     {
-      this.mainView.DisplayInstructions();
+      this.mainView.DisplayWelcomeMessage();
     }
   }
 }

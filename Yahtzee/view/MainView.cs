@@ -4,6 +4,6 @@ namespace Yahtzee.view
 {
   public interface MainView
   {
-    void DisplayInstructions();
+    void DisplayWelcomeMessage();
   }
 }

@@ -4,7 +4,7 @@ namespace Yahtzee.view
 {
   public class EnglishMainView : MainView
   {
-    public void DisplayInstructions()
+    public void DisplayWelcomeMessage()
     {
       Console.WriteLine("Welcome to Yahtzee");
     }
