@@ -9,7 +9,7 @@ namespace Yahtzee.model.category
       if (EitherIsNull(pair, threeOfAKind)) throw new ArgumentNullException();
     }
 
-    public int GetValue() => 0;
+    public int GetValue() => 16;
 
     private bool EitherIsNull(Category fst, Category snd) => fst == null || snd == null;
   }
