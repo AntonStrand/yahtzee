@@ -12,44 +12,6 @@
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/AllOptionStrategy.cs": {
-      "Yahtzee.model.AllOptionStrategy": {
-        "System.Collections.Generic.List`1<Yahtzee.model.Category> Yahtzee.model.AllOptionStrategy::GetOptions(Yahtzee.model.Dice)": {
-          "Lines": {
-            "14": 4,
-            "15": 5,
-            "16": 3,
-            "17": 3
-          },
-          "Branches": [
-            {
-              "Line": 15,
-              "Offset": 7,
-              "EndOffset": 9,
-              "Path": 0,
-              "Ordinal": 0,
-              "Hits": 1
-            },
-            {
-              "Line": 15,
-              "Offset": 7,
-              "EndOffset": 15,
-              "Path": 1,
-              "Ordinal": 1,
-              "Hits": 3
-            }
-          ]
-        }
-      },
-      "Yahtzee.model.AllOptionStrategy/Pair": {
-        "System.Int32 Yahtzee.model.AllOptionStrategy/Pair::GetValue()": {
-          "Lines": {
-            "11": 0
-          },
-          "Branches": []
-        }
-      }
-    },
     "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/Dice.cs": {
       "Yahtzee.model.Dice": {
         "System.Void Yahtzee.model.Dice::Throw()": {
@@ -101,16 +63,16 @@
         },
         "System.Void Yahtzee.model.Dice::.ctor(Yahtzee.model.Die,Yahtzee.model.Die,Yahtzee.model.Die,Yahtzee.model.Die,Yahtzee.model.Die)": {
           "Lines": {
-            "20": 9,
-            "21": 9,
-            "22": 9,
-            "23": 9,
-            "24": 9,
-            "25": 9,
-            "26": 9,
-            "27": 9,
-            "28": 9,
-            "29": 9
+            "20": 10,
+            "21": 10,
+            "22": 10,
+            "23": 10,
+            "24": 10,
+            "25": 10,
+            "26": 10,
+            "27": 10,
+            "28": 10,
+            "29": 10
           },
           "Branches": []
         }
@@ -139,6 +101,268 @@
             "15": 14
           },
           "Branches": []
+        }
+      }
+    },
+    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/AllOptionStrategy.cs": {
+      "Yahtzee.model.category.AllOptionStrategy": {
+        "System.Collections.Generic.List`1<Yahtzee.model.category.Category> Yahtzee.model.category.AllOptionStrategy::GetOptions(Yahtzee.model.Dice)": {
+          "Lines": {
+            "9": 5,
+            "10": 6,
+            "11": 4,
+            "12": 4
+          },
+          "Branches": [
+            {
+              "Line": 10,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 10,
+              "Offset": 7,
+              "EndOffset": 15,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 4
+            }
+          ]
+        }
+      }
+    },
+    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/FourOfAKind.cs": {
+      "Yahtzee.model.category.FourOfAKind": {
+        "System.Int32 Yahtzee.model.category.FourOfAKind::GetValue()": {
+          "Lines": {
+            "15": 2
+          },
+          "Branches": []
+        },
+        "System.Boolean Yahtzee.model.category.FourOfAKind::IsDifferent(System.Int32,System.Int32,System.Int32,System.Int32)": {
+          "Lines": {
+            "17": 6
+          },
+          "Branches": [
+            {
+              "Line": 17,
+              "Offset": 2,
+              "EndOffset": 4,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 5
+            },
+            {
+              "Line": 17,
+              "Offset": 6,
+              "EndOffset": 8,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 4
+            },
+            {
+              "Line": 17,
+              "Offset": 2,
+              "EndOffset": 18,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2
+            },
+            {
+              "Line": 17,
+              "Offset": 6,
+              "EndOffset": 18,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 2
+            }
+          ]
+        },
+        "System.Void Yahtzee.model.category.FourOfAKind::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)": {
+          "Lines": {
+            "9": 6,
+            "10": 6,
+            "11": 9,
+            "12": 3,
+            "13": 3
+          },
+          "Branches": [
+            {
+              "Line": 11,
+              "Offset": 21,
+              "EndOffset": 23,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 3
+            },
+            {
+              "Line": 11,
+              "Offset": 21,
+              "EndOffset": 29,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 3
+            }
+          ]
+        }
+      }
+    },
+    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/Pair.cs": {
+      "Yahtzee.model.category.Pair": {
+        "System.Int32 Yahtzee.model.category.Pair::GetValue()": {
+          "Lines": {
+            "14": 10
+          },
+          "Branches": []
+        },
+        "System.Boolean Yahtzee.model.category.Pair::IsMatch(System.Int32,System.Int32)": {
+          "Lines": {
+            "16": 17
+          },
+          "Branches": []
+        },
+        "System.Void Yahtzee.model.category.Pair::.ctor(System.Int32,System.Int32)": {
+          "Lines": {
+            "8": 17,
+            "9": 17,
+            "10": 18,
+            "11": 16,
+            "12": 16
+          },
+          "Branches": [
+            {
+              "Line": 10,
+              "Offset": 21,
+              "EndOffset": 23,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 10,
+              "Offset": 21,
+              "EndOffset": 29,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 16
+            }
+          ]
+        }
+      }
+    },
+    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/ThreeOfAKind.cs": {
+      "Yahtzee.model.category.ThreeOfAKind": {
+        "System.Int32 Yahtzee.model.category.ThreeOfAKind::GetValue()": {
+          "Lines": {
+            "15": 2
+          },
+          "Branches": []
+        },
+        "System.Boolean Yahtzee.model.category.ThreeOfAKind::IsDifferent(System.Int32,System.Int32,System.Int32)": {
+          "Lines": {
+            "17": 5
+          },
+          "Branches": [
+            {
+              "Line": 17,
+              "Offset": 2,
+              "EndOffset": 4,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 4
+            },
+            {
+              "Line": 17,
+              "Offset": 2,
+              "EndOffset": 13,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Void Yahtzee.model.category.ThreeOfAKind::.ctor(System.Int32,System.Int32,System.Int32)": {
+          "Lines": {
+            "9": 5,
+            "10": 5,
+            "11": 7,
+            "12": 3,
+            "13": 3
+          },
+          "Branches": [
+            {
+              "Line": 11,
+              "Offset": 19,
+              "EndOffset": 21,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 2
+            },
+            {
+              "Line": 11,
+              "Offset": 19,
+              "EndOffset": 27,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 3
+            }
+          ]
+        }
+      }
+    },
+    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/TwoPair.cs": {
+      "Yahtzee.model.category.TwoPair": {
+        "System.Int32 Yahtzee.model.category.TwoPair::GetValue()": {
+          "Lines": {
+            "15": 2
+          },
+          "Branches": []
+        },
+        "System.Void Yahtzee.model.category.TwoPair::.ctor(Yahtzee.model.category.Pair,Yahtzee.model.category.Pair)": {
+          "Lines": {
+            "9": 8,
+            "10": 8,
+            "11": 10,
+            "12": 6,
+            "13": 6
+          },
+          "Branches": [
+            {
+              "Line": 11,
+              "Offset": 9,
+              "EndOffset": 11,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 7
+            },
+            {
+              "Line": 11,
+              "Offset": 9,
+              "EndOffset": 17,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            },
+            {
+              "Line": 11,
+              "Offset": 20,
+              "EndOffset": 22,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 2
+            },
+            {
+              "Line": 11,
+              "Offset": 20,
+              "EndOffset": 28,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 6
+            }
+          ]
         }
       }
     }
