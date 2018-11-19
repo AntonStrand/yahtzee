@@ -10,5 +10,13 @@ namespace YahtzeeTests
     {
       var player = new Player();
     }
+
+    [Fact]
+    public void MethodSetNameExist()
+    {
+      var player = new Player();
+
+      Assert.Equal("Void SetName()", player.GetType().GetMethod("SetName").ToString());
+    }
   }
 }
