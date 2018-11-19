@@ -15,7 +15,7 @@ namespace YahtzeeTests
     }
 
     [Fact]
-    public void DisplayInstructionsExist()
+    public void DisplayWelcomeMessageTest()
     {
       var v = new EnglishMainView();
       Assert.Equal("Void DisplayWelcomeMessage()", v.GetType().GetMethod("DisplayWelcomeMessage").ToString());
