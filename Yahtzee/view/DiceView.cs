@@ -1,3 +1,4 @@
+using System;
 using Yahtzee.model;
 
 namespace Yahtzee.view
@@ -6,7 +7,7 @@ namespace Yahtzee.view
   {
     public DiceView(Dice dice)
     {
-
+      throw new ArgumentNullException();
     }
   }
 }
