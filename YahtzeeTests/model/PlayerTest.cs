@@ -16,7 +16,7 @@ namespace YahtzeeTests
     {
       var player = new Player();
 
-      Assert.Equal("Void SetName()", player.GetType().GetMethod("SetName").ToString());
+      Assert.Equal("Void SetName(System.String)", player.GetType().GetMethod("SetName").ToString());
     }
   }
 }
