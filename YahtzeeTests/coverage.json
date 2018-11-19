@@ -96,7 +96,7 @@
       "Yahtzee.model.DieImplemented": {
         "System.Int32 Yahtzee.model.DieImplemented::GetValue()": {
           "Lines": {
-            "17": 102006
+            "17": 102009
           },
           "Branches": []
         },

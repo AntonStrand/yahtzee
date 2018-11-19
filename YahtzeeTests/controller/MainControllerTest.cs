@@ -2,6 +2,7 @@ using System;
 using Xunit;
 using Yahtzee.controller;
 using Yahtzee.view;
+using Yahtzee.model;
 using Moq;
 
 namespace YahtzeeTests
@@ -12,7 +13,9 @@ namespace YahtzeeTests
     public void NewMainController()
     {
       var v = new EnglishMainView();
-      var c = new MainController(v);
+      var p = new Player();
+      var c = new MainController(v, p);
+
       Assert.IsType<Yahtzee.controller.MainController>(c);
     }
 
@@ -20,7 +23,9 @@ namespace YahtzeeTests
     public void MethodPlayExist()
     {
       var v = new EnglishMainView();
-      var c = new MainController(v);
+      var p = new Player();
+      var c = new MainController(v, p);
+
       Assert.Equal("Void Play()", c.GetType().GetMethod("Play").ToString());
     }
 
@@ -28,7 +33,9 @@ namespace YahtzeeTests
     public void WhenCallingPlayViewInstructionsIsCalled()
     {
       var mockView = new Mock<MainView>();
-      var c = new MainController(mockView.Object);
+      var p = new Player();
+      var c = new MainController(mockView.Object, p);
+
       c.Play();
       mockView.Verify(view => view.DisplayWelcomeMessage(), Times.Once());
     }
