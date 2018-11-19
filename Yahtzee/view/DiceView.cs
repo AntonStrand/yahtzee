@@ -5,9 +5,19 @@ namespace Yahtzee.view
 {
   public class DiceView
   {
+    private Dice dice;
     public DiceView(Dice dice)
     {
-      throw new ArgumentNullException();
+      if (dice == null)
+      {
+        throw new ArgumentNullException();
+      }
+      this.dice = dice;
+    }
+
+    public void Print()
+    {
+      Console.WriteLine("Not Implemented yet.");
     }
   }
 }
