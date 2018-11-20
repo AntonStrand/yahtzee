@@ -6,8 +6,8 @@ namespace Yahtzee.view
 {
   public class DiceView
   {
-    private Dice dice;
-    private List<string> renderQueue;
+    private Dice _dice;
+    private List<string> _renderQueue;
 
     public DiceView(Dice dice)
     {
@@ -16,64 +16,77 @@ namespace Yahtzee.view
         throw new ArgumentNullException();
       }
 
-      this.dice = dice;
-      this.renderQueue = new List<string>(4);
+      _dice = dice;
+      _renderQueue = new List<string>(4);
 
       for (int i = 0; i < 4; i++)
       {
-        this.renderQueue.Add("");
+        _renderQueue.Add("");
       }
     }
 
     public void Print()
     {
-      var dice = this.dice.GetValues();
+      var dice = _dice.GetValues();
       dice.ForEach(DrawDie);
 
-      this.renderQueue.ForEach(queue => Console.WriteLine(queue));
+      this._renderQueue.ForEach(queue => Console.WriteLine(queue));
     }
 
     private void DrawDie(int die)
     {
-      this.renderQueue[0] += " _____   ";
+      _renderQueue[0] += " _____   ";
 
+      RenderQueueSecondRow(die);
+      RenderQueueThirdRow(die);
+      RenderQueueFourthRow(die);
+    }
+
+    public void RenderQueueSecondRow(int die)
+    {
       if (die == 2 || die == 3)
       {
-        this.renderQueue[1] += "|o    |  ";
+        _renderQueue[1] += "|o    |  ";
       }
       else if (die == 4 || die == 5 || die == 6)
       {
-        this.renderQueue[1] += "|o   o|  ";
+        _renderQueue[1] += "|o   o|  ";
       }
       else
       {
-        this.renderQueue[1] += "|     |  ";
+        _renderQueue[1] += "|     |  ";
       }
+    }
 
+    public void RenderQueueThirdRow(int die)
+    {
       if (die == 1 || die == 3 || die == 5)
       {
-        this.renderQueue[2] += "|  o  |  ";
+        _renderQueue[2] += "|  o  |  ";
       }
       else if (die == 6)
       {
-        this.renderQueue[2] += "|o   o|  ";
+        _renderQueue[2] += "|o   o|  ";
       }
       else
       {
-        this.renderQueue[2] += "|     |  ";
+        _renderQueue[2] += "|     |  ";
       }
+    }
 
+    public void RenderQueueFourthRow(int die)
+    {
       if (die == 2 || die == 3)
       {
-        this.renderQueue[3] += "|____o|  ";
+        _renderQueue[3] += "|____o|  ";
       }
       else if (die == 4 || die == 5 || die == 6)
       {
-        this.renderQueue[3] += "|o___o|  ";
+        _renderQueue[3] += "|o___o|  ";
       }
       else
       {
-        this.renderQueue[3] += "|_____|  ";
+        _renderQueue[3] += "|_____|  ";
       }
     }
   }
