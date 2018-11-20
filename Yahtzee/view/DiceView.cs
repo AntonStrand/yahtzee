@@ -36,9 +36,35 @@ namespace Yahtzee.view
     private void DrawDie(int die)
     {
       this.renderQueue[0] += " _____   ";
-      this.renderQueue[1] += "|     |  ";
-      this.renderQueue[2] += "|  o  |  ";
-      this.renderQueue[3] += "|_____|  ";
+
+      if (die == 2)
+      {
+        this.renderQueue[1] += "|o    |  ";
+      }
+      else
+      {
+        this.renderQueue[1] += "|     |  ";
+      }
+
+      if (die == 1)
+      {
+        this.renderQueue[2] += "|  o  |  ";
+      }
+      else
+      {
+        this.renderQueue[2] += "|     |  ";
+      }
+
+      if (die == 2)
+      {
+
+        this.renderQueue[3] += "|____o|  ";
+      }
+      else
+      {
+        this.renderQueue[3] += "|_____|  ";
+
+      }
     }
   }
 }
