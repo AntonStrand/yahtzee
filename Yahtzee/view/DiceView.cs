@@ -41,7 +41,7 @@ namespace Yahtzee.view
       {
         this.renderQueue[1] += "|o    |  ";
       }
-      else if (die == 4)
+      else if (die == 4 || die == 5)
       {
         this.renderQueue[1] += "|o   o|  ";
       }
@@ -50,7 +50,7 @@ namespace Yahtzee.view
         this.renderQueue[1] += "|     |  ";
       }
 
-      if (die == 1 || die == 3)
+      if (die == 1 || die == 3 || die == 5)
       {
         this.renderQueue[2] += "|  o  |  ";
       }
@@ -63,7 +63,7 @@ namespace Yahtzee.view
       {
         this.renderQueue[3] += "|____o|  ";
       }
-      else if (die == 4)
+      else if (die == 4 || die == 5)
       {
         this.renderQueue[3] += "|o___o|  ";
       }
