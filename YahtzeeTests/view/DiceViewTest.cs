@@ -168,5 +168,41 @@ namespace YahtzeeTests
         sw.Close();
       }
     }
+
+    [Fact]
+    public void ShouldPrintAllDices()
+    {
+      var die1 = new Mock<Die>();
+      var die2 = new Mock<Die>();
+      var die3 = new Mock<Die>();
+      var die4 = new Mock<Die>();
+      var die5 = new Mock<Die>();
+
+      die1.Setup(d => d.GetValue()).Returns(1);
+      die2.Setup(d => d.GetValue()).Returns(2);
+      die3.Setup(d => d.GetValue()).Returns(3);
+      die4.Setup(d => d.GetValue()).Returns(4);
+      die5.Setup(d => d.GetValue()).Returns(5);
+
+      var dice = new Dice(die1.Object, die2.Object, die3.Object, die4.Object, die5.Object);
+
+      var diceView = new DiceView(dice);
+
+      using (StringWriter sw = new StringWriter())
+      {
+        Console.SetOut(sw);
+
+        diceView.Print();
+
+        string expected =
+            " _____    _____    _____    _____    _____   \n"
+         + "|     |  |o    |  |o    |  |o   o|  |o   o|  \n"
+         + "|  o  |  |     |  |  o  |  |     |  |  o  |  \n"
+         + "|_____|  |____o|  |____o|  |o___o|  |o___o|  \n";
+
+        Assert.Equal(expected, sw.ToString());
+        sw.Close();
+      }
+    }
   }
 }
