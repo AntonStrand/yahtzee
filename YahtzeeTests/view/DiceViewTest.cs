@@ -112,5 +112,30 @@ namespace YahtzeeTests
         Assert.Equal(expected, sw.ToString());
       }
     }
+
+    [Fact]
+    public void ShouldPrintFiveFives()
+    {
+      var die = new Mock<Die>();
+      die.Setup(d => d.GetValue()).Returns(5);
+      var dice = new Dice(die.Object, die.Object, die.Object, die.Object, die.Object);
+
+      var diceView = new DiceView(dice);
+
+      using (StringWriter sw = new StringWriter())
+      {
+        Console.SetOut(sw);
+
+        diceView.Print();
+
+        string expected =
+            " _____    _____    _____    _____    _____   \n"
+         + "|o   o|  |o   o|  |o   o|  |o   o|  |o   o|  \n"
+         + "|  o  |  |  o  |  |  o  |  |  o  |  |  o  |  \n"
+         + "|o___o|  |o___o|  |o___o|  |o___o|  |o___o|  \n";
+
+        Assert.Equal(expected, sw.ToString());
+      }
+    }
   }
 }
