@@ -35,6 +35,7 @@ namespace YahtzeeTests
          + "|_____|  |_____|  |_____|  |_____|  |_____|  \n";
 
         Assert.Equal(expected, sw.ToString());
+        sw.Close();
       }
     }
 
@@ -60,6 +61,7 @@ namespace YahtzeeTests
          + "|____o|  |____o|  |____o|  |____o|  |____o|  \n";
 
         Assert.Equal(expected, sw.ToString());
+        sw.Close();
       }
     }
 
@@ -85,6 +87,7 @@ namespace YahtzeeTests
          + "|____o|  |____o|  |____o|  |____o|  |____o|  \n";
 
         Assert.Equal(expected, sw.ToString());
+        sw.Close();
       }
     }
 
@@ -110,6 +113,7 @@ namespace YahtzeeTests
          + "|o___o|  |o___o|  |o___o|  |o___o|  |o___o|  \n";
 
         Assert.Equal(expected, sw.ToString());
+        sw.Close();
       }
     }
 
@@ -135,6 +139,7 @@ namespace YahtzeeTests
          + "|o___o|  |o___o|  |o___o|  |o___o|  |o___o|  \n";
 
         Assert.Equal(expected, sw.ToString());
+        sw.Close();
       }
     }
 
@@ -160,6 +165,7 @@ namespace YahtzeeTests
          + "|o___o|  |o___o|  |o___o|  |o___o|  |o___o|  \n";
 
         Assert.Equal(expected, sw.ToString());
+        sw.Close();
       }
     }
   }
