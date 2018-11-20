@@ -35,14 +35,18 @@ namespace Yahtzee.view
 
     private void DrawDie(int die)
     {
-      _renderQueue[0] += " _____   ";
-
+      RenderQueueFirstRow();
       RenderQueueSecondRow(die);
       RenderQueueThirdRow(die);
       RenderQueueFourthRow(die);
     }
 
-    public void RenderQueueSecondRow(int die)
+    private void RenderQueueFirstRow()
+    {
+      _renderQueue[0] += " _____   ";
+    }
+
+    private void RenderQueueSecondRow(int die)
     {
       if (die == 2 || die == 3)
       {
@@ -58,7 +62,7 @@ namespace Yahtzee.view
       }
     }
 
-    public void RenderQueueThirdRow(int die)
+    private void RenderQueueThirdRow(int die)
     {
       if (die == 1 || die == 3 || die == 5)
       {
@@ -74,7 +78,7 @@ namespace Yahtzee.view
       }
     }
 
-    public void RenderQueueFourthRow(int die)
+    private void RenderQueueFourthRow(int die)
     {
       if (die == 2 || die == 3)
       {
