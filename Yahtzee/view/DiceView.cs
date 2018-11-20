@@ -74,7 +74,6 @@ namespace Yahtzee.view
       else
       {
         this.renderQueue[3] += "|_____|  ";
-
       }
     }
   }
