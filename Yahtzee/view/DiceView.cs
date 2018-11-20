@@ -28,11 +28,8 @@ namespace Yahtzee.view
     public void Print()
     {
       var dice = _dice.GetValues();
-      // dice.ForEach(DrawDie);
-      for (int i = 0; i < 5; i++)
-      {
-        DrawDie(dice[0]);
-      }
+      dice.ForEach(DrawDie);
+
       this._renderQueue.ForEach(queue => Console.WriteLine(queue));
     }
 
