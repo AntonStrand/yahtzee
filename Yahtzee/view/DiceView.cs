@@ -15,6 +15,7 @@ namespace Yahtzee.view
       {
         throw new ArgumentNullException();
       }
+
       this.dice = dice;
       this.renderQueue = new List<string>(4);
 
@@ -27,7 +28,7 @@ namespace Yahtzee.view
     public void Print()
     {
       var dice = this.dice.GetValues();
-      dice.ForEach(die => DrawDie(die));
+      dice.ForEach(DrawDie);
 
       this.renderQueue.ForEach(queue => Console.WriteLine(queue));
     }
