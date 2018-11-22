@@ -11,8 +11,7 @@ namespace YahtzeeTests
     public void ShouldAcceptDiceAndScoreBoard()
     {
       var fakePlayer = new Mock<ScoreBoard>();
-      var fakeDie = new Mock<Die>();
-      var fakeDice = new Mock<Dice>(fakeDie.Object, fakeDie.Object, fakeDie.Object, fakeDie.Object, fakeDie.Object);
+      var fakeDice = new Mock<Dice>();
       var sut = new AllAvailableCategoriesStrategy();
       sut.GetCategories(fakeDice.Object, fakePlayer.Object);
     }
@@ -28,8 +27,7 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldNotAcceptNullScoreBoard()
     {
-      var fakeDie = new Mock<Die>();
-      var fakeDice = new Mock<Dice>(fakeDie.Object, fakeDie.Object, fakeDie.Object, fakeDie.Object, fakeDie.Object);
+      var fakeDice = new Mock<Dice>();
       var sut = new AllAvailableCategoriesStrategy();
       Assert.Throws<ArgumentNullException>(() => sut.GetCategories(fakeDice.Object, null));
     }

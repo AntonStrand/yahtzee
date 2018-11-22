@@ -18,7 +18,7 @@ namespace YahtzeeTests
       var die4 = new Mock<Die>();
       var die5 = new Mock<Die>();
 
-      Dice sut = new Dice(die1.Object, die2.Object, die3.Object, die4.Object, die5.Object);
+      Dice sut = new DiceImplemented(die1.Object, die2.Object, die3.Object, die4.Object, die5.Object);
       sut.Throw();
 
       die1.Verify(die => die.Throw(), Times.Once());
@@ -34,8 +34,8 @@ namespace YahtzeeTests
       var die1 = new Mock<Die>();
       var die2 = new Mock<Die>();
 
-      Dice sut = new Dice(die1.Object, die2.Object, die2.Object, die2.Object, die2.Object);
-      sut.KeepDie(Dice.DiceList.Die1);
+      Dice sut = new DiceImplemented(die1.Object, die2.Object, die2.Object, die2.Object, die2.Object);
+      sut.KeepDie(DiceList.Die1);
       sut.Throw();
 
       die1.Verify(die => die.Throw(), Times.Never());
@@ -49,9 +49,9 @@ namespace YahtzeeTests
       var keep2 = new Mock<Die>();
       var die = new Mock<Die>();
 
-      Dice sut = new Dice(keep1.Object, die.Object, keep2.Object, die.Object, die.Object);
-      sut.KeepDie(Dice.DiceList.Die1);
-      sut.KeepDie(Dice.DiceList.Die3);
+      Dice sut = new DiceImplemented(keep1.Object, die.Object, keep2.Object, die.Object, die.Object);
+      sut.KeepDie(DiceList.Die1);
+      sut.KeepDie(DiceList.Die3);
       sut.Throw();
       keep1.Verify(d => d.Throw(), Times.Never());
       keep2.Verify(d => d.Throw(), Times.Never());
@@ -64,11 +64,11 @@ namespace YahtzeeTests
       var die = new Mock<Die>();
       var keep = new Mock<Die>();
 
-      Dice sut = new Dice(die.Object, die.Object, keep.Object, die.Object, die.Object);
-      sut.KeepDie(Dice.DiceList.Die3);
-      sut.KeepDie(Dice.DiceList.Die3);
-      sut.KeepDie(Dice.DiceList.Die3);
-      sut.KeepDie(Dice.DiceList.Die3);
+      Dice sut = new DiceImplemented(die.Object, die.Object, keep.Object, die.Object, die.Object);
+      sut.KeepDie(DiceList.Die3);
+      sut.KeepDie(DiceList.Die3);
+      sut.KeepDie(DiceList.Die3);
+      sut.KeepDie(DiceList.Die3);
 
       sut.Throw();
       keep.Verify(d => d.Throw(), Times.Never());
@@ -78,7 +78,7 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldReturn5Values()
     {
-      Dice sut = new Dice(new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented());
+      Dice sut = new DiceImplemented(new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented());
       var actual = sut.GetValues().Count;
 
       var expected = 5;
@@ -100,7 +100,7 @@ namespace YahtzeeTests
       die4.Setup(die => die.GetValue()).Returns(5);
       die5.Setup(die => die.GetValue()).Returns(5);
 
-      Dice sut = new Dice(die1.Object, die2.Object, die3.Object, die4.Object, die5.Object);
+      Dice sut = new DiceImplemented(die1.Object, die2.Object, die3.Object, die4.Object, die5.Object);
 
       var actual = sut.GetValues().Sum();
       var expected = 25;
