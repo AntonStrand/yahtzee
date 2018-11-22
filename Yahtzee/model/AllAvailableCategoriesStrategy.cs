@@ -19,7 +19,7 @@ namespace Yahtzee.model
     private List<Category> GetTwoPair(List<Pair> pairs)
     {
       return (pairs.Count == 2)
-       ? new List<Category>() { new TwoPair(new Pair(4, 4), new Pair(6, 6)) }
+       ? new List<Category>() { new TwoPair(new Pair(1, 1), new Pair(2, 2)) }
        : new List<Category>();
     }
 
