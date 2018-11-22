@@ -58,6 +58,19 @@ namespace YahtzeeTests
       var expected = 12;
       Assert.Equal(expected, actual);
     }
+
+    [Fact]
+    public void ShouldReturnPairOf4()
+    {
+      var fakePlayer = new Mock<ScoreBoard>();
+      var fakeDice = new Mock<Dice>();
+      fakeDice.Setup(d => d.GetValues()).Returns(new List<int>() { 4, 1, 6, 2, 4 });
+
+      var sut = new AllAvailableCategoriesStrategy();
+      var actual = sut.GetCategories(fakeDice.Object, fakePlayer.Object)[0].GetValue();
+      var expected = 8;
+      Assert.Equal(expected, actual);
+    }
   }
 }
 
