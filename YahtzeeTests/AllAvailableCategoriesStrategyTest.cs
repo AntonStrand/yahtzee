@@ -45,18 +45,13 @@ namespace YahtzeeTests
       Assert.InRange(actual, 3, int.MaxValue);
     }
 
-    [Fact]
-    public void ShouldCombineValuesFromPairToTwoPair()
+    [Theory]
+    [InlineData(1, 1, 2, 2, 3, 6)]
+    [InlineData(4, 4, 3, 2, 3, 14)]
+    public void ShouldCombineValuesFromPairToTwoPair(int v1, int v2, int v3, int v4, int v5, int expected)
     {
-      var actual = ExerciseSUT(new List<int>() { 1, 1, 2, 2, 3 }).Find(c => c.GetType() == typeof(TwoPair)).GetValue();
-      Assert.Equal(6, actual);
-    }
-
-    [Fact]
-    public void ShouldCombineValuesFromPairToTwoPair2()
-    {
-      var actual = ExerciseSUT(new List<int>() { 4, 4, 3, 2, 3 }).Find(c => c.GetType() == typeof(TwoPair)).GetValue();
-      Assert.Equal(14, actual);
+      var actual = ExerciseSUT(new List<int>() { v1, v2, v3, v4, v5 }).Find(c => c.GetType() == typeof(TwoPair)).GetValue();
+      Assert.Equal(expected, actual);
     }
 
     private void AssertType<T>(List<int> diceValues) =>
