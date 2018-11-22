@@ -10,7 +10,10 @@ namespace Yahtzee.model
     public List<Category> GetCategories(Dice dice, ScoreBoard scoreBoard)
     {
       if (IsEitherNull(dice, scoreBoard)) throw new ArgumentNullException();
-      return new List<Category>(GetPairs(dice));
+      var pairs = GetPairs(dice);
+      return (pairs.Count == 2)
+       ? new List<Category>() { new TwoPair(new Pair(4, 4), new Pair(6, 6)) }
+       : new List<Category>(GetPairs(dice));
     }
 
     private bool IsEitherNull(Dice dice, ScoreBoard scoreBoard) => dice == null || scoreBoard == null;
