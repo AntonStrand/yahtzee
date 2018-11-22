@@ -45,6 +45,19 @@ namespace YahtzeeTests
       var actual = sut.GetCategories(fakeDice.Object, fakePlayer.Object)[0];
       Assert.IsType<Pair>(actual);
     }
+
+    [Fact]
+    public void ShouldReturnPairOf6()
+    {
+      var fakePlayer = new Mock<ScoreBoard>();
+      var fakeDice = new Mock<Dice>();
+      fakeDice.Setup(d => d.GetValues()).Returns(new List<int>() { 5, 6, 6, 2, 4 });
+
+      var sut = new AllAvailableCategoriesStrategy();
+      var actual = sut.GetCategories(fakeDice.Object, fakePlayer.Object)[0].GetValue();
+      var expected = 12;
+      Assert.Equal(expected, actual);
+    }
   }
 }
 
