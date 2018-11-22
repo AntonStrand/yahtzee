@@ -37,6 +37,12 @@ namespace YahtzeeTests
     public void ShouldReturnPairFrom(int v1, int v2, int v3, int v4, int v5, int expected) =>
       Assert.Equal(expected, ExerciseSUT(new List<int>() { v1, v2, v3, v4, v5 })[0].GetValue());
 
+    [Fact]
+    public void ShouldReturnBothTwoPairAnd2Pairs()
+    {
+      var actual = ExerciseSUT(new List<int>() { 1, 1, 2, 2, 3 }).Count;
+      Assert.InRange(actual, 3, int.MaxValue);
+    }
 
     private void AssertType<T>(List<int> diceValues) =>
       Assert.IsType<T>(ExerciseSUT(diceValues)[0]);
