@@ -52,6 +52,13 @@ namespace YahtzeeTests
       Assert.Equal(6, actual);
     }
 
+    [Fact]
+    public void ShouldCombineValuesFromPairToTwoPair2()
+    {
+      var actual = ExerciseSUT(new List<int>() { 4, 4, 3, 2, 3 }).Find(c => c.GetType() == typeof(TwoPair)).GetValue();
+      Assert.Equal(14, actual);
+    }
+
     private void AssertType<T>(List<int> diceValues) =>
       Assert.IsType<T>(ExerciseSUT(diceValues)[0]);
 
