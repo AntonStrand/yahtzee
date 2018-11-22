@@ -4,6 +4,7 @@ using Xunit;
 using Moq;
 using Yahtzee.view;
 using Yahtzee.model;
+using System.Collections.Generic;
 
 namespace YahtzeeTests
 {
@@ -49,21 +50,10 @@ namespace YahtzeeTests
 
     private void AssertView(string expected, int v1, int v2, int v3, int v4, int v5)
     {
-      var die1 = new Mock<Die>();
-      var die2 = new Mock<Die>();
-      var die3 = new Mock<Die>();
-      var die4 = new Mock<Die>();
-      var die5 = new Mock<Die>();
+      var fakeDice = new Mock<Dice>();
+      fakeDice.Setup(d => d.GetValues()).Returns(new List<int>() { v1, v2, v3, v4, v5 });
 
-      die1.Setup(d => d.GetValue()).Returns(v1);
-      die2.Setup(d => d.GetValue()).Returns(v2);
-      die3.Setup(d => d.GetValue()).Returns(v3);
-      die4.Setup(d => d.GetValue()).Returns(v4);
-      die5.Setup(d => d.GetValue()).Returns(v5);
-
-      var dice = new Dice(die1.Object, die2.Object, die3.Object, die4.Object, die5.Object);
-
-      var diceView = new DiceView(dice);
+      var diceView = new DiceView(fakeDice.Object);
 
       using (StringWriter sw = new StringWriter())
       {
