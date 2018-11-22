@@ -4,6 +4,7 @@ using Yahtzee.model;
 using Yahtzee.model.category;
 using Moq;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace YahtzeeTests
 {
@@ -42,6 +43,13 @@ namespace YahtzeeTests
     {
       var actual = ExerciseSUT(new List<int>() { 1, 1, 2, 2, 3 }).Count;
       Assert.InRange(actual, 3, int.MaxValue);
+    }
+
+    [Fact]
+    public void ShouldCombineValuesFromPairToTwoPair()
+    {
+      var actual = ExerciseSUT(new List<int>() { 1, 1, 2, 2, 3 }).Find(c => c.GetType() == typeof(TwoPair)).GetValue();
+      Assert.Equal(6, actual);
     }
 
     private void AssertType<T>(List<int> diceValues) =>
