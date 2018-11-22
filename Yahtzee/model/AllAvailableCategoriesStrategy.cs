@@ -21,6 +21,10 @@ namespace Yahtzee.model
         .Select(x => new Pair(x.Key, x.Key))
         .ToList();
 
-    private Dictionary<int, int> GetFrequencyTable(Dice dice) => dice.GetValues().GroupBy(x => x).ToDictionary(x => x.Key, x => x.Count());
+    private Dictionary<int, int> GetFrequencyTable(Dice dice) =>
+      dice
+        .GetValues()
+        .GroupBy(x => x)
+        .ToDictionary(x => x.Key, x => x.Count());
   }
 }
