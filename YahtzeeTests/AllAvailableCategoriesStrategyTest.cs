@@ -10,15 +10,6 @@ namespace YahtzeeTests
   public class AllAvailableCategoriesTest
   {
     [Fact]
-    public void ShouldAcceptDiceAndScoreBoard()
-    {
-      var fakePlayer = new Mock<ScoreBoard>();
-      var fakeDice = new Mock<Dice>();
-      var sut = new AllAvailableCategoriesStrategy();
-      sut.GetCategories(fakeDice.Object, fakePlayer.Object);
-    }
-
-    [Fact]
     public void ShouldNotAcceptNullDice()
     {
       var fakePlayer = new Mock<ScoreBoard>();
