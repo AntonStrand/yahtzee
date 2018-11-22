@@ -11,12 +11,17 @@ namespace Yahtzee.model
     {
       if (IsEitherNull(dice, scoreBoard)) throw new ArgumentNullException();
       var pairs = GetPairs(dice);
-      return (pairs.Count == 2)
-       ? new List<Category>() { new TwoPair(new Pair(4, 4), new Pair(6, 6)) }
-       : new List<Category>(GetPairs(dice));
+      return GetTwoPair(pairs).Concat(pairs).ToList();
     }
 
     private bool IsEitherNull(Dice dice, ScoreBoard scoreBoard) => dice == null || scoreBoard == null;
+
+    private List<Category> GetTwoPair(List<Pair> pairs)
+    {
+      return (pairs.Count == 2)
+       ? new List<Category>() { new TwoPair(new Pair(4, 4), new Pair(6, 6)) }
+       : new List<Category>();
+    }
 
     private List<Pair> GetPairs(Dice dice) =>
       GetFrequencyTable(dice)
