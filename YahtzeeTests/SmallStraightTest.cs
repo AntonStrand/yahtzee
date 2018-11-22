@@ -31,6 +31,12 @@ namespace YahtzeeTests
       Assert.Equal(expected, actual);
     }
 
+    [Fact]
+    public void ShouldNotAcceptInvalidInput()
+    {
+      Assert.Throws<ArgumentException>(() => new SmallStraight(new List<int>() { 1, 2, 3, 4, 6 }));
+    }
+
     private void AssertArgumentOutOfRangeException(List<int> input) =>
       Assert.Throws<ArgumentOutOfRangeException>(() => new SmallStraight(input));
   }
