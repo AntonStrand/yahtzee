@@ -8,7 +8,7 @@ namespace Yahtzee.model
   {
     public void GetCategories(Dice dice, ScoreBoard scoreBoard)
     {
-      if (dice == null) throw new ArgumentNullException();
+      if (dice == null || scoreBoard == null) throw new ArgumentNullException();
     }
   }
 }
