@@ -1,7 +1,9 @@
 using System;
 using Xunit;
 using Yahtzee.model;
+using Yahtzee.model.category;
 using Moq;
+using System.Collections.Generic;
 
 namespace YahtzeeTests
 {
@@ -30,6 +32,18 @@ namespace YahtzeeTests
       var fakeDice = new Mock<Dice>();
       var sut = new AllAvailableCategoriesStrategy();
       Assert.Throws<ArgumentNullException>(() => sut.GetCategories(fakeDice.Object, null));
+    }
+
+    [Fact]
+    public void ShouldReturnPair()
+    {
+      var fakePlayer = new Mock<ScoreBoard>();
+      var fakeDice = new Mock<Dice>();
+      fakeDice.Setup(d => d.GetValues()).Returns(new List<int>() { 5, 5, 1, 2, 4 });
+
+      var sut = new AllAvailableCategoriesStrategy();
+      var actual = sut.GetCategories(fakeDice.Object, fakePlayer.Object)[0];
+      Assert.IsType<Pair>(actual);
     }
   }
 }
