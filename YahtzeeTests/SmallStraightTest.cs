@@ -22,6 +22,15 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldNotAcceptMoreThanOneOfEach() => Assert.Throws<ArgumentException>(() => new SmallStraight(new List<int>() { 1, 1, 1, 1, 1 }));
 
+    [Fact]
+    public void ShouldSetValueIfInputIsCorrect()
+    {
+      var sut = new SmallStraight(new List<int>() { 1, 2, 3, 4, 5 });
+      var actual = sut.GetValue();
+      var expected = 15;
+      Assert.Equal(expected, actual);
+    }
+
     private void AssertArgumentOutOfRangeException(List<int> input) =>
       Assert.Throws<ArgumentOutOfRangeException>(() => new SmallStraight(input));
   }
