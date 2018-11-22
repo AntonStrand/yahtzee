@@ -32,12 +32,7 @@ namespace YahtzeeTests
     [InlineData(5, 6, 6, 2, 4, 12)]
     [InlineData(4, 1, 6, 2, 4, 8)]
     public void ShouldReturnPairFrom(int v1, int v2, int v3, int v4, int v5, int expected)
-    {
-      var diceValues = new List<int>() { v1, v2, v3, v4, v5 };
-
-      var actual = ExerciseSUT(diceValues)[0].GetValue();
-      Assert.Equal(expected, actual);
-    }
+      => Assert.Equal(expected, ExerciseSUT(new List<int>() { v1, v2, v3, v4, v5 })[0].GetValue());
 
     private List<Category> ExerciseSUT(List<int> diceValues)
     {
@@ -49,7 +44,8 @@ namespace YahtzeeTests
       return sut.GetCategories(fakeDice.Object, fakePlayer.Object);
     }
 
-    private void AssertType<T>(List<int> diceValues) => Assert.IsType<T>(ExerciseSUT(diceValues)[0]);
+    private void AssertType<T>(List<int> diceValues)
+      => Assert.IsType<T>(ExerciseSUT(diceValues)[0]);
   }
 }
 
