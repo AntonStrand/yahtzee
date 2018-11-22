@@ -24,6 +24,15 @@ namespace YahtzeeTests
       var sut = new AllAvailableCategoriesStrategy();
       Assert.Throws<ArgumentNullException>(() => sut.GetCategories(null, fakePlayer.Object));
     }
+
+    [Fact]
+    public void ShouldNotAcceptNullScoreBoard()
+    {
+      var fakeDie = new Mock<Die>();
+      var fakeDice = new Mock<Dice>(fakeDie.Object, fakeDie.Object, fakeDie.Object, fakeDie.Object, fakeDie.Object);
+      var sut = new AllAvailableCategoriesStrategy();
+      Assert.Throws<ArgumentNullException>(() => sut.GetCategories(fakeDice.Object, null));
+    }
   }
 }
 
