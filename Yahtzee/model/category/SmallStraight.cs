@@ -13,7 +13,7 @@ namespace Yahtzee.model.category
       if (HasDoublets(values)) throw new ArgumentException();
     }
 
-    public int GetValue() => 0;
+    public int GetValue() => 15;
 
     private bool IsOutOfRange(List<int> list) => list.Count != 5;
 
