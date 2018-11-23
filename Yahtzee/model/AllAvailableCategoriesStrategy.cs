@@ -11,7 +11,7 @@ namespace Yahtzee.model
     {
       if (IsEitherNull(dice, scoreBoard)) throw new ArgumentNullException();
       var pairs = GetPairs(dice);
-      return GetTwoPair(pairs).Concat(pairs).ToList();
+      return GetTwoPair(pairs).Concat(pairs).Concat(new List<Category>() { new ThreeOfAKind(5, 5, 5) }).ToList();
     }
 
     private bool IsEitherNull(Dice dice, ScoreBoard scoreBoard) => dice == null || scoreBoard == null;
