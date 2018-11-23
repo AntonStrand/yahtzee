@@ -44,7 +44,7 @@ namespace YahtzeeTests
     [InlineData(1, 2, 5, 6, 4, 0)]
     public void ShouldReturnMaxTwoOfTypePair(int v1, int v2, int v3, int v4, int v5, int expected)
     {
-      var actual = ExerciseSUT(new List<int>() { v1, v2, v3, v4, v5 }).FindAll(c => c.GetType() == typeof(Pair)).Count;
+      var actual = ExerciseSUT(new List<int>() { v1, v2, v3, v4, v5 }).FindAll(IsOfType<Pair>).Count;
       Assert.Equal(expected, actual);
     }
 
@@ -53,12 +53,12 @@ namespace YahtzeeTests
     [InlineData(4, 4, 3, 2, 3, 14)]
     public void ShouldCombineValuesFromPairToTwoPair(int v1, int v2, int v3, int v4, int v5, int expected)
     {
-      var actual = ExerciseSUT(new List<int>() { v1, v2, v3, v4, v5 }).Find(c => c.GetType() == typeof(TwoPair)).GetValue();
+      var actual = ExerciseSUT(new List<int>() { v1, v2, v3, v4, v5 }).Find(IsOfType<TwoPair>).GetValue();
       Assert.Equal(expected, actual);
     }
 
     private void AssertType<T>(List<int> diceValues) =>
-      Assert.IsType<T>(ExerciseSUT(diceValues)[0]);
+      Assert.IsType<T>(ExerciseSUT(diceValues).Find(IsOfType<T>));
 
     private List<Category> ExerciseSUT(List<int> diceValues)
     {
@@ -69,6 +69,8 @@ namespace YahtzeeTests
       var sut = new AllAvailableCategoriesStrategy();
       return sut.GetCategories(fakeDice.Object, fakePlayer.Object);
     }
+
+    private bool IsOfType<T>(Category c) => c.GetType() == typeof(T);
   }
 }
 
