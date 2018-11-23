@@ -45,6 +45,13 @@ namespace YahtzeeTests
       Assert.InRange(actual, 3, int.MaxValue);
     }
 
+    [Fact]
+    public void ShouldNotReturnMoreThan2OfTypePair()
+    {
+      var actual = ExerciseSUT(new List<int>() { 1, 1, 1, 1, 3 }).FindAll(c => c.GetType() == typeof(Pair)).Count;
+      Assert.Equal(1, actual);
+    }
+
     [Theory]
     [InlineData(1, 1, 2, 2, 3, 6)]
     [InlineData(4, 4, 3, 2, 3, 14)]
