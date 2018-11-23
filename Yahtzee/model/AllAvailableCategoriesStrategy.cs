@@ -23,14 +23,11 @@ namespace Yahtzee.model
        : new List<Category>();
     }
 
-    private List<Pair> GetPairs(Dice dice)
-    {
-      var pairs = GetFrequencyTable(dice)
+    private List<Pair> GetPairs(Dice dice) =>
+      GetFrequencyTable(dice)
         .Where(x => x.Value % 2 == 0)
         .Select(x => new Pair(x.Key, x.Key))
         .ToList();
-      return (pairs.Count == 0) ? null : pairs;
-    }
 
     private Dictionary<int, int> GetFrequencyTable(Dice dice) =>
       dice
