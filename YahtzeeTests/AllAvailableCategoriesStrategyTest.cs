@@ -35,6 +35,13 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldReturnThreeOfAKind() => AssertType<ThreeOfAKind>(new List<int> { 1, 1, 1, 2, 4 });
 
+    [Fact]
+    public void ShouldOnlyReturnAPair()
+    {
+      var actual = ExerciseSUT(new List<int>() { 1, 1, 2, 4, 6 }).Where(c => !IsOfType<Pair>(c)).ToList().Count;
+      Assert.Equal(0, actual);
+    }
+
     [Theory]
     [InlineData(5, 6, 6, 2, 4, 12)]
     [InlineData(4, 1, 6, 2, 4, 8)]
