@@ -47,6 +47,7 @@ namespace YahtzeeTests
 
     [Theory]
     [InlineData(1, 1, 1, 1, 4, 1)]
+    [InlineData(1, 2, 5, 6, 4, 0)]
     public void ShouldNotReturnMoreThan2OfTypePair(int v1, int v2, int v3, int v4, int v5, int expected)
     {
       var actual = ExerciseSUT(new List<int>() { v1, v2, v3, v4, v5 }).FindAll(c => c.GetType() == typeof(Pair)).Count;
