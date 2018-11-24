@@ -30,7 +30,7 @@ namespace Yahtzee.model
     private IEnumerable<Category> GetThreeOfAKind(Dice dice) =>
       GetFrequencyTable(dice)
         .Where(ValueIs(3))
-        .Select(_ => new ThreeOfAKind(6, 6, 6));
+        .Select(x => new ThreeOfAKind(x.Key, x.Key, x.Key));
 
     private Dictionary<int, int> GetFrequencyTable(Dice dice) =>
       dice
