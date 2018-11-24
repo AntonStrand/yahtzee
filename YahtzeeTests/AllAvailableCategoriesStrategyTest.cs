@@ -49,6 +49,11 @@ namespace YahtzeeTests
       Assert.Equal(expected, ExerciseSUT(new List<int>() { v1, v2, v3, v4, v5 }).Find(IsOfType<Pair>).GetValue());
 
     [Theory]
+    [InlineData(6, 6, 6, 2, 4, 18)]
+    public void ShouldReturnThreeOfAKindWithCorrectValue(int v1, int v2, int v3, int v4, int v5, int expected) =>
+      Assert.Equal(expected, ExerciseSUT(new List<int>() { v1, v2, v3, v4, v5 }).Find(IsOfType<ThreeOfAKind>).GetValue());
+
+    [Theory]
     [InlineData(1, 1, 1, 1, 4, 1)]
     [InlineData(1, 1, 2, 2, 4, 2)]
     [InlineData(1, 2, 5, 6, 4, 0)]
