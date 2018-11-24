@@ -22,12 +22,10 @@ namespace Yahtzee.model
         .Select(x => new Pair(x.Key, x.Key))
         .ToList();
 
-    private List<Category> GetTwoPair(List<Pair> pairs)
-    {
-      return (pairs.Count == 2)
-       ? new List<Category>() { new TwoPair(pairs[0], pairs[1]) }
-       : new List<Category>();
-    }
+    private List<Category> GetTwoPair(List<Pair> pairs) =>
+      (pairs.Count == 2)
+        ? new List<Category>() { new TwoPair(pairs[0], pairs[1]) }
+        : new List<Category>();
 
     private IEnumerable<Category> GetThreeOfAKind(Dice dice) =>
       GetFrequencyTable(dice)
