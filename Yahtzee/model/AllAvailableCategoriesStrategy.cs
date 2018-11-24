@@ -29,7 +29,7 @@ namespace Yahtzee.model
 
     private IEnumerable<Category> GetThreeOfAKind(Dice dice) =>
       GetFrequencyTable(dice)
-        .Where(x => x.Value == 3)
+        .Where(ValueIs(3))
         .Select(_ => new ThreeOfAKind(5, 5, 5));
 
     private Dictionary<int, int> GetFrequencyTable(Dice dice) =>
@@ -37,5 +37,7 @@ namespace Yahtzee.model
         .GetValues()
         .GroupBy(x => x)
         .ToDictionary(x => x.Key, x => x.Count());
+
+    private Func<int, Func<KeyValuePair<int, int>, bool>> ValueIs = comparedTo => x => x.Value == comparedTo;
   }
 }
