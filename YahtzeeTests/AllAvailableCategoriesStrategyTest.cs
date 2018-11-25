@@ -85,6 +85,7 @@ namespace YahtzeeTests
 
     [Theory]
     [InlineData(6, 3, 2, 4, 5, 20)]
+    [InlineData(5, 3, 2, 6, 4, 20)]
     public void ShouldReturnLargeStraightWithCorrectValue(int v1, int v2, int v3, int v4, int v5, int expected) =>
       AssertValueFromType<LargeStraight>(new List<int>() { v1, v2, v3, v4, v5 }, expected);
 
