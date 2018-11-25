@@ -19,6 +19,7 @@ namespace Yahtzee
       var dice = new DiceImplemented(die, die, die, die, die);
       var diceView = new DiceView(dice);
       diceView.Print();
+      diceView.Print();
     }
   }
 }

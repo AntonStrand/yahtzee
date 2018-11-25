@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Yahtzee.model;
 
 namespace Yahtzee.view
@@ -27,7 +28,7 @@ namespace Yahtzee.view
 
     public void Print()
     {
-      ClearList();
+      ClearQueue();
       var dice = _dice.GetValues();
 
       int i = 0;
@@ -45,14 +46,10 @@ namespace Yahtzee.view
       RenderQueueFifthRow(index);
     }
 
-    private void ClearList()
-    {
-      _renderQueue[0] = "";
-      _renderQueue[1] = "";
-      _renderQueue[2] = "";
-      _renderQueue[3] = "";
-      _renderQueue[4] = "";
-    }
+    private void ClearQueue() =>
+      _renderQueue = _renderQueue
+        .Select(q => "")
+        .ToList();
 
     private void RenderQueueFirstRow()
     {
