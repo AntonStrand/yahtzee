@@ -30,7 +30,7 @@ namespace YahtzeeTests
     }
 
     [Fact]
-    public void WhenCallingPlayViewInstructionsIsCalled()
+    public void WhenRunningPlayViewInstructionsIsCalled()
     {
       var mockView = new Mock<MainView>();
       var p = new Player();

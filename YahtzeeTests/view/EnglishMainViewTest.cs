@@ -36,5 +36,12 @@ namespace YahtzeeTests
         sw.Close();
       }
     }
+
+    [Fact]
+    public void GetUserNameExist()
+    {
+      var v = new EnglishMainView();
+      Assert.Equal("String GetUsername()", v.GetType().GetMethod("GetUsername").ToString());
+    }
   }
 }

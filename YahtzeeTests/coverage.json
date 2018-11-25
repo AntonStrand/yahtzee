@@ -14,8 +14,7 @@
             "19": 0,
             "20": 0,
             "21": 0,
-            "22": 0,
-            "23": 0
+            "22": 0
           },
           "Branches": []
         }
@@ -768,16 +767,16 @@
       "Yahtzee.model.Player": {
         "System.Void Yahtzee.model.Player::SetName(System.String)": {
           "Lines": {
-            "9": 1,
-            "10": 1,
-            "11": 1,
+            "10": 2,
+            "11": 2,
             "12": 1,
-            "14": 0,
-            "15": 0
+            "13": 1,
+            "15": 1,
+            "16": 1
           },
           "Branches": [
             {
-              "Line": 10,
+              "Line": 11,
               "Offset": 12,
               "EndOffset": 14,
               "Path": 0,
@@ -785,12 +784,12 @@
               "Hits": 1
             },
             {
-              "Line": 10,
+              "Line": 11,
               "Offset": 12,
               "EndOffset": 21,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
@@ -942,7 +941,7 @@
         },
         "System.Boolean Yahtzee.model.category.Pair::IsMatch(System.Int32,System.Int32)": {
           "Lines": {
-            "16": 26
+            "16": 25
           },
           "Branches": []
         },
@@ -951,7 +950,7 @@
             "8": 26,
             "9": 26,
             "10": 27,
-            "11": 25,
+            "11": 24,
             "12": 25
           },
           "Branches": [
@@ -969,7 +968,7 @@
               "EndOffset": 29,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 25
+              "Hits": 24
             }
           ]
         }
