@@ -56,7 +56,6 @@ namespace Yahtzee.model
        : new List<Category>();
     }
 
-
     private Dictionary<int, int> GetFrequencyTable(Dice dice) =>
       dice
         .GetValues()
