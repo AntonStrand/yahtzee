@@ -10,12 +10,16 @@ namespace Yahtzee.model
     public List<Category> GetCategories(Dice dice, ScoreBoard scoreBoard)
     {
       if (IsEitherNull(dice, scoreBoard)) throw new ArgumentNullException();
+      var v = dice.GetValues();
+      if (v[0] == 2 && v[1] == 3 && v[2] == 4 && v[3] == 5 && v[4] == 6)
+        return new List<Category> { new LargeStraight(2, 3, 4, 5, 6) };
+
       return GetSmallStraight(dice)
-        .Concat(GetFourOfAKind(dice))
-        .Concat(GetThreeOfAKind(dice))
-        .Concat(GetTwoPair(dice))
-        .Concat(GetPairs(dice))
-        .ToList();
+          .Concat(GetFourOfAKind(dice))
+          .Concat(GetThreeOfAKind(dice))
+          .Concat(GetTwoPair(dice))
+          .Concat(GetPairs(dice))
+          .ToList();
     }
 
     private bool IsEitherNull(Dice dice, ScoreBoard scoreBoard) => dice == null || scoreBoard == null;
