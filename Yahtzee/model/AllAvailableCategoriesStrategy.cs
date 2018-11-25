@@ -9,7 +9,7 @@ namespace Yahtzee.model
   {
     public List<Category> GetCategories(Dice dice, ScoreBoard scoreBoard)
     {
-      if (IsEitherNull(dice, scoreBoard)) throw new ArgumentNullException();
+      if (IsAnyNull(dice, scoreBoard)) throw new ArgumentNullException();
 
       return GetLargeStraight(dice)
           .Concat(GetSmallStraight(dice))
@@ -21,7 +21,7 @@ namespace Yahtzee.model
           .ToList();
     }
 
-    private bool IsEitherNull(Dice dice, ScoreBoard scoreBoard) => dice == null || scoreBoard == null;
+    private bool IsAnyNull(params Object[] objects) => objects.Any(o => o == null);
 
     private List<Pair> GetPairs(Dice dice) =>
       GetFrequencyTable(dice)
@@ -40,11 +40,10 @@ namespace Yahtzee.model
       return new List<Category>();
     }
 
-    private List<ThreeOfAKind> GetThreeOfAKind(Dice dice) =>
+    private IEnumerable<ThreeOfAKind> GetThreeOfAKind(Dice dice) =>
       GetFrequencyTable(dice)
         .Where(ValueIs(3))
-        .Select(x => new ThreeOfAKind(x.Key, x.Key, x.Key))
-        .ToList();
+        .Select(x => new ThreeOfAKind(x.Key, x.Key, x.Key));
 
     private IEnumerable<Category> GetFourOfAKind(Dice dice) =>
       GetFrequencyTable(dice)
@@ -54,12 +53,13 @@ namespace Yahtzee.model
 
     private List<Category> GetFullHouse(Dice dice)
     {
-      var pairs = GetFrequencyTable(dice).Where(ValueIs(2)).Select(x => new Pair(x.Key, x.Key)).ToList();
-      Pair pair = pairs.Count > 0 ? pairs[0] : null;
-      ThreeOfAKind toak = GetThreeOfAKind(dice).Count > 0 ? GetThreeOfAKind(dice)[0] : null;
-      return (pair != null && toak != null)
-        ? new List<Category> { new FullHouse(pair, toak) }
-        : new List<Category>();
+      var pairs = GetFrequencyTable(dice).Where(ValueIs(2)).Select(x => new Pair(x.Key, x.Key));
+      Pair pair = Head(pairs);
+      ThreeOfAKind threeOfAKind = Head(GetThreeOfAKind(dice));
+
+      return (IsAnyNull(pair, threeOfAKind))
+        ? new List<Category>()
+        : new List<Category> { new FullHouse(pair, threeOfAKind) };
     }
 
     private List<Category> GetSmallStraight(Dice dice) =>
@@ -80,6 +80,8 @@ namespace Yahtzee.model
         .ToDictionary(x => x.Key, x => x.Count());
 
     private Func<int, Func<KeyValuePair<int, int>, bool>> ValueIs = comparedTo => x => x.Value == comparedTo;
+
+    private T Head<T>(IEnumerable<T> enumerable) => enumerable.ToList().Count > 0 ? enumerable.ToList()[0] : default(T);
 
     private bool IsASmallStraight(Dice dice) => IsAStraight(1, dice);
     private bool IsALargeStraight(Dice dice) => IsAStraight(2, dice);
