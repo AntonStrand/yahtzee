@@ -23,7 +23,7 @@ namespace Yahtzee.model
 
     private List<Pair> GetPairs(Dice dice) =>
       GetFrequencyTable(dice)
-        .Where(x => x.Value % 2 == 0)
+        .Where(x => x.Value >= 2)
         .Select(x => new Pair(x.Key, x.Key))
         .ToList();
 
