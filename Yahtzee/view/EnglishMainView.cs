@@ -4,7 +4,8 @@ namespace Yahtzee.view
 {
   public class EnglishMainView : MainView
   {
-    public string welcomeMsg = "Welcome to Yahtzee";
+    internal string welcomeMsg = "Welcome to Yahtzee";
+    internal string enterUsername = "Enter username: ";
     public void DisplayWelcomeMessage()
     {
       Console.WriteLine(welcomeMsg);
