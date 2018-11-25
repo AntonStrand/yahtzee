@@ -59,5 +59,19 @@ namespace YahtzeeTests
         sw.Close();
       }
     }
+
+    [Fact]
+    public void GetUserNameReturnsText()
+    {
+      string testString = "test";
+      var input = new StringReader(testString);
+      Console.SetIn(input);
+
+      var v = new EnglishMainView();
+      string result = v.GetUsername();
+
+      Assert.Equal(testString, result);
+      input.Close();
+    }
   }
 }
