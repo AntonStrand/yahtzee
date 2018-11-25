@@ -6,10 +6,11 @@ namespace YahtzeeTests
 {
   public class YahtzeeTest
   {
-    [Fact]
-    public void ShouldNotAcceptInvalidInput()
+    [Theory]
+    [InlineData(1, 2, 3, 4, 6)]
+    public void ShouldNotAcceptInvalidInput(int v1, int v2, int v3, int v4, int v5)
     {
-      Assert.Throws<ArgumentException>(() => new category.Yahtzee(1, 2, 3, 4, 6));
+      Assert.Throws<ArgumentException>(() => new category.Yahtzee(v1, v2, v3, v4, v5));
     }
 
     [Fact]
