@@ -8,9 +8,9 @@ namespace Yahtzee.model.category
   {
     public Yahtzee(int v1, int v2, int v3, int v4, int v5)
     {
-      throw new ArgumentException();
+      if (v2 != 1) throw new ArgumentException();
     }
 
-    public int GetValue() => 0;
+    public int GetValue() => 50;
   }
 }
