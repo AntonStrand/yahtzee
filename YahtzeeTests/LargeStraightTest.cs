@@ -16,5 +16,13 @@ namespace YahtzeeTests
       var actual = sut.GetValue();
       Assert.Equal(20, actual);
     }
+
+    [Fact]
+    public void ShouldAcceptValidInput2()
+    {
+      var sut = new LargeStraight(4, 3, 2, 6, 5);
+      var actual = sut.GetValue();
+      Assert.Equal(20, actual);
+    }
   }
 }
