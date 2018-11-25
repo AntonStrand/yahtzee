@@ -45,7 +45,8 @@ namespace Yahtzee.model
     private IEnumerable<Category> GetFourOfAKind(Dice dice) =>
       GetFrequencyTable(dice)
         .Where(ValueIs(4))
-        .Select(_ => new FourOfAKind(6, 6, 6, 6));
+        .Select(x => x.Key)
+        .Select(v => new FourOfAKind(v, v, v, v));
 
     private Dictionary<int, int> GetFrequencyTable(Dice dice) =>
       dice
