@@ -8,24 +8,15 @@ namespace YahtzeeTests
   public class SmallStraightTest
   {
     [Fact]
-    public void ShouldAcceptCorrectInput() => new SmallStraight(new List<int>() { 1, 2, 3, 4, 5 });
+    public void ShouldAcceptCorrectInput() => new SmallStraight(1, 2, 3, 4, 5);
 
     [Fact]
-    public void ShouldNotAcceptNull() => Assert.Throws<ArgumentNullException>(() => new SmallStraight(null));
-
-    [Fact]
-    public void ShouldNotAcceptLessThan5Items() => AssertArgumentOutOfRangeException(new List<int>());
-
-    [Fact]
-    public void ShouldNotAcceptMoreThan5Items() => AssertArgumentOutOfRangeException(new List<int>() { 1, 2, 3, 4, 5, 6 });
-
-    [Fact]
-    public void ShouldNotAcceptMoreThanOneOfEach() => Assert.Throws<ArgumentException>(() => new SmallStraight(new List<int>() { 1, 1, 1, 1, 1 }));
+    public void ShouldNotAcceptMoreThanOneOfEach() => Assert.Throws<ArgumentException>(() => new SmallStraight(1, 1, 1, 1, 1));
 
     [Fact]
     public void ShouldSetValueIfInputIsCorrect()
     {
-      var sut = new SmallStraight(new List<int>() { 1, 2, 3, 4, 5 });
+      var sut = new SmallStraight(1, 2, 3, 4, 5);
       var actual = sut.GetValue();
       var expected = 15;
       Assert.Equal(expected, actual);
@@ -34,10 +25,7 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldNotAcceptInvalidInput()
     {
-      Assert.Throws<ArgumentException>(() => new SmallStraight(new List<int>() { 1, 2, 3, 4, 6 }));
+      Assert.Throws<ArgumentException>(() => new SmallStraight(1, 2, 3, 4, 6));
     }
-
-    private void AssertArgumentOutOfRangeException(List<int> input) =>
-      Assert.Throws<ArgumentOutOfRangeException>(() => new SmallStraight(input));
   }
 }
