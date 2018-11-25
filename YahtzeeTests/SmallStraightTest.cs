@@ -23,6 +23,15 @@ namespace YahtzeeTests
     }
 
     [Fact]
+    public void ShouldSetValueIfInputIsCorrect2()
+    {
+      var sut = new SmallStraight(1, 4, 3, 2, 5);
+      var actual = sut.GetValue();
+      var expected = 15;
+      Assert.Equal(expected, actual);
+    }
+
+    [Fact]
     public void ShouldNotAcceptInvalidInput()
     {
       Assert.Throws<ArgumentException>(() => new SmallStraight(1, 2, 3, 4, 6));
