@@ -27,6 +27,7 @@ namespace Yahtzee.view
 
     public void Print()
     {
+      ClearList();
       var dice = _dice.GetValues();
 
       int i = 0;
@@ -42,6 +43,15 @@ namespace Yahtzee.view
       RenderQueueThirdRow(die);
       RenderQueueFourthRow(die);
       RenderQueueFifthRow(index);
+    }
+
+    private void ClearList()
+    {
+      _renderQueue[0] = "";
+      _renderQueue[1] = "";
+      _renderQueue[2] = "";
+      _renderQueue[3] = "";
+      _renderQueue[4] = "";
     }
 
     private void RenderQueueFirstRow()
