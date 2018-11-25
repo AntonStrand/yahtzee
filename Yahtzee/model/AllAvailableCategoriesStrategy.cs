@@ -10,9 +10,11 @@ namespace Yahtzee.model
     public List<Category> GetCategories(Dice dice, ScoreBoard scoreBoard)
     {
       if (IsEitherNull(dice, scoreBoard)) throw new ArgumentNullException();
-      return (GetTwoPair(dice).Count == 1)
-       ? new List<Category>() { new FourOfAKind(4, 4, 4, 4) }.Concat(GetTwoPair(dice)).Concat(GetPairs(dice)).Concat(GetThreeOfAKind(dice)).ToList()
-       : GetTwoPair(dice).Concat(GetPairs(dice)).Concat(GetThreeOfAKind(dice)).ToList();
+      return GetFourOfAKind(dice)
+        .Concat(GetThreeOfAKind(dice))
+        .Concat(GetTwoPair(dice))
+        .Concat(GetPairs(dice))
+        .ToList();
     }
 
     private bool IsEitherNull(Dice dice, ScoreBoard scoreBoard) => dice == null || scoreBoard == null;
@@ -35,11 +37,15 @@ namespace Yahtzee.model
       return new List<Category>();
     }
 
-
     private IEnumerable<Category> GetThreeOfAKind(Dice dice) =>
       GetFrequencyTable(dice)
         .Where(ValueIs(3))
         .Select(x => new ThreeOfAKind(x.Key, x.Key, x.Key));
+
+    private IEnumerable<Category> GetFourOfAKind(Dice dice) =>
+      GetFrequencyTable(dice)
+        .Where(ValueIs(4))
+        .Select(_ => new FourOfAKind(4, 4, 4, 4));
 
     private Dictionary<int, int> GetFrequencyTable(Dice dice) =>
       dice
