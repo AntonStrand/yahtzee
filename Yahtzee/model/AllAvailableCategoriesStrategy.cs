@@ -48,13 +48,10 @@ namespace Yahtzee.model
         .Select(x => x.Key)
         .Select(v => new FourOfAKind(v, v, v, v));
 
-    private List<Category> GetSmallStraight(Dice dice)
-    {
-      bool isAStraight = dice.GetValues().OrderBy(v => v).Where((value, i) => value == (i + 1)).ToList().Count == 5;
-      return (isAStraight)
-       ? new List<Category>() { new SmallStraight(1, 2, 3, 4, 5) }
-       : new List<Category>();
-    }
+    private List<Category> GetSmallStraight(Dice dice) =>
+      IsASmallStraight(dice)
+        ? new List<Category>() { new SmallStraight(1, 2, 3, 4, 5) }
+        : new List<Category>();
 
 
     private Dictionary<int, int> GetFrequencyTable(Dice dice) =>
@@ -64,5 +61,8 @@ namespace Yahtzee.model
         .ToDictionary(x => x.Key, x => x.Count());
 
     private Func<int, Func<KeyValuePair<int, int>, bool>> ValueIs = comparedTo => x => x.Value == comparedTo;
+
+    private bool IsASmallStraight(Dice dice) =>
+      dice.GetValues().OrderBy(v => v).Where((value, i) => value == (i + 1)).ToList().Count == 5;
   }
 }
