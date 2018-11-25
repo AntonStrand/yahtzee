@@ -16,7 +16,5 @@ namespace Yahtzee.model.category
 
     private bool IsInvalidInput(List<int> list) =>
       list.OrderBy(v => v).Where((value, i) => value != (i + 1)).ToList().Count != 0;
-
-
   }
 }
