@@ -45,6 +45,9 @@ namespace YahtzeeTests
     public void ShouldReturnSmallStraight() => AssertType<SmallStraight>(new List<int>() { 1, 2, 3, 4, 5 });
 
     [Fact]
+    public void ShouldReturnLargeStraight() => AssertType<LargeStraight>(new List<int>() { 2, 3, 4, 5, 6 });
+
+    [Fact]
     public void ShouldOnlyReturnAPair()
     {
       var actual = ExerciseSUT(new List<int>() { 1, 1, 2, 4, 6 }).Where(c => !IsOfType<Pair>(c)).ToList().Count;
