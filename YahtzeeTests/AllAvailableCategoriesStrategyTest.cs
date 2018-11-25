@@ -68,6 +68,7 @@ namespace YahtzeeTests
 
     [Theory]
     [InlineData(6, 6, 6, 6, 4, 24)]
+    [InlineData(2, 2, 6, 2, 2, 8)]
     public void ShouldReturnFourOfAKindWithCorrectValue(int v1, int v2, int v3, int v4, int v5, int expected) =>
       AssertValueFromType<FourOfAKind>(new List<int>() { v1, v2, v3, v4, v5 }, expected);
 
