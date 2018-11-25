@@ -31,7 +31,7 @@ namespace YahtzeeTests
         var v = new EnglishMainView();
         v.DisplayWelcomeMessage();
 
-        string expected = string.Format("Welcome to Yahtzee\n");
+        string expected = v.welcomeMsg + "\n";
         Assert.Equal(expected, sw.ToString());
       }
     }
