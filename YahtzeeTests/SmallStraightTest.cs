@@ -13,19 +13,12 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldNotAcceptMoreThanOneOfEach() => Assert.Throws<ArgumentException>(() => new SmallStraight(1, 1, 1, 1, 1));
 
-    [Fact]
-    public void ShouldSetValueIfInputIsCorrect()
+    [Theory]
+    [InlineData(1, 2, 3, 4, 5)]
+    [InlineData(4, 3, 2, 5, 1)]
+    public void ShouldSetValueIfInputIsCorrect(int v1, int v2, int v3, int v4, int v5)
     {
-      var sut = new SmallStraight(1, 2, 3, 4, 5);
-      var actual = sut.GetValue();
-      var expected = 15;
-      Assert.Equal(expected, actual);
-    }
-
-    [Fact]
-    public void ShouldSetValueIfInputIsCorrect2()
-    {
-      var sut = new SmallStraight(1, 4, 3, 2, 5);
+      var sut = new SmallStraight(v1, v2, v3, v4, v5);
       var actual = sut.GetValue();
       var expected = 15;
       Assert.Equal(expected, actual);
