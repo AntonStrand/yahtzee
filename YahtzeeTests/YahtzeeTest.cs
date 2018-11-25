@@ -11,5 +11,12 @@ namespace YahtzeeTests
     {
       Assert.Throws<ArgumentException>(() => new category.Yahtzee(1, 2, 3, 4, 6));
     }
+
+    [Fact]
+    public void ShouldSetValueIfInputIsCorrect()
+    {
+      var sut = new category.Yahtzee(1, 1, 1, 1, 1);
+      Assert.Equal(50, sut.GetValue());
+    }
   }
 }
