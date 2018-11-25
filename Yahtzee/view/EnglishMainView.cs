@@ -9,5 +9,10 @@ namespace Yahtzee.view
     {
       Console.WriteLine(welcomeMsg);
     }
+
+    public string GetUsername()
+    {
+      return "";
+    }
   }
 }
