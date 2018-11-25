@@ -42,6 +42,9 @@ namespace YahtzeeTests
     public void ShouldReturnFourOfAKind() => AssertType<FourOfAKind>(new List<int>() { 1, 1, 1, 1, 4 });
 
     [Fact]
+    public void ShouldReturnFullHouse() => AssertType<FullHouse>(new List<int>() { 1, 1, 1, 4, 4 });
+
+    [Fact]
     public void ShouldReturnSmallStraight() => AssertType<SmallStraight>(new List<int>() { 1, 2, 3, 4, 5 });
 
     [Fact]
