@@ -10,7 +10,9 @@ namespace Yahtzee.model
     public List<Category> GetCategories(Dice dice, ScoreBoard scoreBoard)
     {
       if (IsEitherNull(dice, scoreBoard)) throw new ArgumentNullException();
-      return GetFourOfAKind(dice)
+      return (GetSmallStraight(dice).Count == 1)
+       ? GetSmallStraight(dice)
+       : GetFourOfAKind(dice)
         .Concat(GetThreeOfAKind(dice))
         .Concat(GetTwoPair(dice))
         .Concat(GetPairs(dice))
@@ -27,7 +29,6 @@ namespace Yahtzee.model
 
     private List<Category> GetTwoPair(Dice dice)
     {
-
       var twoDifferentPair = GetPairs(dice);
       if (twoDifferentPair.Count == 2) return new List<Category>() { new TwoPair(twoDifferentPair[0], twoDifferentPair[1]) };
 
@@ -47,6 +48,15 @@ namespace Yahtzee.model
         .Where(ValueIs(4))
         .Select(x => x.Key)
         .Select(v => new FourOfAKind(v, v, v, v));
+
+    private List<Category> GetSmallStraight(Dice dice)
+    {
+      var values = dice.GetValues().OrderBy(v => v).Where((value, i) => value == (i + 1)).ToList();
+      return (values.Count == 5)
+       ? new List<Category>() { new SmallStraight(values[0], values[1], values[2], values[3], values[4]) }
+       : new List<Category>();
+    }
+
 
     private Dictionary<int, int> GetFrequencyTable(Dice dice) =>
       dice
