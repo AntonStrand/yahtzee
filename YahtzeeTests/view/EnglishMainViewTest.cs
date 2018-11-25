@@ -50,6 +50,7 @@ namespace YahtzeeTests
       using (StringWriter sw = new StringWriter())
       {
         Console.SetOut(sw);
+        Console.SetIn(new StringReader("test"));
 
         var v = new EnglishMainView();
         v.GetUsername();
