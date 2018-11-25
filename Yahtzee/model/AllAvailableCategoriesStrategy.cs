@@ -11,7 +11,7 @@ namespace Yahtzee.model
     {
       if (IsEitherNull(dice, scoreBoard)) throw new ArgumentNullException();
       var pairs = GetPairs(dice);
-      return GetTwoPair(pairs).Concat(pairs).Concat(GetThreeOfAKind(dice)).ToList();
+      return GetTwoPair(dice).Concat(pairs).Concat(GetThreeOfAKind(dice)).ToList();
     }
 
     private bool IsEitherNull(Dice dice, ScoreBoard scoreBoard) => dice == null || scoreBoard == null;
@@ -22,10 +22,18 @@ namespace Yahtzee.model
         .Select(x => new Pair(x.Key, x.Key))
         .ToList();
 
-    private List<Category> GetTwoPair(List<Pair> pairs) =>
-      (pairs.Count == 2)
-        ? new List<Category>() { new TwoPair(pairs[0], pairs[1]) }
-        : new List<Category>();
+    private List<Category> GetTwoPair(Dice dice)
+    {
+
+      var twoDifferentPair = GetPairs(dice);
+      if (twoDifferentPair.Count == 2) return new List<Category>() { new TwoPair(twoDifferentPair[0], twoDifferentPair[1]) };
+
+      var twoSamePair = GetFrequencyTable(dice).Where(ValueIs(4)).Select(x => new Pair(x.Key, x.Key)).ToList();
+      if (twoSamePair.Count == 1) return new List<Category>() { new TwoPair(twoSamePair[0], twoSamePair[0]) };
+
+      return new List<Category>();
+    }
+
 
     private IEnumerable<Category> GetThreeOfAKind(Dice dice) =>
       GetFrequencyTable(dice)
