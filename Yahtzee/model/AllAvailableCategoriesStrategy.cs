@@ -10,10 +10,8 @@ namespace Yahtzee.model
     public List<Category> GetCategories(Dice dice, ScoreBoard scoreBoard)
     {
       if (IsEitherNull(dice, scoreBoard)) throw new ArgumentNullException();
-      var straigthList = GetLargeStraight(dice);
-      if (straigthList.Count == 1) return straigthList;
-
-      return GetSmallStraight(dice)
+      return GetLargeStraight(dice)
+          .Concat(GetSmallStraight(dice))
           .Concat(GetFourOfAKind(dice))
           .Concat(GetThreeOfAKind(dice))
           .Concat(GetTwoPair(dice))
