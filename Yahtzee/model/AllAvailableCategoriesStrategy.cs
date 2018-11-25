@@ -59,7 +59,7 @@ namespace Yahtzee.model
     private List<Category> GetLargeStraight(Dice dice)
     {
       var v = dice.GetValues();
-      return (v[0] == 2 && v[1] == 3 && v[2] == 4 && v[3] == 5 && v[4] == 6)
+      return (v[0] == 2 && v[1] == 3 && v[2] == 4 && v[3] == 5 && v[4] == 6) || (v[0] == 6 && v[1] == 3 && v[2] == 2 && v[3] == 4 && v[4] == 5)
         ? new List<Category> { new LargeStraight(2, 3, 4, 5, 6) }
         : new List<Category>();
     }
