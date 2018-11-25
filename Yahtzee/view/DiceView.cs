@@ -17,9 +17,9 @@ namespace Yahtzee.view
       }
 
       _dice = dice;
-      _renderQueue = new List<string>(4);
+      _renderQueue = new List<string>(5);
 
-      for (int i = 0; i < 4; i++)
+      for (int i = 0; i < 5; i++)
       {
         _renderQueue.Add("");
       }
@@ -28,17 +28,20 @@ namespace Yahtzee.view
     public void Print()
     {
       var dice = _dice.GetValues();
-      dice.ForEach(DrawDie);
+
+      int i = 0;
+      dice.ForEach(die => DrawDie(die, ++i));
 
       this._renderQueue.ForEach(queue => Console.WriteLine(queue));
     }
 
-    private void DrawDie(int die)
+    private void DrawDie(int die, int index)
     {
       RenderQueueFirstRow();
       RenderQueueSecondRow(die);
       RenderQueueThirdRow(die);
       RenderQueueFourthRow(die);
+      RenderQueueFifthRow(index);
     }
 
     private void RenderQueueFirstRow()
@@ -92,6 +95,11 @@ namespace Yahtzee.view
       {
         _renderQueue[3] += "|_____|  ";
       }
+    }
+
+    private void RenderQueueFifthRow(int index)
+    {
+      _renderQueue[4] += $"  ({index})    ";
     }
   }
 }

@@ -22,7 +22,7 @@ namespace YahtzeeTests
        + "|     |  |     |  |     |  |     |  |     |  \n"
        + "|  o  |  |  o  |  |  o  |  |  o  |  |  o  |  \n"
        + "|_____|  |_____|  |_____|  |_____|  |_____|  \n"
-       + "  (1)      (2)      (3)      (4)      (5)     \n";
+       + "  (1)      (2)      (3)      (4)      (5)    \n";
       AssertView(expected, 1, 1, 1, 1, 1);
     }
 
@@ -34,7 +34,7 @@ namespace YahtzeeTests
        + "|     |  |o    |  |o    |  |o   o|  |o   o|  \n"
        + "|  o  |  |     |  |  o  |  |     |  |  o  |  \n"
        + "|_____|  |____o|  |____o|  |o___o|  |o___o|  \n"
-       + "  (1)      (2)      (3)      (4)      (5)     \n";
+       + "  (1)      (2)      (3)      (4)      (5)    \n";
       AssertView(expected, 1, 2, 3, 4, 5);
     }
 
@@ -46,7 +46,7 @@ namespace YahtzeeTests
        + "|o    |  |o    |  |o   o|  |o   o|  |o   o|  \n"
        + "|     |  |  o  |  |     |  |  o  |  |o   o|  \n"
        + "|____o|  |____o|  |o___o|  |o___o|  |o___o|  \n"
-       + "  (1)      (2)      (3)      (4)      (5)     \n";
+       + "  (1)      (2)      (3)      (4)      (5)    \n";
 
       AssertView(expected, 2, 3, 4, 5, 6);
     }
