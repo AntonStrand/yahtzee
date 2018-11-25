@@ -21,8 +21,6 @@ namespace Yahtzee.model
           .ToList();
     }
 
-    private bool IsAnyNull(params Object[] objects) => objects.Any(o => o == null);
-
     private List<Pair> GetPairs(Dice dice) =>
       GetFrequencyTable(dice)
         .Where(x => x.Value >= 2)
@@ -72,16 +70,18 @@ namespace Yahtzee.model
         : new List<Category> { new FullHouse(pair, threeOfAKind) };
     }
 
-
     private Dictionary<int, int> GetFrequencyTable(Dice dice) =>
       dice
         .GetValues()
         .GroupBy(x => x)
         .ToDictionary(x => x.Key, x => x.Count());
 
+    private T Head<T>(IEnumerable<T> enumerable) => enumerable.ToList().Count > 0 ? enumerable.ToList()[0] : default(T);
+
+    private bool IsAnyNull(params Object[] objects) => objects.Any(o => o == null);
+
     private Func<int, Func<KeyValuePair<int, int>, bool>> ValueIs = comparedTo => x => x.Value == comparedTo;
 
-    private T Head<T>(IEnumerable<T> enumerable) => enumerable.ToList().Count > 0 ? enumerable.ToList()[0] : default(T);
 
     private bool IsASmallStraight(Dice dice) => IsAStraight(1, dice);
     private bool IsALargeStraight(Dice dice) => IsAStraight(2, dice);
