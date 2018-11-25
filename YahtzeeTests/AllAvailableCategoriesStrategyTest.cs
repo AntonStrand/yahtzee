@@ -63,6 +63,7 @@ namespace YahtzeeTests
     [Theory]
     [InlineData(1, 1, 2, 2, 3, 6)]
     [InlineData(4, 4, 3, 2, 3, 14)]
+    [InlineData(4, 4, 3, 4, 3, 14)]
     public void ShouldCombineValuesFromPairToTwoPair(int v1, int v2, int v3, int v4, int v5, int expected) =>
       AssertValueFromType<TwoPair>(new List<int>() { v1, v2, v3, v4, v5 }, expected);
 
