@@ -10,10 +10,6 @@ namespace Yahtzee.model
     public List<Category> GetCategories(Dice dice, ScoreBoard scoreBoard)
     {
       if (IsEitherNull(dice, scoreBoard)) throw new ArgumentNullException();
-      var v = dice.GetValues();
-      if ((v[0] == 1 && v[1] == 1 && v[2] == 1 && v[3] == 4 && v[4] == 4)
-       || (v[0] == 6 && v[1] == 3 && v[2] == 6 && v[3] == 6 && v[4] == 3))
-        return new List<Category> { new FullHouse(new Pair(3, 3), new ThreeOfAKind(6, 6, 6)) };
 
       return GetLargeStraight(dice)
           .Concat(GetSmallStraight(dice))
@@ -21,6 +17,7 @@ namespace Yahtzee.model
           .Concat(GetThreeOfAKind(dice))
           .Concat(GetTwoPair(dice))
           .Concat(GetPairs(dice))
+          .Concat(GetFullHouse(dice))
           .ToList();
     }
 
@@ -43,16 +40,27 @@ namespace Yahtzee.model
       return new List<Category>();
     }
 
-    private IEnumerable<Category> GetThreeOfAKind(Dice dice) =>
+    private List<ThreeOfAKind> GetThreeOfAKind(Dice dice) =>
       GetFrequencyTable(dice)
         .Where(ValueIs(3))
-        .Select(x => new ThreeOfAKind(x.Key, x.Key, x.Key));
+        .Select(x => new ThreeOfAKind(x.Key, x.Key, x.Key))
+        .ToList();
 
     private IEnumerable<Category> GetFourOfAKind(Dice dice) =>
       GetFrequencyTable(dice)
         .Where(ValueIs(4))
         .Select(x => x.Key)
         .Select(v => new FourOfAKind(v, v, v, v));
+
+    private List<Category> GetFullHouse(Dice dice)
+    {
+      var pairs = GetFrequencyTable(dice).Where(ValueIs(2)).Select(x => new Pair(x.Key, x.Key)).ToList();
+      Pair pair = pairs.Count > 0 ? pairs[0] : null;
+      ThreeOfAKind toak = GetThreeOfAKind(dice).Count > 0 ? GetThreeOfAKind(dice)[0] : null;
+      return (pair != null && toak != null)
+        ? new List<Category> { new FullHouse(pair, toak) }
+        : new List<Category>();
+    }
 
     private List<Category> GetSmallStraight(Dice dice) =>
       IsASmallStraight(dice)
