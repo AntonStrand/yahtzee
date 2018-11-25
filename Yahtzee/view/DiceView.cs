@@ -51,10 +51,8 @@ namespace Yahtzee.view
         .Select(q => "")
         .ToList();
 
-    private void RenderQueueFirstRow()
-    {
+    private void RenderQueueFirstRow() =>
       _renderQueue[0] += " _____   ";
-    }
 
     private void RenderQueueSecondRow(int die)
     {
@@ -104,9 +102,7 @@ namespace Yahtzee.view
       }
     }
 
-    private void RenderQueueFifthRow(int index)
-    {
+    private void RenderQueueFifthRow(int index) =>
       _renderQueue[4] += $"  ({index})    ";
-    }
   }
 }
