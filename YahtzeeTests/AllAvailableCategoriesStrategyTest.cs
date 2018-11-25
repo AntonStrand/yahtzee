@@ -30,10 +30,13 @@ namespace YahtzeeTests
     public void ShouldReturnPair() => AssertType<Pair>(new List<int>() { 5, 5, 1, 2, 4 });
 
     [Fact]
-    public void ShouldReturnTwoPair() => AssertType<TwoPair>(new List<int> { 1, 1, 2, 2, 4 });
+    public void ShouldReturnTwoPair() => AssertType<TwoPair>(new List<int>() { 1, 1, 2, 2, 4 });
 
     [Fact]
-    public void ShouldReturnThreeOfAKind() => AssertType<ThreeOfAKind>(new List<int> { 1, 1, 1, 2, 4 });
+    public void ShouldReturnTwoPair2() => AssertType<TwoPair>(new List<int>() { 1, 1, 1, 1, 4 });
+
+    [Fact]
+    public void ShouldReturnThreeOfAKind() => AssertType<ThreeOfAKind>(new List<int>() { 1, 1, 1, 2, 4 });
 
     [Fact]
     public void ShouldOnlyReturnAPair()
