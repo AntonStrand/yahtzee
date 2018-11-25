@@ -50,7 +50,8 @@ namespace YahtzeeTests
       using (StringWriter sw = new StringWriter())
       {
         Console.SetOut(sw);
-        Console.SetIn(new StringReader("test"));
+        var input = new StringReader("Test");
+        Console.SetIn(input);
 
         var v = new EnglishMainView();
         v.GetUsername();
@@ -58,20 +59,22 @@ namespace YahtzeeTests
         string expected = v.enterUsername + "\n";
         Assert.Equal(expected, sw.ToString());
         sw.Close();
+        input.Close();
+        Console.SetOut(new StreamWriter(Console.OpenStandardOutput()));
       }
     }
 
     [Fact]
     public void GetUserNameReturnsText()
     {
-      string testString = "test";
-      var input = new StringReader(testString);
+      string expected = "test";
+      var input = new StringReader(expected);
       Console.SetIn(input);
 
       var v = new EnglishMainView();
       string result = v.GetUsername();
 
-      Assert.Equal(testString, result);
+      Assert.Equal(expected, result);
       input.Close();
     }
   }
