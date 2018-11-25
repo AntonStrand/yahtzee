@@ -33,6 +33,7 @@ namespace YahtzeeTests
 
         string expected = v.welcomeMsg + "\n";
         Assert.Equal(expected, sw.ToString());
+        sw.Close();
       }
     }
   }
