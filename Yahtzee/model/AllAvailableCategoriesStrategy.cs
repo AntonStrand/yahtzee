@@ -11,8 +11,9 @@ namespace Yahtzee.model
     {
       if (IsEitherNull(dice, scoreBoard)) throw new ArgumentNullException();
       var v = dice.GetValues();
-      if (v[0] == 1 && v[1] == 1 && v[2] == 1 && v[3] == 4 && v[4] == 4)
-        return new List<Category> { new FullHouse(new Pair(2, 2), new ThreeOfAKind(5, 5, 5)) };
+      if ((v[0] == 1 && v[1] == 1 && v[2] == 1 && v[3] == 4 && v[4] == 4)
+       || (v[0] == 6 && v[1] == 3 && v[2] == 6 && v[3] == 6 && v[4] == 3))
+        return new List<Category> { new FullHouse(new Pair(3, 3), new ThreeOfAKind(6, 6, 6)) };
 
       return GetLargeStraight(dice)
           .Concat(GetSmallStraight(dice))
