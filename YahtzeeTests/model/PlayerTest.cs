@@ -29,5 +29,14 @@ namespace YahtzeeTests
         player.SetName("");
       });
     }
+
+    [Fact]
+    public void ShouldGetUsername()
+    {
+      string name = "test";
+      var player = new Player();
+      player.SetName(name);
+      Assert.Equal(name, player.name);
+    }
   }
 }

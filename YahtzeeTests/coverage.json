@@ -14,7 +14,8 @@
             "19": 0,
             "20": 0,
             "21": 0,
-            "22": 0
+            "22": 0,
+            "23": 0
           },
           "Branches": []
         }
@@ -24,315 +25,381 @@
       "Yahtzee.view.DiceView": {
         "System.Void Yahtzee.view.DiceView::Print()": {
           "Lines": {
-            "29": 6,
-            "30": 6,
-            "31": 6,
-            "33": 30,
-            "34": 6
+            "30": 5,
+            "31": 5,
+            "32": 5,
+            "34": 5,
+            "35": 30,
+            "37": 30,
+            "38": 5
           },
           "Branches": [
             {
-              "Line": 33,
-              "Offset": 44,
-              "EndOffset": 46,
+              "Line": 37,
+              "Offset": 71,
+              "EndOffset": 73,
               "Path": 0,
               "Ordinal": 0,
               "Hits": 1
             },
             {
-              "Line": 33,
-              "Offset": 44,
-              "EndOffset": 69,
+              "Line": 37,
+              "Offset": 71,
+              "EndOffset": 96,
               "Path": 1,
               "Ordinal": 1,
+              "Hits": 5
+            }
+          ]
+        },
+        "System.Void Yahtzee.view.DiceView::DrawDie(System.Int32,System.Int32)": {
+          "Lines": {
+            "41": 25,
+            "42": 25,
+            "43": 25,
+            "44": 25,
+            "45": 25,
+            "46": 25,
+            "47": 25
+          },
+          "Branches": []
+        },
+        "System.Void Yahtzee.view.DiceView::ClearQueue()": {
+          "Lines": {
+            "50": 5,
+            "51": 30,
+            "52": 5
+          },
+          "Branches": [
+            {
+              "Line": 50,
+              "Offset": 13,
+              "EndOffset": 15,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 50,
+              "Offset": 13,
+              "EndOffset": 38,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 5
+            }
+          ]
+        },
+        "System.Void Yahtzee.view.DiceView::RenderQueueFirstRow()": {
+          "Lines": {
+            "55": 25
+          },
+          "Branches": []
+        },
+        "System.Void Yahtzee.view.DiceView::RenderQueueSecondRow(System.Int32)": {
+          "Lines": {
+            "58": 25,
+            "59": 25,
+            "60": 8,
+            "61": 8,
+            "62": 8,
+            "63": 17,
+            "64": 11,
+            "65": 11,
+            "66": 11,
+            "68": 6,
+            "69": 6,
+            "70": 6,
+            "71": 25
+          },
+          "Branches": [
+            {
+              "Line": 59,
+              "Offset": 3,
+              "EndOffset": 5,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 21
+            },
+            {
+              "Line": 59,
+              "Offset": 3,
+              "EndOffset": 11,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 4
+            },
+            {
+              "Line": 59,
+              "Offset": 14,
+              "EndOffset": 16,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 8
+            },
+            {
+              "Line": 59,
+              "Offset": 14,
+              "EndOffset": 52,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 17
+            },
+            {
+              "Line": 63,
+              "Offset": 54,
+              "EndOffset": 56,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 13
+            },
+            {
+              "Line": 63,
+              "Offset": 58,
+              "EndOffset": 60,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 9
+            },
+            {
+              "Line": 63,
+              "Offset": 54,
+              "EndOffset": 66,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 8
+            },
+            {
+              "Line": 63,
+              "Offset": 58,
+              "EndOffset": 66,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 8
+            },
+            {
+              "Line": 63,
+              "Offset": 69,
+              "EndOffset": 71,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 11
+            },
+            {
+              "Line": 63,
+              "Offset": 69,
+              "EndOffset": 107,
+              "Path": 1,
+              "Ordinal": 9,
               "Hits": 6
             }
           ]
         },
-        "System.Void Yahtzee.view.DiceView::DrawDie(System.Int32)": {
+        "System.Void Yahtzee.view.DiceView::RenderQueueThirdRow(System.Int32)": {
           "Lines": {
-            "37": 30,
-            "38": 30,
-            "40": 30,
-            "41": 10,
-            "42": 10,
-            "43": 10,
-            "44": 20,
-            "45": 15,
-            "46": 15,
-            "47": 15,
-            "49": 5,
-            "50": 5,
-            "51": 5,
-            "53": 30,
-            "54": 15,
-            "55": 15,
-            "56": 15,
-            "57": 15,
-            "58": 5,
-            "59": 5,
-            "60": 5,
-            "62": 10,
-            "63": 10,
-            "64": 10,
-            "66": 30,
-            "67": 10,
-            "68": 10,
-            "69": 10,
-            "70": 20,
-            "71": 15,
-            "72": 15,
-            "73": 15,
-            "75": 5,
-            "76": 5,
-            "77": 5,
-            "78": 30
+            "74": 25,
+            "75": 25,
+            "76": 14,
+            "77": 14,
+            "78": 14,
+            "79": 11,
+            "80": 3,
+            "81": 3,
+            "82": 3,
+            "84": 8,
+            "85": 8,
+            "86": 8,
+            "87": 25
           },
           "Branches": [
             {
-              "Line": 40,
-              "Offset": 35,
-              "EndOffset": 37,
+              "Line": 75,
+              "Offset": 3,
+              "EndOffset": 5,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 25
+              "Hits": 19
             },
             {
-              "Line": 40,
-              "Offset": 35,
-              "EndOffset": 43,
-              "Path": 1,
-              "Ordinal": 1,
-              "Hits": 5
-            },
-            {
-              "Line": 40,
-              "Offset": 46,
-              "EndOffset": 48,
+              "Line": 75,
+              "Offset": 7,
+              "EndOffset": 9,
               "Path": 0,
               "Ordinal": 2,
+              "Hits": 15
+            },
+            {
+              "Line": 75,
+              "Offset": 3,
+              "EndOffset": 15,
+              "Path": 1,
+              "Ordinal": 1,
               "Hits": 10
             },
             {
-              "Line": 40,
-              "Offset": 46,
-              "EndOffset": 84,
+              "Line": 75,
+              "Offset": 7,
+              "EndOffset": 15,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 20
+              "Hits": 10
             },
             {
-              "Line": 44,
-              "Offset": 86,
-              "EndOffset": 88,
+              "Line": 75,
+              "Offset": 18,
+              "EndOffset": 20,
               "Path": 0,
               "Ordinal": 4,
-              "Hits": 15
+              "Hits": 14
             },
             {
-              "Line": 44,
-              "Offset": 90,
-              "EndOffset": 92,
-              "Path": 0,
-              "Ordinal": 6,
-              "Hits": 10
-            },
-            {
-              "Line": 44,
-              "Offset": 86,
-              "EndOffset": 98,
+              "Line": 75,
+              "Offset": 18,
+              "EndOffset": 56,
               "Path": 1,
               "Ordinal": 5,
-              "Hits": 10
+              "Hits": 11
             },
             {
-              "Line": 44,
-              "Offset": 90,
-              "EndOffset": 98,
+              "Line": 79,
+              "Offset": 62,
+              "EndOffset": 64,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 3
+            },
+            {
+              "Line": 79,
+              "Offset": 62,
+              "EndOffset": 100,
               "Path": 1,
               "Ordinal": 7,
-              "Hits": 10
-            },
-            {
-              "Line": 44,
-              "Offset": 101,
-              "EndOffset": 103,
-              "Path": 0,
-              "Ordinal": 8,
-              "Hits": 15
-            },
-            {
-              "Line": 44,
-              "Offset": 101,
-              "EndOffset": 139,
-              "Path": 1,
-              "Ordinal": 9,
-              "Hits": 5
-            },
-            {
-              "Line": 53,
-              "Offset": 175,
-              "EndOffset": 177,
-              "Path": 0,
-              "Ordinal": 10,
-              "Hits": 25
-            },
-            {
-              "Line": 53,
-              "Offset": 179,
-              "EndOffset": 181,
-              "Path": 0,
-              "Ordinal": 12,
-              "Hits": 20
-            },
-            {
-              "Line": 53,
-              "Offset": 175,
-              "EndOffset": 187,
-              "Path": 1,
-              "Ordinal": 11,
-              "Hits": 10
-            },
-            {
-              "Line": 53,
-              "Offset": 179,
-              "EndOffset": 187,
-              "Path": 1,
-              "Ordinal": 13,
-              "Hits": 10
-            },
-            {
-              "Line": 53,
-              "Offset": 190,
-              "EndOffset": 192,
-              "Path": 0,
-              "Ordinal": 14,
-              "Hits": 15
-            },
-            {
-              "Line": 53,
-              "Offset": 190,
-              "EndOffset": 228,
-              "Path": 1,
-              "Ordinal": 15,
-              "Hits": 15
-            },
-            {
-              "Line": 57,
-              "Offset": 236,
-              "EndOffset": 238,
-              "Path": 0,
-              "Ordinal": 16,
-              "Hits": 5
-            },
-            {
-              "Line": 57,
-              "Offset": 236,
-              "EndOffset": 274,
-              "Path": 1,
-              "Ordinal": 17,
-              "Hits": 10
-            },
-            {
-              "Line": 66,
-              "Offset": 310,
-              "EndOffset": 312,
-              "Path": 0,
-              "Ordinal": 18,
-              "Hits": 25
-            },
-            {
-              "Line": 66,
-              "Offset": 310,
-              "EndOffset": 318,
-              "Path": 1,
-              "Ordinal": 19,
-              "Hits": 5
-            },
-            {
-              "Line": 66,
-              "Offset": 323,
-              "EndOffset": 325,
-              "Path": 0,
-              "Ordinal": 20,
-              "Hits": 10
-            },
-            {
-              "Line": 66,
-              "Offset": 323,
-              "EndOffset": 361,
-              "Path": 1,
-              "Ordinal": 21,
-              "Hits": 20
-            },
-            {
-              "Line": 70,
-              "Offset": 363,
-              "EndOffset": 365,
-              "Path": 0,
-              "Ordinal": 22,
-              "Hits": 15
-            },
-            {
-              "Line": 70,
-              "Offset": 367,
-              "EndOffset": 369,
-              "Path": 0,
-              "Ordinal": 24,
-              "Hits": 10
-            },
-            {
-              "Line": 70,
-              "Offset": 363,
-              "EndOffset": 375,
-              "Path": 1,
-              "Ordinal": 23,
-              "Hits": 10
-            },
-            {
-              "Line": 70,
-              "Offset": 367,
-              "EndOffset": 375,
-              "Path": 1,
-              "Ordinal": 25,
-              "Hits": 10
-            },
-            {
-              "Line": 70,
-              "Offset": 380,
-              "EndOffset": 382,
-              "Path": 0,
-              "Ordinal": 26,
-              "Hits": 15
-            },
-            {
-              "Line": 70,
-              "Offset": 380,
-              "EndOffset": 418,
-              "Path": 1,
-              "Ordinal": 27,
-              "Hits": 5
+              "Hits": 8
             }
           ]
         },
-        "System.Void Yahtzee.view.DiceView::.ctor(Yahtzee.model.Dice)": {
+        "System.Void Yahtzee.view.DiceView::RenderQueueFourthRow(System.Int32)": {
           "Lines": {
-            "12": 7,
-            "13": 7,
-            "14": 7,
-            "15": 1,
-            "16": 1,
-            "19": 6,
-            "20": 6,
-            "22": 60,
-            "23": 24,
-            "24": 24,
-            "25": 24,
-            "26": 6
+            "90": 25,
+            "91": 25,
+            "92": 8,
+            "93": 8,
+            "94": 8,
+            "95": 17,
+            "96": 11,
+            "97": 11,
+            "98": 11,
+            "100": 6,
+            "101": 6,
+            "102": 6,
+            "103": 25
           },
           "Branches": [
             {
-              "Line": 14,
+              "Line": 91,
+              "Offset": 3,
+              "EndOffset": 5,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 21
+            },
+            {
+              "Line": 91,
+              "Offset": 3,
+              "EndOffset": 11,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 4
+            },
+            {
+              "Line": 91,
+              "Offset": 14,
+              "EndOffset": 16,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 8
+            },
+            {
+              "Line": 91,
+              "Offset": 14,
+              "EndOffset": 52,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 17
+            },
+            {
+              "Line": 95,
+              "Offset": 54,
+              "EndOffset": 56,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 13
+            },
+            {
+              "Line": 95,
+              "Offset": 58,
+              "EndOffset": 60,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 9
+            },
+            {
+              "Line": 95,
+              "Offset": 54,
+              "EndOffset": 66,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 8
+            },
+            {
+              "Line": 95,
+              "Offset": 58,
+              "EndOffset": 66,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 8
+            },
+            {
+              "Line": 95,
+              "Offset": 69,
+              "EndOffset": 71,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 11
+            },
+            {
+              "Line": 95,
+              "Offset": 69,
+              "EndOffset": 107,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 6
+            }
+          ]
+        },
+        "System.Void Yahtzee.view.DiceView::RenderQueueFifthRow(System.Int32)": {
+          "Lines": {
+            "106": 25
+          },
+          "Branches": []
+        },
+        "System.Void Yahtzee.view.DiceView::.ctor(Yahtzee.model.Dice)": {
+          "Lines": {
+            "13": 5,
+            "14": 5,
+            "15": 5,
+            "16": 1,
+            "17": 1,
+            "20": 4,
+            "21": 4,
+            "23": 48,
+            "24": 20,
+            "25": 20,
+            "26": 20,
+            "27": 4
+          },
+          "Branches": [
+            {
+              "Line": 15,
               "Offset": 14,
               "EndOffset": 16,
               "Path": 0,
@@ -340,28 +407,28 @@
               "Hits": 1
             },
             {
-              "Line": 14,
+              "Line": 15,
               "Offset": 14,
               "EndOffset": 23,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 6
+              "Hits": 4
             },
             {
-              "Line": 22,
+              "Line": 23,
               "Offset": 75,
               "EndOffset": 46,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 24
+              "Hits": 20
             },
             {
-              "Line": 22,
+              "Line": 23,
               "Offset": 75,
               "EndOffset": 77,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 6
+              "Hits": 4
             }
           ]
         }
@@ -371,35 +438,190 @@
       "Yahtzee.view.EnglishMainView": {
         "System.Void Yahtzee.view.EnglishMainView::DisplayWelcomeMessage()": {
           "Lines": {
-            "8": 1,
             "9": 1,
-            "10": 1
+            "10": 1,
+            "11": 1
+          },
+          "Branches": []
+        },
+        "System.Void Yahtzee.view.EnglishMainView::.ctor()": {
+          "Lines": {
+            "7": 5
           },
           "Branches": []
         }
       }
     },
-    "/home/emil/code/yahtzee/Yahtzee/model/Dice.cs": {
-      "Yahtzee.model.Dice": {
-        "System.Void Yahtzee.model.Dice::Throw()": {
+    "/home/emil/code/yahtzee/Yahtzee/model/AllAvailableCategoriesStrategy.cs": {
+      "Yahtzee.model.AllAvailableCategoriesStrategy": {
+        "System.Collections.Generic.List`1<Yahtzee.model.category.Category> Yahtzee.model.AllAvailableCategoriesStrategy::GetCategories(Yahtzee.model.Dice,Yahtzee.model.ScoreBoard)": {
           "Lines": {
-            "31": 4
-          },
-          "Branches": []
-        },
-        "System.Void Yahtzee.model.Dice::KeepDie(Yahtzee.model.Dice/DiceList)": {
-          "Lines": {
-            "33": 7
-          },
-          "Branches": []
-        },
-        "System.Collections.Generic.List`1<System.Int32> Yahtzee.model.Dice::GetValues()": {
-          "Lines": {
-            "35": 48
+            "11": 13,
+            "12": 15,
+            "13": 11,
+            "14": 11,
+            "15": 11
           },
           "Branches": [
             {
-              "Line": 35,
+              "Line": 12,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 2
+            },
+            {
+              "Line": 12,
+              "Offset": 11,
+              "EndOffset": 19,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 11
+            }
+          ]
+        },
+        "System.Boolean Yahtzee.model.AllAvailableCategoriesStrategy::IsEitherNull(Yahtzee.model.Dice,Yahtzee.model.ScoreBoard)": {
+          "Lines": {
+            "17": 13
+          },
+          "Branches": [
+            {
+              "Line": 17,
+              "Offset": 1,
+              "EndOffset": 3,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 12
+            },
+            {
+              "Line": 17,
+              "Offset": 1,
+              "EndOffset": 9,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Collections.Generic.List`1<Yahtzee.model.category.Pair> Yahtzee.model.AllAvailableCategoriesStrategy::GetPairs(Yahtzee.model.Dice)": {
+          "Lines": {
+            "20": 11,
+            "21": 49,
+            "22": 24,
+            "23": 11
+          },
+          "Branches": [
+            {
+              "Line": 20,
+              "Offset": 13,
+              "EndOffset": 15,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 20,
+              "Offset": 13,
+              "EndOffset": 38,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 11
+            },
+            {
+              "Line": 20,
+              "Offset": 49,
+              "EndOffset": 51,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 20,
+              "Offset": 49,
+              "EndOffset": 74,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 11
+            }
+          ]
+        },
+        "System.Collections.Generic.List`1<Yahtzee.model.category.Category> Yahtzee.model.AllAvailableCategoriesStrategy::GetTwoPair(System.Collections.Generic.List`1<Yahtzee.model.category.Pair>)": {
+          "Lines": {
+            "26": 11,
+            "27": 11,
+            "28": 11
+          },
+          "Branches": [
+            {
+              "Line": 26,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 7
+            },
+            {
+              "Line": 26,
+              "Offset": 7,
+              "EndOffset": 16,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 4
+            }
+          ]
+        },
+        "System.Collections.Generic.IEnumerable`1<Yahtzee.model.category.Category> Yahtzee.model.AllAvailableCategoriesStrategy::GetThreeOfAKind(Yahtzee.model.Dice)": {
+          "Lines": {
+            "31": 11,
+            "32": 49,
+            "33": 12
+          },
+          "Branches": [
+            {
+              "Line": 31,
+              "Offset": 13,
+              "EndOffset": 15,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 31,
+              "Offset": 13,
+              "EndOffset": 38,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 11
+            },
+            {
+              "Line": 31,
+              "Offset": 49,
+              "EndOffset": 51,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 31,
+              "Offset": 49,
+              "EndOffset": 74,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 11
+            }
+          ]
+        },
+        "System.Collections.Generic.Dictionary`2<System.Int32,System.Int32> Yahtzee.model.AllAvailableCategoriesStrategy::GetFrequencyTable(Yahtzee.model.Dice)": {
+          "Lines": {
+            "36": 22,
+            "37": 22,
+            "38": 132,
+            "39": 174
+          },
+          "Branches": [
+            {
+              "Line": 36,
               "Offset": 12,
               "EndOffset": 14,
               "Path": 0,
@@ -407,39 +629,110 @@
               "Hits": 1
             },
             {
-              "Line": 35,
+              "Line": 36,
               "Offset": 12,
               "EndOffset": 37,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 8
+              "Hits": 22
+            },
+            {
+              "Line": 36,
+              "Offset": 48,
+              "EndOffset": 50,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 36,
+              "Offset": 48,
+              "EndOffset": 73,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 22
+            },
+            {
+              "Line": 36,
+              "Offset": 79,
+              "EndOffset": 81,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 1
+            },
+            {
+              "Line": 36,
+              "Offset": 79,
+              "EndOffset": 104,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 22
+            }
+          ]
+        }
+      }
+    },
+    "/home/emil/code/yahtzee/Yahtzee/model/DiceImplemented.cs": {
+      "Yahtzee.model.DiceImplemented": {
+        "System.Void Yahtzee.model.DiceImplemented::Throw()": {
+          "Lines": {
+            "23": 4
+          },
+          "Branches": []
+        },
+        "System.Void Yahtzee.model.DiceImplemented::KeepDie(Yahtzee.model.DiceList)": {
+          "Lines": {
+            "25": 7
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<System.Int32> Yahtzee.model.DiceImplemented::GetValues()": {
+          "Lines": {
+            "27": 12
+          },
+          "Branches": [
+            {
+              "Line": 27,
+              "Offset": 12,
+              "EndOffset": 14,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 27,
+              "Offset": 12,
+              "EndOffset": 37,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2
             }
           ]
         },
-        "System.Collections.Generic.List`1<Yahtzee.model.Die> Yahtzee.model.Dice::GetAvailableDice()": {
+        "System.Collections.Generic.List`1<Yahtzee.model.Die> Yahtzee.model.DiceImplemented::GetAvailableDice()": {
           "Lines": {
-            "37": 4
+            "29": 4
           },
           "Branches": []
         },
-        "System.Void Yahtzee.model.Dice::ThrowDie(Yahtzee.model.Die)": {
+        "System.Void Yahtzee.model.DiceImplemented::ThrowDie(Yahtzee.model.Die)": {
           "Lines": {
-            "39": 8
+            "31": 8
           },
           "Branches": []
         },
-        "System.Void Yahtzee.model.Dice::.ctor(Yahtzee.model.Die,Yahtzee.model.Die,Yahtzee.model.Die,Yahtzee.model.Die,Yahtzee.model.Die)": {
+        "System.Void Yahtzee.model.DiceImplemented::.ctor(Yahtzee.model.Die,Yahtzee.model.Die,Yahtzee.model.Die,Yahtzee.model.Die,Yahtzee.model.Die)": {
           "Lines": {
-            "20": 16,
-            "21": 16,
-            "22": 16,
-            "23": 16,
-            "24": 16,
-            "25": 16,
-            "26": 16,
-            "27": 16,
-            "28": 16,
-            "29": 16
+            "12": 6,
+            "13": 6,
+            "14": 6,
+            "15": 6,
+            "16": 6,
+            "17": 6,
+            "18": 6,
+            "19": 6,
+            "20": 6,
+            "21": 6
           },
           "Branches": []
         }
@@ -455,17 +748,17 @@
         },
         "System.Void Yahtzee.model.DieImplemented::Throw()": {
           "Lines": {
-            "19": 102014
+            "19": 102011
           },
           "Branches": []
         },
         "System.Void Yahtzee.model.DieImplemented::.ctor()": {
           "Lines": {
-            "11": 14,
-            "12": 14,
-            "13": 14,
-            "14": 14,
-            "15": 14
+            "11": 11,
+            "12": 11,
+            "13": 11,
+            "14": 11,
+            "15": 11
           },
           "Branches": []
         }
@@ -498,36 +791,6 @@
               "Path": 1,
               "Ordinal": 1,
               "Hits": 0
-            }
-          ]
-        }
-      }
-    },
-    "/home/emil/code/yahtzee/Yahtzee/model/AllOptionStrategy.cs": {
-      "Yahtzee.model.category.AllOptionStrategy": {
-        "System.Collections.Generic.List`1<Yahtzee.model.category.Category> Yahtzee.model.category.AllOptionStrategy::GetOptions(Yahtzee.model.Dice)": {
-          "Lines": {
-            "9": 5,
-            "10": 6,
-            "11": 4,
-            "12": 4
-          },
-          "Branches": [
-            {
-              "Line": 10,
-              "Offset": 7,
-              "EndOffset": 9,
-              "Path": 0,
-              "Ordinal": 0,
-              "Hits": 1
-            },
-            {
-              "Line": 10,
-              "Offset": 7,
-              "EndOffset": 15,
-              "Path": 1,
-              "Ordinal": 1,
-              "Hits": 4
             }
           ]
         }
@@ -673,23 +936,23 @@
       "Yahtzee.model.category.Pair": {
         "System.Int32 Yahtzee.model.category.Pair::GetValue()": {
           "Lines": {
-            "14": 11
+            "14": 13
           },
           "Branches": []
         },
         "System.Boolean Yahtzee.model.category.Pair::IsMatch(System.Int32,System.Int32)": {
           "Lines": {
-            "16": 21
+            "16": 26
           },
           "Branches": []
         },
         "System.Void Yahtzee.model.category.Pair::.ctor(System.Int32,System.Int32)": {
           "Lines": {
-            "8": 21,
-            "9": 21,
-            "10": 22,
-            "11": 20,
-            "12": 20
+            "8": 26,
+            "9": 26,
+            "10": 27,
+            "11": 25,
+            "12": 25
           },
           "Branches": [
             {
@@ -706,7 +969,144 @@
               "EndOffset": 29,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 20
+              "Hits": 25
+            }
+          ]
+        }
+      }
+    },
+    "/home/emil/code/yahtzee/Yahtzee/model/category/SmallStraight.cs": {
+      "Yahtzee.model.category.SmallStraight": {
+        "System.Int32 Yahtzee.model.category.SmallStraight::GetValue()": {
+          "Lines": {
+            "16": 1
+          },
+          "Branches": []
+        },
+        "System.Boolean Yahtzee.model.category.SmallStraight::IsOutOfRange(System.Collections.Generic.List`1<System.Int32>)": {
+          "Lines": {
+            "18": 6
+          },
+          "Branches": []
+        },
+        "System.Boolean Yahtzee.model.category.SmallStraight::IsInvalidInput(System.Collections.Generic.List`1<System.Int32>)": {
+          "Lines": {
+            "21": 34
+          },
+          "Branches": [
+            {
+              "Line": 21,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 3
+            },
+            {
+              "Line": 21,
+              "Offset": 16,
+              "EndOffset": 18,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 21,
+              "Offset": 16,
+              "EndOffset": 41,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 3
+            },
+            {
+              "Line": 21,
+              "Offset": 52,
+              "EndOffset": 54,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 1
+            },
+            {
+              "Line": 21,
+              "Offset": 52,
+              "EndOffset": 77,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 3
+            },
+            {
+              "Line": 21,
+              "Offset": 7,
+              "EndOffset": 97,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Boolean Yahtzee.model.category.SmallStraight::HasDoublets(System.Collections.Generic.List`1<System.Int32>)": {
+          "Lines": {
+            "23": 4
+          },
+          "Branches": []
+        },
+        "System.Void Yahtzee.model.category.SmallStraight::.ctor(System.Collections.Generic.List`1<System.Int32>)": {
+          "Lines": {
+            "9": 7,
+            "10": 7,
+            "11": 8,
+            "12": 8,
+            "13": 6,
+            "14": 2
+          },
+          "Branches": [
+            {
+              "Line": 11,
+              "Offset": 14,
+              "EndOffset": 16,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 11,
+              "Offset": 14,
+              "EndOffset": 22,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 6
+            },
+            {
+              "Line": 12,
+              "Offset": 31,
+              "EndOffset": 33,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 2
+            },
+            {
+              "Line": 12,
+              "Offset": 31,
+              "EndOffset": 39,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 4
+            },
+            {
+              "Line": 13,
+              "Offset": 48,
+              "EndOffset": 50,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 2
+            },
+            {
+              "Line": 13,
+              "Offset": 48,
+              "EndOffset": 56,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 2
             }
           ]
         }
@@ -722,7 +1122,7 @@
         },
         "System.Boolean Yahtzee.model.category.ThreeOfAKind::IsDifferent(System.Int32,System.Int32,System.Int32)": {
           "Lines": {
-            "17": 9
+            "17": 10
           },
           "Branches": [
             {
@@ -731,7 +1131,7 @@
               "EndOffset": 4,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 8
+              "Hits": 9
             },
             {
               "Line": 17,
@@ -745,11 +1145,11 @@
         },
         "System.Void Yahtzee.model.category.ThreeOfAKind::.ctor(System.Int32,System.Int32,System.Int32)": {
           "Lines": {
-            "9": 9,
-            "10": 9,
-            "11": 11,
-            "12": 7,
-            "13": 7
+            "9": 10,
+            "10": 10,
+            "11": 12,
+            "12": 8,
+            "13": 8
           },
           "Branches": [
             {
@@ -766,7 +1166,7 @@
               "EndOffset": 27,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 7
+              "Hits": 8
             }
           ]
         }
@@ -776,7 +1176,7 @@
       "Yahtzee.model.category.TwoPair": {
         "System.Int32 Yahtzee.model.category.TwoPair::GetValue()": {
           "Lines": {
-            "15": 2
+            "15": 4
           },
           "Branches": []
         },
