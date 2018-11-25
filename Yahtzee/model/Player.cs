@@ -12,7 +12,7 @@ namespace Yahtzee.model
       {
         throw new ArgumentException();
       }
-      // this.name = name;
+      this.name = name;
     }
   }
 }
