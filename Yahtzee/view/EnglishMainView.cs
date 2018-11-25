@@ -13,6 +13,7 @@ namespace Yahtzee.view
 
     public string GetUsername()
     {
+      Console.WriteLine(enterUsername);
       return "";
     }
   }
