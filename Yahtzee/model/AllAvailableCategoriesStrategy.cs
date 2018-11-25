@@ -50,9 +50,9 @@ namespace Yahtzee.model
 
     private List<Category> GetSmallStraight(Dice dice)
     {
-      var values = dice.GetValues().OrderBy(v => v).Where((value, i) => value == (i + 1)).ToList();
-      return (values.Count == 5)
-       ? new List<Category>() { new SmallStraight(values[0], values[1], values[2], values[3], values[4]) }
+      bool isAStraight = dice.GetValues().OrderBy(v => v).Where((value, i) => value == (i + 1)).ToList().Count == 5;
+      return (isAStraight)
+       ? new List<Category>() { new SmallStraight(1, 2, 3, 4, 5) }
        : new List<Category>();
     }
 
