@@ -44,20 +44,20 @@ namespace YahtzeeTests
       Assert.Equal("System.String GetUsername()", v.GetType().GetMethod("GetUsername").ToString());
     }
 
-    // [Fact]
-    // public void GetUserNamePrintText()
-    // {
-    //   using (StringWriter sw = new StringWriter())
-    //   {
-    //     Console.SetOut(sw);
+    [Fact]
+    public void GetUserNamePrintText()
+    {
+      using (StringWriter sw = new StringWriter())
+      {
+        Console.SetOut(sw);
 
-    //     var v = new EnglishMainView();
-    //     v.GetUsername();
+        var v = new EnglishMainView();
+        v.GetUsername();
 
-    //     string expected = v.enterUsername + "\n";
-    //     Assert.Equal(expected, sw.ToString());
-    //     sw.Close();
-    //   }
-    //}
+        string expected = v.enterUsername + "\n";
+        Assert.Equal(expected, sw.ToString());
+        sw.Close();
+      }
+    }
   }
 }
