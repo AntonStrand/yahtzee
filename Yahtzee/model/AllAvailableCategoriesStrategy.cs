@@ -56,12 +56,10 @@ namespace Yahtzee.model
         ? new List<Category>() { new SmallStraight(1, 2, 3, 4, 5) }
         : new List<Category>();
 
-    private List<Category> GetLargeStraight(Dice dice)
-    {
-      return dice.GetValues().OrderBy(v => v).Where((value, i) => value == (i + 2)).ToList().Count == 5
+    private List<Category> GetLargeStraight(Dice dice) =>
+      IsALargeStraight(dice)
         ? new List<Category> { new LargeStraight(2, 3, 4, 5, 6) }
         : new List<Category>();
-    }
 
 
     private Dictionary<int, int> GetFrequencyTable(Dice dice) =>
@@ -72,7 +70,10 @@ namespace Yahtzee.model
 
     private Func<int, Func<KeyValuePair<int, int>, bool>> ValueIs = comparedTo => x => x.Value == comparedTo;
 
-    private bool IsASmallStraight(Dice dice) =>
-      dice.GetValues().OrderBy(v => v).Where((value, i) => value == (i + 1)).ToList().Count == 5;
+    private bool IsASmallStraight(Dice dice) => IsAStraight(1, dice);
+    private bool IsALargeStraight(Dice dice) => IsAStraight(2, dice);
+
+    private bool IsAStraight(int offset, Dice dice) =>
+        dice.GetValues().OrderBy(v => v).Where((value, i) => value == (i + offset)).ToList().Count == 5;
   }
 }
