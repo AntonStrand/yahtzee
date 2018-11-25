@@ -11,12 +11,12 @@ namespace Yahtzee.model
     {
       if (IsAnyNull(dice, scoreBoard)) throw new ArgumentNullException();
 
-      return GetLargeStraight(dice)
-          .Concat(GetSmallStraight(dice))
-          .Concat(GetFourOfAKind(dice))
-          .Concat(GetThreeOfAKind(dice))
+      return GetPairs(dice)
           .Concat(GetTwoPair(dice))
-          .Concat(GetPairs(dice))
+          .Concat(GetThreeOfAKind(dice))
+          .Concat(GetFourOfAKind(dice))
+          .Concat(GetSmallStraight(dice))
+          .Concat(GetLargeStraight(dice))
           .Concat(GetFullHouse(dice))
           .ToList();
     }
@@ -51,6 +51,16 @@ namespace Yahtzee.model
         .Select(x => x.Key)
         .Select(v => new FourOfAKind(v, v, v, v));
 
+    private List<Category> GetSmallStraight(Dice dice) =>
+      IsASmallStraight(dice)
+        ? new List<Category>() { new SmallStraight(1, 2, 3, 4, 5) }
+        : new List<Category>();
+
+    private List<Category> GetLargeStraight(Dice dice) =>
+      IsALargeStraight(dice)
+        ? new List<Category> { new LargeStraight(2, 3, 4, 5, 6) }
+        : new List<Category>();
+
     private List<Category> GetFullHouse(Dice dice)
     {
       var pairs = GetFrequencyTable(dice).Where(ValueIs(2)).Select(x => new Pair(x.Key, x.Key));
@@ -61,16 +71,6 @@ namespace Yahtzee.model
         ? new List<Category>()
         : new List<Category> { new FullHouse(pair, threeOfAKind) };
     }
-
-    private List<Category> GetSmallStraight(Dice dice) =>
-      IsASmallStraight(dice)
-        ? new List<Category>() { new SmallStraight(1, 2, 3, 4, 5) }
-        : new List<Category>();
-
-    private List<Category> GetLargeStraight(Dice dice) =>
-      IsALargeStraight(dice)
-        ? new List<Category> { new LargeStraight(2, 3, 4, 5, 6) }
-        : new List<Category>();
 
 
     private Dictionary<int, int> GetFrequencyTable(Dice dice) =>
