@@ -89,8 +89,8 @@ namespace Yahtzee.model
 
     private Func<int, Func<KeyValuePair<int, int>, bool>> ValueIs = comparedTo => x => x.Value == comparedTo;
 
-
     private bool IsASmallStraight(Dice dice) => IsAStraight(1, dice);
+
     private bool IsALargeStraight(Dice dice) => IsAStraight(2, dice);
 
     private bool IsAStraight(int offset, Dice dice) =>
