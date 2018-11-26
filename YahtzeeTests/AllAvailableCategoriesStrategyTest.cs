@@ -113,6 +113,12 @@ namespace YahtzeeTests
       AssertValueFromType<Chance>(new List<int>() { v1, v2, v3, v4, v5 }, expected);
 
     [Theory]
+    [InlineData(6, 3, 6, 6, 3, 24)]
+    [InlineData(2, 2, 4, 4, 2, 14)]
+    public void ShouldReturnFullHouseWithCorrectValue(int v1, int v2, int v3, int v4, int v5, int expected) =>
+      AssertValueFromType<FullHouse>(new List<int>() { v1, v2, v3, v4, v5 }, expected);
+
+    [Theory]
     [InlineData(1, 1, 1, 1, 4, 1)]
     [InlineData(1, 1, 2, 2, 4, 2)]
     [InlineData(1, 2, 5, 6, 4, 0)]
@@ -122,11 +128,6 @@ namespace YahtzeeTests
       Assert.Equal(expected, actual);
     }
 
-    [Theory]
-    [InlineData(6, 3, 6, 6, 3, 24)]
-    [InlineData(2, 2, 4, 4, 2, 14)]
-    public void ShouldReturnFullHouseWithCorrectValue(int v1, int v2, int v3, int v4, int v5, int expected) =>
-      AssertValueFromType<FullHouse>(new List<int>() { v1, v2, v3, v4, v5 }, expected);
 
     private void AssertValueFromType<T>(List<int> diceValues, int expected) =>
       Assert.Equal(expected, ExerciseSUT(diceValues).Find(IsOfType<T>).GetValue());
