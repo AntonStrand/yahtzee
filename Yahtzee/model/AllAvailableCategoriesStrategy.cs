@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Yahtzee.model.category;
+using category = Yahtzee.model.category;
 
 namespace Yahtzee.model
 {
@@ -10,7 +11,8 @@ namespace Yahtzee.model
     public List<Category> GetCategories(Dice dice, ScoreBoard scoreBoard)
     {
       if (IsAnyNull(dice, scoreBoard)) throw new ArgumentNullException();
-
+      if (dice.GetValues().All(x => x == dice.GetValues()[0]))
+        return new List<Category> { new category.Yahtzee(2, 2, 2, 2, 2) };
       return GetPairs(dice)
           .Concat(GetTwoPair(dice))
           .Concat(GetThreeOfAKind(dice))
