@@ -56,10 +56,12 @@ namespace YahtzeeTests
     public void ShouldReturnYahtzee() => AssertType<category.Yahtzee>(new List<int>() { 1, 1, 1, 1, 1 });
 
     [Fact]
-    public void ShouldOnlyReturnAPair()
+    public void ShouldOnlyReturnAPairAndChance()
     {
-      var actual = ExerciseSUT(new List<int>() { 1, 1, 2, 4, 6 }).Where(c => !IsOfType<Pair>(c)).ToList().Count;
-      Assert.Equal(0, actual);
+      var actual = ExerciseSUT(new List<int>() { 1, 1, 2, 4, 6 })
+        .Where(c => IsOfType<Pair>(c) || IsOfType<Chance>(c))
+        .ToList().Count;
+      Assert.Equal(2, actual);
     }
 
     [Theory]
