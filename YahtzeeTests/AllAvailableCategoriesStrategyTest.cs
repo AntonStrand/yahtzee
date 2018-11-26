@@ -99,10 +99,10 @@ namespace YahtzeeTests
       AssertValueFromType<LargeStraight>(new List<int>() { v1, v2, v3, v4, v5 }, expected);
 
     [Theory]
-    [InlineData(2, 2, 2, 2, 2, 50)]
-    [InlineData(4, 4, 4, 4, 4, 50)]
-    public void ShouldReturnYahtzeeWithCorrectValue(int v1, int v2, int v3, int v4, int v5, int expected) =>
-      AssertValueFromType<category.Yahtzee>(new List<int>() { v1, v2, v3, v4, v5 }, expected);
+    [InlineData(2, 50)]
+    [InlineData(4, 50)]
+    public void ShouldReturnYahtzeeWithCorrectValue(int v, int expected) =>
+      AssertValueFromType<category.Yahtzee>(new List<int>() { v, v, v, v, v }, expected);
 
     [Theory]
     [InlineData(1, 1, 1, 1, 4, 1)]

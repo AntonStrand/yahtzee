@@ -73,8 +73,8 @@ namespace Yahtzee.model
     }
 
     private List<Category> GetYahtzee(Dice dice) =>
-      dice.GetValues().All(x => x == dice.GetValues()[0])
-        ? new List<Category> { new category.Yahtzee(2, 2, 2, 2, 2) }
+      dice.GetValues().All(v => v == dice.GetValues()[0])
+        ? new List<Category> { new category.Yahtzee(6, 6, 6, 6, 6) }
         : new List<Category>();
 
     private Dictionary<int, int> GetFrequencyTable(Dice dice) =>
