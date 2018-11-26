@@ -20,7 +20,7 @@ namespace Yahtzee.model
           .Concat(GetLargeStraight(dice))
           .Concat(GetFullHouse(dice))
           .Concat(GetYahtzee(dice))
-          .Concat(new List<Category> { new Chance(1, 1, 1, 1, 1) })
+          .Concat(GetChance())
           .ToList();
     }
 
@@ -77,6 +77,8 @@ namespace Yahtzee.model
       dice.GetValues().All(v => v == dice.GetValues()[0])
         ? new List<Category> { new category.Yahtzee(6, 6, 6, 6, 6) }
         : new List<Category>();
+
+    private List<Category> GetChance() => new List<Category> { new Chance(1, 1, 1, 1, 1) };
 
     private Dictionary<int, int> GetFrequencyTable(Dice dice) =>
       dice
