@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Yahtzee.model;
+using YahtzeeApp.model;
 
-namespace Yahtzee.view
+namespace YahtzeeApp.view
 {
   public class DiceView
   {

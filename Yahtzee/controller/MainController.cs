@@ -1,8 +1,8 @@
 
-using Yahtzee.view;
-using Yahtzee.model;
+using YahtzeeApp.view;
+using YahtzeeApp.model;
 
-namespace Yahtzee.controller
+namespace YahtzeeApp.controller
 {
   public class MainController
   {

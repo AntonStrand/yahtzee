@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Yahtzee.model.category;
+using YahtzeeApp.model.category;
 
-namespace Yahtzee.model
+namespace YahtzeeApp.model
 {
   public interface ScoreBoard
   {

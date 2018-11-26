@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.CompilerServices;
 
-namespace Yahtzee.model
+namespace YahtzeeApp.model
 {
   public class DieImplemented : Die
   {

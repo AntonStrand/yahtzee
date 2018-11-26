@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Xunit;
-using Yahtzee.model.category;
+using YahtzeeApp.model.category;
 
 namespace YahtzeeTests
 {

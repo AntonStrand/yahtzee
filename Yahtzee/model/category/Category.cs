@@ -1,4 +1,4 @@
-namespace Yahtzee.model.category
+namespace YahtzeeApp.model.category
 {
   public interface Category
   {

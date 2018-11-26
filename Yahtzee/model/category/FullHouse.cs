@@ -1,6 +1,6 @@
 using System;
 
-namespace Yahtzee.model.category
+namespace YahtzeeApp.model.category
 {
   public class FullHouse : Category
   {

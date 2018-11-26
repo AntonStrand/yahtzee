@@ -1,4 +1,4 @@
-namespace Yahtzee.model
+namespace YahtzeeApp.model
 {
   public interface Die
   {

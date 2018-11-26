@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 using Moq;
-using Yahtzee.model;
+using YahtzeeApp.model;
 
 namespace YahtzeeTests
 {

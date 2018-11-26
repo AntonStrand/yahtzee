@@ -1,8 +1,8 @@
 using System;
 using Xunit;
-using Yahtzee.controller;
-using Yahtzee.view;
-using Yahtzee.model;
+using YahtzeeApp.controller;
+using YahtzeeApp.view;
+using YahtzeeApp.model;
 using Moq;
 
 namespace YahtzeeTests
@@ -16,7 +16,7 @@ namespace YahtzeeTests
       var p = new Player();
       var c = new MainController(v, p);
 
-      Assert.IsType<Yahtzee.controller.MainController>(c);
+      Assert.IsType<MainController>(c);
     }
 
     [Fact]

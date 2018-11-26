@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 using Xunit;
-using Yahtzee.view;
+using YahtzeeApp.view;
 
 namespace YahtzeeTests
 {
@@ -11,7 +11,7 @@ namespace YahtzeeTests
     public void NewMainView()
     {
       var view = new EnglishMainView();
-      Assert.IsType<Yahtzee.view.EnglishMainView>(view);
+      Assert.IsType<EnglishMainView>(view);
     }
 
     [Fact]

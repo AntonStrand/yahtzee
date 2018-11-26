@@ -1,6 +1,6 @@
 using System;
 using Xunit;
-using Yahtzee.model.category;
+using YahtzeeApp.model.category;
 
 namespace YahtzeeTests
 {

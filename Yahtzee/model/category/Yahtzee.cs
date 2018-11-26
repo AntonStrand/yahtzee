@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Yahtzee.model.category
+namespace YahtzeeApp.model.category
 {
   public class Yahtzee : Category
   {

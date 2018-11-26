@@ -2,8 +2,8 @@ using System;
 using System.IO;
 using Xunit;
 using Moq;
-using Yahtzee.view;
-using Yahtzee.model;
+using YahtzeeApp.view;
+using YahtzeeApp.model;
 using System.Collections.Generic;
 
 namespace YahtzeeTests

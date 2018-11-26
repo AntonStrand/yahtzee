@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Yahtzee.model
+namespace YahtzeeApp.model
 {
   public class DiceImplemented : Dice
   {

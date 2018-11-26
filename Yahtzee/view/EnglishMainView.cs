@@ -1,6 +1,6 @@
 using System;
 
-namespace Yahtzee.view
+namespace YahtzeeApp.view
 {
   public class EnglishMainView : MainView
   {

@@ -1,10 +1,10 @@
 ﻿using System;
-using Yahtzee.controller;
-using Yahtzee.view;
-using Yahtzee.model;
+using YahtzeeApp.controller;
+using YahtzeeApp.view;
+using YahtzeeApp.model;
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("YahtzeeTests")]
 
-namespace Yahtzee
+namespace YahtzeeApp
 {
   class Program
   {

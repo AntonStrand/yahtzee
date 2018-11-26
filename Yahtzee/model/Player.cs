@@ -1,6 +1,6 @@
 using System;
 
-namespace Yahtzee.model
+namespace YahtzeeApp.model
 {
   public class Player
   {

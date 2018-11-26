@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 using Moq;
-using Yahtzee.model.category;
+using YahtzeeApp.model.category;
 
 namespace YahtzeeTests
 {

@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Yahtzee.model.category;
-using category = Yahtzee.model.category;
+using YahtzeeApp.model.category;
 
-namespace Yahtzee.model
+namespace YahtzeeApp.model
 {
   public class AllAvailableCategoriesStrategy
   {
@@ -75,7 +74,7 @@ namespace Yahtzee.model
 
     private List<Category> GetYahtzee(Dice dice) =>
       dice.GetValues().All(v => v == dice.GetValues()[0])
-        ? new List<Category> { new category.Yahtzee(6, 6, 6, 6, 6) }
+        ? new List<Category> { new Yahtzee(6, 6, 6, 6, 6) }
         : new List<Category>();
 
     private List<Category> GetChance(Dice dice) => new List<Category> { new Chance(dice.GetValues()) };
