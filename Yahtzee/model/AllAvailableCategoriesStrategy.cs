@@ -11,8 +11,7 @@ namespace Yahtzee.model
     public List<Category> GetCategories(Dice dice, ScoreBoard scoreBoard)
     {
       if (IsAnyNull(dice, scoreBoard)) throw new ArgumentNullException();
-      if (dice.GetValues().All(x => x == dice.GetValues()[0]))
-        return new List<Category> { new category.Yahtzee(2, 2, 2, 2, 2) };
+
       return GetPairs(dice)
           .Concat(GetTwoPair(dice))
           .Concat(GetThreeOfAKind(dice))
@@ -20,6 +19,7 @@ namespace Yahtzee.model
           .Concat(GetSmallStraight(dice))
           .Concat(GetLargeStraight(dice))
           .Concat(GetFullHouse(dice))
+          .Concat(GetYahtzee(dice))
           .ToList();
     }
 
@@ -71,6 +71,11 @@ namespace Yahtzee.model
         ? new List<Category>()
         : new List<Category> { new FullHouse(pair, threeOfAKind) };
     }
+
+    private List<Category> GetYahtzee(Dice dice) =>
+      dice.GetValues().All(x => x == 1)
+        ? new List<Category> { new category.Yahtzee(2, 2, 2, 2, 2) }
+        : new List<Category>();
 
     private Dictionary<int, int> GetFrequencyTable(Dice dice) =>
       dice
