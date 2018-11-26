@@ -6,21 +6,15 @@ namespace Yahtzee.model.category
 {
   public class SmallStraight : Category
   {
-    public SmallStraight(List<int> values)
+    public SmallStraight(int v1, int v2, int v3, int v4, int v5)
     {
-      if (values == null) throw new ArgumentNullException();
-      if (IsOutOfRange(values)) throw new ArgumentOutOfRangeException();
+      List<int> values = new List<int> { v1, v2, v3, v4, v5 };
       if (IsInvalidInput(values)) throw new ArgumentException();
     }
 
     public int GetValue() => 15;
 
-    private bool IsOutOfRange(List<int> list) => list.Count != 5;
-
     private bool IsInvalidInput(List<int> list) =>
-      HasDoublets(list) || list.OrderBy(v => v).Where((value, i) => value != (i + 1)).ToList().Count != 0;
-
-    private bool HasDoublets(List<int> list) => list.Distinct().ToList().Count != list.Count;
-
+      list.OrderBy(v => v).Where((value, i) => value != (i + 1)).ToList().Count != 0;
   }
 }
