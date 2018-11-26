@@ -2,6 +2,7 @@ using System;
 using Xunit;
 using Yahtzee.model;
 using Yahtzee.model.category;
+using category = Yahtzee.model.category;
 using Moq;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,6 +51,9 @@ namespace YahtzeeTests
 
     [Fact]
     public void ShouldReturnFullHouse() => AssertType<FullHouse>(new List<int>() { 1, 1, 1, 4, 4 });
+
+    [Fact]
+    public void ShouldReturnYahtzee() => AssertType<category.Yahtzee>(new List<int>() { 1, 1, 1, 1, 1 });
 
     [Fact]
     public void ShouldOnlyReturnAPair()
