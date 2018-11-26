@@ -78,7 +78,7 @@ namespace Yahtzee.model
         ? new List<Category> { new category.Yahtzee(6, 6, 6, 6, 6) }
         : new List<Category>();
 
-    private List<Category> GetChance() => new List<Category> { new Chance(1, 1, 1, 1, 1) };
+    private List<Category> GetChance() => new List<Category> { new Chance(2, 3, 4, 5, 6) };
 
     private Dictionary<int, int> GetFrequencyTable(Dice dice) =>
       dice
