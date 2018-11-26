@@ -11,13 +11,8 @@ namespace YahtzeeApp.model
 
     public DiceImplemented(Die d1, Die d2, Die d3, Die d4, Die d5)
     {
+      _dice = new List<Die> { d1, d2, d3, d4, d5 };
       _keep = new List<Die>();
-      _dice = new List<Die>();
-      _dice.Add(d1);
-      _dice.Add(d2);
-      _dice.Add(d3);
-      _dice.Add(d4);
-      _dice.Add(d5);
     }
 
     public void Throw() => GetAvailableDice().ForEach(ThrowDie);
