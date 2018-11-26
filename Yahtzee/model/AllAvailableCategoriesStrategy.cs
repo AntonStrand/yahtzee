@@ -73,7 +73,7 @@ namespace Yahtzee.model
     }
 
     private List<Category> GetYahtzee(Dice dice) =>
-      dice.GetValues().All(x => x == 1)
+      dice.GetValues().All(x => x == 1 || x == 2)
         ? new List<Category> { new category.Yahtzee(2, 2, 2, 2, 2) }
         : new List<Category>();
 
