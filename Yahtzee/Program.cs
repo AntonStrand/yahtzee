@@ -2,6 +2,7 @@
 using Yahtzee.controller;
 using Yahtzee.view;
 using Yahtzee.model;
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("YahtzeeTests")]
 
 namespace Yahtzee
 {

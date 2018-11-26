@@ -4,7 +4,7 @@ namespace Yahtzee.model
 {
   public class Player
   {
-    private string name;
+    internal string name;
     public void SetName(string name)
     {
       if (name.Length == 0)
