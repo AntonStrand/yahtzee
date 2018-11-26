@@ -20,6 +20,7 @@ namespace Yahtzee.model
           .Concat(GetLargeStraight(dice))
           .Concat(GetFullHouse(dice))
           .Concat(GetYahtzee(dice))
+          .Concat(new List<Category> { new Chance(1, 1, 1, 1, 1) })
           .ToList();
     }
 
