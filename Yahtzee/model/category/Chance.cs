@@ -7,7 +7,7 @@ namespace Yahtzee.model.category
     private int _value;
     public Chance(int v1, int v2, int v3, int v4, int v5)
     {
-      _value = v5 == 2 ? 8 : v5 == 5 ? 18 : 20;
+      _value = v1 + v2 + v3 + v4 + v5;
     }
 
     public int GetValue() => _value;
