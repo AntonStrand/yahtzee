@@ -8,7 +8,7 @@ namespace Yahtzee.model.category
   {
     private int _value;
     public Chance(List<int> values) =>
-      _value = 0;
+      _value = values.Sum();
 
     public int GetValue() => _value;
   }
