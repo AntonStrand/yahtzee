@@ -11,9 +11,11 @@ namespace YahtzeeApp.model.category
     public FirstSection(int valueType, Dice dice)
     {
       if (dice == null) throw new ArgumentNullException();
-      _value = dice.GetValues().Where(x => x == valueType).Sum();
+      _value = dice.GetValues().Where(IsSame(valueType)).Sum();
     }
 
     public int GetValue() => _value;
+
+    private Func<int, Func<int, bool>> IsSame = valueType => value => value == valueType;
   }
 }
