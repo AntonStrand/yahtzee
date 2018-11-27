@@ -11,8 +11,7 @@ namespace YahtzeeApp.model.category
     public FirstSection(int valueType, Dice dice)
     {
       if (dice == null) throw new ArgumentNullException();
-      if (valueType == 1) _value = dice.GetValues().Where(x => x == 1).Sum();
-      if (valueType == 2) _value = dice.GetValues().Where(x => x == 2).Sum();
+      _value = dice.GetValues().Where(x => x == valueType).Sum();
     }
 
     public int GetValue() => _value;
