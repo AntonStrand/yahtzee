@@ -13,6 +13,7 @@ namespace YahtzeeTests
     [InlineData(1, 1, 2, 1, 2, 1, 3)]
     [InlineData(1, 1, 1, 1, 2, 1, 4)]
     [InlineData(2, 4, 2, 2, 2, 3, 6)]
+    [InlineData(6, 4, 2, 2, 2, 3, 0)]
     public void ShouldSumAllValuesOfSpecifiedType(int type, int v1, int v2, int v3, int v4, int v5, int expected)
     {
       var fakeDice = new Mock<Dice>();
