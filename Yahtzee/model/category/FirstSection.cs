@@ -5,7 +5,7 @@ namespace YahtzeeApp.model.category
 {
   public class FirstSection : Category
   {
-    public FirstSection(int valueType, List<int> values)
+    public FirstSection(int valueType, Dice dice)
     {
       throw new ArgumentNullException();
     }
