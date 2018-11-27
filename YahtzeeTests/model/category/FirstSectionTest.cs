@@ -8,6 +8,7 @@ namespace YahtzeeTests
   public class FirstSectionTest
   {
     [Fact]
-    public void ShouldNotAcceptNullValues() => Assert.Throws<ArgumentNullException>(() => new FirstSection(1, null));
+    public void ShouldNotAcceptNullValues() =>
+      Assert.Throws<ArgumentNullException>(() => new FirstSection(1, null));
   }
 }
