@@ -7,9 +7,9 @@ namespace YahtzeeApp.model.category
   {
     public FirstSection(int valueType, Dice dice)
     {
-      throw new ArgumentNullException();
+      if (dice == null) throw new ArgumentNullException();
     }
 
-    public int GetValue() => 0;
+    public int GetValue() => 3;
   }
 }
