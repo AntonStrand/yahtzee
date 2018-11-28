@@ -33,7 +33,7 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldNotReturnPairIfAlreadyTaken()
     {
-      var diceValues = new List<int>() { 5, 5, 1, 2, 4 };
+      var diceValues = new List<int>() { 5, 5, 1, 1, 4 };
       var fakePlayer = new Mock<ScoreBoard>();
       fakePlayer.Setup(p => p.GetOccupiedCategories()).Returns(new List<Category> { new Pair(1, 1) });
       var fakeDice = new Mock<Dice>();
@@ -42,6 +42,21 @@ namespace YahtzeeTests
       var sut = new AllAvailableCategoriesStrategy();
       var categories = sut.GetCategories(fakeDice.Object, fakePlayer.Object);
       Assert.Equal(null, categories.Find(IsOfType<Pair>));
+    }
+
+    [Fact]
+    public void ShouldNotReturnPairIfAlreadyTakenButShouldReturnTwoPair()
+    {
+      var diceValues = new List<int>() { 5, 1, 1, 2, 2 };
+      var fakePlayer = new Mock<ScoreBoard>();
+      fakePlayer.Setup(p => p.GetOccupiedCategories()).Returns(new List<Category> { new Pair(1, 1) });
+      var fakeDice = new Mock<Dice>();
+      fakeDice.Setup(d => d.GetValues()).Returns(diceValues);
+
+      var sut = new AllAvailableCategoriesStrategy();
+      var categories = sut.GetCategories(fakeDice.Object, fakePlayer.Object);
+      Assert.Equal(null, categories.Find(IsOfType<Pair>));
+      Assert.IsType<TwoPair>(categories.Find(IsOfType<TwoPair>));
     }
 
     [Theory]
