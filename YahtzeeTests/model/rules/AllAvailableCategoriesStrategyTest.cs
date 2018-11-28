@@ -80,6 +80,26 @@ namespace YahtzeeTests
       Assert.Empty(categories);
     }
 
+    [Fact]
+    public void ShouldRemoveOccupiedCategories()
+    {
+      var diceValues = new List<int>() { 3, 3, 3, 6, 6 };
+      var fakeDice = new Mock<Dice>();
+      fakeDice.Setup(d => d.GetValues()).Returns(diceValues);
+
+      var fakePlayer = new Mock<ScoreBoard>();
+      fakePlayer.Setup(p => p.GetOccupiedCategories())
+        .Returns(new List<Category> {
+          new TwoPair(new Pair(5, 5), new Pair(6, 6))
+        });
+
+      var sut = new AllAvailableCategoriesStrategy();
+      var categories = sut.GetCategories(fakeDice.Object, fakePlayer.Object);
+      Assert.IsNotType<TwoPair>(categories.Find(IsOfType<TwoPair>));
+      Assert.IsType<Pair>(categories.Find(IsOfType<Pair>));
+      Assert.IsType<ThreeOfAKind>(categories.Find(IsOfType<ThreeOfAKind>));
+    }
+
     [Theory]
     [InlineData(1, 1, 2, 2, 4)]
     [InlineData(1, 1, 1, 1, 4)]
