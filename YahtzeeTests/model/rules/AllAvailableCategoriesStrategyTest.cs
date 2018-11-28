@@ -30,6 +30,53 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldReturnPair() => AssertType<Pair>(new List<int>() { 5, 5, 1, 2, 4 });
 
+    [Fact]
+    public void ShouldNotReturnPairIfAlreadyTaken()
+    {
+      var diceValues = new List<int>() { 5, 5, 1, 3, 4 };
+      var occupied = new List<Category> { new Pair(1, 1) };
+
+      var categories = ExersciseSUTWithScoreBoard(diceValues, occupied);
+      Assert.IsNotType<Pair>(categories.Find(IsOfType<Pair>));
+    }
+
+    [Fact]
+    public void ShouldNotReturnPairIfAlreadyTakenButShouldReturnTwoPair()
+    {
+      var diceValues = new List<int>() { 5, 1, 1, 2, 2 };
+      var occupied = new List<Category> { new Pair(1, 1) };
+
+      var categories = ExersciseSUTWithScoreBoard(diceValues, occupied);
+      Assert.IsNotType<Pair>(categories.Find(IsOfType<Pair>));
+      Assert.IsType<TwoPair>(categories.Find(IsOfType<TwoPair>));
+    }
+
+    [Fact]
+    public void ShouldRemoveAllOccupiedCategories()
+    {
+      var diceValues = new List<int>() { 5, 1, 1, 2, 2 };
+      var occupied = new List<Category> {
+        new Pair(1, 1),
+        new TwoPair(new Pair(5, 5), new Pair(6, 6)),
+        new Chance(diceValues)
+      };
+
+      var categories = ExersciseSUTWithScoreBoard(diceValues, occupied);
+      Assert.Empty(categories);
+    }
+
+    [Fact]
+    public void ShouldRemoveOccupiedCategories()
+    {
+      var diceValues = new List<int>() { 3, 3, 3, 6, 6 };
+      var occupied = new List<Category> { new TwoPair(new Pair(5, 5), new Pair(6, 6)) };
+
+      var categories = ExersciseSUTWithScoreBoard(diceValues, occupied);
+      Assert.IsNotType<TwoPair>(categories.Find(IsOfType<TwoPair>));
+      Assert.IsType<Pair>(categories.Find(IsOfType<Pair>));
+      Assert.IsType<ThreeOfAKind>(categories.Find(IsOfType<ThreeOfAKind>));
+    }
+
     [Theory]
     [InlineData(1, 1, 2, 2, 4)]
     [InlineData(1, 1, 1, 1, 4)]
@@ -41,7 +88,6 @@ namespace YahtzeeTests
 
     [Fact]
     public void ShouldReturnFourOfAKind() => AssertType<FourOfAKind>(new List<int>() { 1, 1, 1, 1, 4 });
-
 
     [Fact]
     public void ShouldReturnSmallStraight() => AssertType<SmallStraight>(new List<int>() { 1, 2, 3, 4, 5 });
@@ -128,7 +174,6 @@ namespace YahtzeeTests
       Assert.Equal(expected, actual);
     }
 
-
     private void AssertValueFromType<T>(List<int> diceValues, int expected) =>
       Assert.Equal(expected, ExerciseSUT(diceValues).Find(IsOfType<T>).GetValue());
 
@@ -137,9 +182,21 @@ namespace YahtzeeTests
 
     private List<Category> ExerciseSUT(List<int> diceValues)
     {
-      var fakePlayer = new Mock<ScoreBoard>();
+      var player = new Player();
       var fakeDice = new Mock<Dice>();
       fakeDice.Setup(d => d.GetValues()).Returns(diceValues);
+
+      var sut = new AllAvailableCategoriesStrategy();
+      return sut.GetCategories(fakeDice.Object, player);
+    }
+
+    private List<Category> ExersciseSUTWithScoreBoard(List<int> diceValues, List<Category> occupied)
+    {
+      var fakeDice = new Mock<Dice>();
+      fakeDice.Setup(d => d.GetValues()).Returns(diceValues);
+
+      var fakePlayer = new Mock<ScoreBoard>();
+      fakePlayer.Setup(p => p.GetOccupiedCategories()).Returns(occupied);
 
       var sut = new AllAvailableCategoriesStrategy();
       return sut.GetCategories(fakeDice.Object, fakePlayer.Object);
@@ -148,4 +205,3 @@ namespace YahtzeeTests
     private bool IsOfType<T>(Category c) => c.GetType() == typeof(T);
   }
 }
-
