@@ -23,6 +23,9 @@ namespace YahtzeeApp.model.rules
             .Concat(GetChance(dice))
             .ToList();
 
+      if (scoreBoard.GetOccupiedCategories().Count == 2)
+        return new List<Category>();
+
       return new List<Category>() { new TwoPair(new Pair(1, 1), new Pair(2, 2)) };
 
     }
