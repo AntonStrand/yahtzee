@@ -38,5 +38,12 @@ namespace YahtzeeTests
       player.SetName(name);
       Assert.Equal(name, player.name);
     }
+
+    [Fact]
+    public void ShouldReturnEmptyCategoryListIfNoCategoryIsOccupied()
+    {
+      var sut = new Player();
+      Assert.Empty(sut.GetOccupiedCategories());
+    }
   }
 }
