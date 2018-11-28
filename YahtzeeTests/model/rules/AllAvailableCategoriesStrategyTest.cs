@@ -72,7 +72,8 @@ namespace YahtzeeTests
       fakePlayer.Setup(p => p.GetOccupiedCategories())
         .Returns(new List<Category> {
           new Pair(1, 1),
-          new TwoPair(new Pair(5, 5), new Pair(6, 6))
+          new TwoPair(new Pair(5, 5), new Pair(6, 6)),
+          new Chance(diceValues)
         });
 
       var sut = new AllAvailableCategoriesStrategy();

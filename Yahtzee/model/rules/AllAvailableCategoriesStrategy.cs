@@ -11,23 +11,26 @@ namespace YahtzeeApp.model.rules
     {
       if (IsAnyNull(dice, scoreBoard)) throw new ArgumentNullException();
 
-      if (scoreBoard.GetOccupiedCategories() == null)
-        return GetPairs(dice)
-            .Concat(GetTwoPair(dice))
-            .Concat(GetThreeOfAKind(dice))
-            .Concat(GetFourOfAKind(dice))
-            .Concat(GetSmallStraight(dice))
-            .Concat(GetLargeStraight(dice))
-            .Concat(GetFullHouse(dice))
-            .Concat(GetYahtzee(dice))
-            .Concat(GetChance(dice))
-            .ToList();
+      var allAvailable = GetPairs(dice)
+        .Concat(GetTwoPair(dice))
+        .Concat(GetThreeOfAKind(dice))
+        .Concat(GetFourOfAKind(dice))
+        .Concat(GetSmallStraight(dice))
+        .Concat(GetLargeStraight(dice))
+        .Concat(GetFullHouse(dice))
+        .Concat(GetYahtzee(dice))
+        .Concat(GetChance(dice))
+        .ToList();
 
-      if (scoreBoard.GetOccupiedCategories().Count == 2)
-        return new List<Category>();
+      if (scoreBoard.GetOccupiedCategories() != null)
+      {
+        var allOccupied = scoreBoard.GetOccupiedCategories();
+        return allAvailable.Where(cat =>
+          allOccupied.All(c => c.GetType() != cat.GetType())
+        ).ToList();
+      }
 
-      return new List<Category>() { new TwoPair(new Pair(1, 1), new Pair(2, 2)) };
-
+      return allAvailable;
     }
 
     private List<Pair> GetPairs(Dice dice) =>
