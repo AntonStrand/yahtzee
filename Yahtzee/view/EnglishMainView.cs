@@ -16,5 +16,10 @@ namespace YahtzeeApp.view
       Console.WriteLine(enterUsername);
       return Console.ReadLine();
     }
+
+    public int SelectDice()
+    {
+      return 1;
+    }
   }
 }

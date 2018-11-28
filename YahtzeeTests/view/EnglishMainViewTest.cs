@@ -82,7 +82,7 @@ namespace YahtzeeTests
     public void SelectDiceExist()
     {
       var v = new EnglishMainView();
-      Assert.Equal("System.Char SelectDice()", v.GetType().GetMethod("SelectDice").ToString());
+      Assert.Equal("Int32 SelectDice()", v.GetType().GetMethod("SelectDice").ToString());
     }
   }
 }

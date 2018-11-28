@@ -6,5 +6,6 @@ namespace YahtzeeApp.view
   {
     void DisplayWelcomeMessage();
     string GetUsername();
+    int SelectDice();
   }
 }
