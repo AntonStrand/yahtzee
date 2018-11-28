@@ -16,6 +16,7 @@ namespace YahtzeeApp.controller
     public void Play()
     {
       this.mainView.DisplayWelcomeMessage();
+      string username = this.mainView.GetUsername();
     }
   }
 }
