@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using YahtzeeApp.model.category;
 
-namespace YahtzeeApp.model
+namespace YahtzeeApp.model.rules
 {
   public class AllAvailableCategoriesStrategy
   {
