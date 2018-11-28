@@ -55,10 +55,9 @@ namespace YahtzeeTests
     [Fact]
     public void WhenRunningPlayViewUserNameIsSetInPlayer()
     {
-      var mockView = new Mock<MainView>();
-      // var mockPlayer = new Mock<Player>();
+      var view = new EnglishMainView();
       var player = new Player();
-      var c = new MainController(mockView.Object, player);
+      var c = new MainController(view, player);
 
 
       string expected = "Test";
@@ -69,7 +68,6 @@ namespace YahtzeeTests
 
       Assert.Equal(expected, player.name);
       input.Close();
-      Console.SetOut(new StreamWriter(Console.OpenStandardOutput()));
     }
   }
 }
