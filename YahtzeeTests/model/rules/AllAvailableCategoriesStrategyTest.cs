@@ -32,8 +32,83 @@ namespace YahtzeeTests
       Assert.Equal(expected: 8, actual: ExerciseSUT(new List<int>() { 1, 1, 2, 5, 6 }).Count);
 
     [Fact]
-    public void ShouldReturnAcesWithCorrectValue() =>
-      AssertValueFromType<Aces>(new List<int>() { 1, 1, 4, 1, 3 }, 3);
+    public void ShouldNotReturnPairIfAlreadyTaken()
+    {
+      var fakePlayer = new Mock<ScoreBoard>();
+      fakePlayer.Setup(p => p.GetOccupiedCategories()).Returns(new List<Category> { new Pair(1, 1) });
+
+      var diceValues = new List<int>() { 5, 5, 1, 3, 4 };
+      var fakeDice = new Mock<Dice>();
+      fakeDice.Setup(d => d.GetValues()).Returns(diceValues);
+
+      var sut = new AllAvailableCategoriesStrategy();
+      var categories = sut.GetCategories(fakeDice.Object, fakePlayer.Object);
+      Assert.IsNotType<Pair>(categories.Find(IsOfType<Pair>));
+    }
+
+    [Fact]
+    public void ShouldNotReturnPairIfAlreadyTakenButShouldReturnTwoPair()
+    {
+      var fakePlayer = new Mock<ScoreBoard>();
+      fakePlayer.Setup(p => p.GetOccupiedCategories()).Returns(new List<Category> { new Pair(1, 1) });
+
+      var diceValues = new List<int>() { 5, 1, 1, 2, 2 };
+      var fakeDice = new Mock<Dice>();
+      fakeDice.Setup(d => d.GetValues()).Returns(diceValues);
+
+      var sut = new AllAvailableCategoriesStrategy();
+      var categories = sut.GetCategories(fakeDice.Object, fakePlayer.Object);
+      Assert.IsNotType<Pair>(categories.Find(IsOfType<Pair>));
+      Assert.IsType<TwoPair>(categories.Find(IsOfType<TwoPair>));
+    }
+
+    [Fact]
+    public void ShouldRemoveAllOccupiedCategories()
+    {
+      var diceValues = new List<int>() { 5, 1, 1, 2, 2 };
+      var fakeDice = new Mock<Dice>();
+      fakeDice.Setup(d => d.GetValues()).Returns(diceValues);
+
+      var fakePlayer = new Mock<ScoreBoard>();
+      fakePlayer.Setup(p => p.GetOccupiedCategories())
+        .Returns(new List<Category> {
+          new Pair(1, 1),
+          new TwoPair(new Pair(5, 5), new Pair(6, 6))
+        });
+
+      var sut = new AllAvailableCategoriesStrategy();
+      var categories = sut.GetCategories(fakeDice.Object, fakePlayer.Object);
+      Assert.Empty(categories);
+    }
+
+    [Fact]
+    public void ShouldRemoveOccupiedCategories()
+    {
+      var diceValues = new List<int>() { 3, 3, 3, 6, 6 };
+      var fakeDice = new Mock<Dice>();
+      fakeDice.Setup(d => d.GetValues()).Returns(diceValues);
+
+      var fakePlayer = new Mock<ScoreBoard>();
+      fakePlayer.Setup(p => p.GetOccupiedCategories())
+        .Returns(new List<Category> {
+          new TwoPair(new Pair(5, 5), new Pair(6, 6))
+        });
+
+      var sut = new AllAvailableCategoriesStrategy();
+      var categories = sut.GetCategories(fakeDice.Object, fakePlayer.Object);
+      Assert.IsNotType<TwoPair>(categories.Find(IsOfType<TwoPair>));
+      Assert.IsType<Pair>(categories.Find(IsOfType<Pair>));
+      Assert.IsType<ThreeOfAKind>(categories.Find(IsOfType<ThreeOfAKind>));
+    }
+
+    [Theory]
+    [InlineData(1, 1, 2, 2, 4)]
+    [InlineData(1, 1, 1, 1, 4)]
+    public void ShouldReturnTwoPair(int v1, int v2, int v3, int v4, int v5) =>
+      AssertType<TwoPair>(new List<int>() { v1, v2, v3, v4, v5 });
+
+    [Fact]
+    public void ShouldReturnThreeOfAKind() => AssertType<ThreeOfAKind>(new List<int>() { 1, 1, 1, 2, 4 });
 
     [Fact]
     public void ShouldReturnTwosWithCorrectValue() =>
