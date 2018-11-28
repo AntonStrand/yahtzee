@@ -39,5 +39,16 @@ namespace YahtzeeTests
       c.Play();
       mockView.Verify(view => view.DisplayWelcomeMessage(), Times.Once());
     }
+
+    [Fact]
+    public void WhenRunningPlayViewGetUsernameIsCalled()
+    {
+      var mockView = new Mock<MainView>();
+      var p = new Player();
+      var c = new MainController(mockView.Object, p);
+
+      c.Play();
+      mockView.Verify(view => view.GetUsername(), Times.Once());
+    }
   }
 }
