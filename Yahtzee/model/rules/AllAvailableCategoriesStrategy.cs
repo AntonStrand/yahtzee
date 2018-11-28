@@ -10,8 +10,14 @@ namespace YahtzeeApp.model.rules
     public List<Category> GetCategories(Dice dice, ScoreBoard scoreBoard)
     {
       if (IsAnyNull(dice, scoreBoard)) throw new ArgumentNullException();
+      return GetAvailableCategories(dice, scoreBoard);
+    }
 
-      var allAvailable = GetPairs(dice)
+    private List<Category> GetAvailableCategories(Dice dice, ScoreBoard scoreBoard) =>
+      RemoveOccupiedCategories(GetPossibleCategories(dice), scoreBoard.GetOccupiedCategories());
+
+    private List<Category> GetPossibleCategories(Dice dice) =>
+      GetPairs(dice)
         .Concat(GetTwoPair(dice))
         .Concat(GetThreeOfAKind(dice))
         .Concat(GetFourOfAKind(dice))
@@ -22,17 +28,9 @@ namespace YahtzeeApp.model.rules
         .Concat(GetChance(dice))
         .ToList();
 
-      if (scoreBoard.GetOccupiedCategories() != null)
-      {
-        return RemoveOccupiedCategories(allAvailable, scoreBoard.GetOccupiedCategories());
-      }
-
-      return allAvailable;
-    }
-
-    private List<Category> RemoveOccupiedCategories(List<Category> allAvailable, List<Category> allOccupied) =>
-      allAvailable
-        .Where(available => allOccupied.All(taken => taken.GetType() != available.GetType()))
+    private List<Category> RemoveOccupiedCategories(List<Category> allPossible, List<Category> allOccupied) =>
+      allPossible
+        .Where(possible => allOccupied.All(taken => taken.GetType() != possible.GetType()))
         .ToList();
 
     private List<Pair> GetPairs(Dice dice) =>
