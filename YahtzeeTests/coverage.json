@@ -5,11 +5,9 @@
         "System.Void YahtzeeApp.Program::Main(System.String[])": {
           "Lines": {
             "12": 0,
-            "13": 0,
-            "14": 0,
-            "15": 0,
-            "16": 0,
-            "17": 0
+            "17": 0,
+            "18": 0,
+            "19": 0
           },
           "Branches": []
         }
@@ -432,25 +430,86 @@
       "YahtzeeApp.view.EnglishMainView": {
         "System.Void YahtzeeApp.view.EnglishMainView::DisplayWelcomeMessage()": {
           "Lines": {
-            "10": 2,
             "11": 2,
-            "12": 2
+            "12": 2,
+            "13": 2
           },
           "Branches": []
         },
         "System.String YahtzeeApp.view.EnglishMainView::GetUsername()": {
           "Lines": {
-            "15": 3,
             "16": 3,
             "17": 3,
-            "18": 3
+            "18": 3,
+            "19": 3
           },
           "Branches": []
         },
+        "System.Int32 YahtzeeApp.view.EnglishMainView::SelectDice()": {
+          "Lines": {
+            "22": 2,
+            "25": 5,
+            "26": 5,
+            "27": 5,
+            "28": 10,
+            "29": 2,
+            "30": 2
+          },
+          "Branches": [
+            {
+              "Line": 28,
+              "Offset": 55,
+              "EndOffset": 1,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 5
+            },
+            {
+              "Line": 28,
+              "Offset": 37,
+              "EndOffset": 39,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 4
+            },
+            {
+              "Line": 28,
+              "Offset": 41,
+              "EndOffset": 43,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 3
+            },
+            {
+              "Line": 28,
+              "Offset": 41,
+              "EndOffset": 49,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 1
+            },
+            {
+              "Line": 28,
+              "Offset": 37,
+              "EndOffset": 52,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            },
+            {
+              "Line": 28,
+              "Offset": 55,
+              "EndOffset": 57,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 2
+            }
+          ]
+        },
         "System.Void YahtzeeApp.view.EnglishMainView::.ctor()": {
           "Lines": {
-            "7": 9,
-            "8": 9
+            "8": 12,
+            "9": 12
           },
           "Branches": []
         }
