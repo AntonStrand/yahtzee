@@ -11,6 +11,17 @@ namespace YahtzeeApp.model.rules
     {
       if (IsAnyNull(dice, scoreBoard)) throw new ArgumentNullException();
 
+      if (scoreBoard.GetOccupiedCategories() != null)
+        return GetTwoPair(dice)
+          .Concat(GetThreeOfAKind(dice))
+          .Concat(GetFourOfAKind(dice))
+          .Concat(GetSmallStraight(dice))
+          .Concat(GetLargeStraight(dice))
+          .Concat(GetFullHouse(dice))
+          .Concat(GetYahtzee(dice))
+          .Concat(GetChance(dice))
+          .ToList();
+
       return GetPairs(dice)
           .Concat(GetTwoPair(dice))
           .Concat(GetThreeOfAKind(dice))
