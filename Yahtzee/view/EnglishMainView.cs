@@ -19,7 +19,13 @@ namespace YahtzeeApp.view
 
     public int SelectDice()
     {
-      return 1;
+      int number;
+      do
+      {
+        Console.WriteLine("Select Dice");
+        Console.Write("= ");
+      } while (!int.TryParse(Console.ReadLine(), out number) || (number <= 1 && number >= 5));
+      return number;
     }
   }
 }
