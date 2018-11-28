@@ -24,14 +24,16 @@ namespace YahtzeeApp.model.rules
 
       if (scoreBoard.GetOccupiedCategories() != null)
       {
-        var allOccupied = scoreBoard.GetOccupiedCategories();
-        return allAvailable.Where(cat =>
-          allOccupied.All(c => c.GetType() != cat.GetType())
-        ).ToList();
+        return RemoveOccupiedCategories(allAvailable, scoreBoard.GetOccupiedCategories());
       }
 
       return allAvailable;
     }
+
+    private List<Category> RemoveOccupiedCategories(List<Category> allAvailable, List<Category> allOccupied) =>
+      allAvailable
+        .Where(available => allOccupied.All(taken => taken.GetType() != available.GetType()))
+        .ToList();
 
     private List<Pair> GetPairs(Dice dice) =>
       GetFrequencyTable(dice)
