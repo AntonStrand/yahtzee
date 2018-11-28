@@ -1,20 +1,5 @@
 {
   "Yahtzee.dll": {
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/Program.cs": {
-      "YahtzeeApp.Program": {
-        "System.Void YahtzeeApp.Program::Main(System.String[])": {
-          "Lines": {
-            "12": 0,
-            "13": 0,
-            "14": 0,
-            "15": 0,
-            "16": 0,
-            "17": 0
-          },
-          "Branches": []
-        }
-      }
-    },
     "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/view/DiceView.cs": {
       "YahtzeeApp.view.DiceView": {
         "System.Void YahtzeeApp.view.DiceView::Print()": {
