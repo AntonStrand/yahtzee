@@ -4,6 +4,7 @@ using YahtzeeApp.controller;
 using YahtzeeApp.view;
 using YahtzeeApp.model;
 using Moq;
+using System.IO;
 
 namespace YahtzeeTests
 {
@@ -49,6 +50,26 @@ namespace YahtzeeTests
 
       c.Play();
       mockView.Verify(view => view.GetUsername(), Times.Once());
+    }
+
+    [Fact]
+    public void WhenRunningPlayViewUserNameIsSetInPlayer()
+    {
+      var mockView = new Mock<MainView>();
+      // var mockPlayer = new Mock<Player>();
+      var player = new Player();
+      var c = new MainController(mockView.Object, player);
+
+
+      string expected = "Test";
+      var input = new StringReader(expected);
+      Console.SetIn(input);
+
+      c.Play();
+
+      Assert.Equal(expected, player.name);
+      input.Close();
+      Console.SetOut(new StreamWriter(Console.OpenStandardOutput()));
     }
   }
 }
