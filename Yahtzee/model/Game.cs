@@ -10,6 +10,6 @@ namespace YahtzeeApp.model
       if (categoryRule == null) throw new ArgumentNullException();
     }
 
-    public int GetNumberOfThrowsLeft() => 0;
+    public int GetNumberOfThrowsLeft() => 3;
   }
 }
