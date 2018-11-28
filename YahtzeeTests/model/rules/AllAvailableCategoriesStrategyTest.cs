@@ -1,6 +1,7 @@
 using System;
 using Xunit;
 using YahtzeeApp.model;
+using YahtzeeApp.model.rules;
 using YahtzeeApp.model.category;
 using Moq;
 using System.Collections.Generic;
