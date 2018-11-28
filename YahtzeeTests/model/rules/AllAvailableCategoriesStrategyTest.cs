@@ -42,7 +42,6 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldReturnFourOfAKind() => AssertType<FourOfAKind>(new List<int>() { 1, 1, 1, 1, 4 });
 
-
     [Fact]
     public void ShouldReturnSmallStraight() => AssertType<SmallStraight>(new List<int>() { 1, 2, 3, 4, 5 });
 
@@ -128,7 +127,6 @@ namespace YahtzeeTests
       Assert.Equal(expected, actual);
     }
 
-
     private void AssertValueFromType<T>(List<int> diceValues, int expected) =>
       Assert.Equal(expected, ExerciseSUT(diceValues).Find(IsOfType<T>).GetValue());
 
@@ -148,4 +146,3 @@ namespace YahtzeeTests
     private bool IsOfType<T>(Category c) => c.GetType() == typeof(T);
   }
 }
-
