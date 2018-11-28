@@ -11,11 +11,14 @@ namespace YahtzeeApp.controller
     public MainController(MainView v, Player p)
     {
       this.mainView = v;
+      this.player = p;
     }
 
     public void Play()
     {
-      this.mainView.DisplayWelcomeMessage();
+      mainView.DisplayWelcomeMessage();
+      string name = mainView.GetUsername();
+      player.SetName(name);
     }
   }
 }

@@ -77,5 +77,42 @@ namespace YahtzeeTests
       Assert.Equal(expected, result);
       input.Close();
     }
+
+    [Fact]
+    public void SelectDiceExist()
+    {
+      var v = new EnglishMainView();
+      Assert.Equal("Int32 SelectDice()", v.GetType().GetMethod("SelectDice").ToString());
+    }
+
+    [Fact]
+    public void SelectDiceWithInputThreeReturnsThree()
+    {
+      Console.SetOut(new StreamWriter(Console.OpenStandardOutput()));
+      int expected = 3;
+      var input = new StringReader(expected.ToString());
+      Console.SetIn(input);
+
+      var v = new EnglishMainView();
+      int result = v.SelectDice();
+
+      Assert.Equal(expected, result);
+      input.Close();
+    }
+
+    [Fact]
+    public void SelectDiceWithInputFirstInvalidThenCorrectData()
+    {
+      Console.SetOut(new StreamWriter(Console.OpenStandardOutput()));
+      int expected = 3;
+      var input = new StringReader("x\n6\n0\n" + expected.ToString());
+      Console.SetIn(input);
+
+      var v = new EnglishMainView();
+      int result = v.SelectDice();
+
+      Assert.Equal(expected, result);
+      input.Close();
+    }
   }
 }

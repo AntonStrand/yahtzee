@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace YahtzeeApp.view
 {
@@ -15,6 +16,17 @@ namespace YahtzeeApp.view
     {
       Console.WriteLine(enterUsername);
       return Console.ReadLine();
+    }
+
+    public int SelectDice()
+    {
+      int number;
+      do
+      {
+        Console.WriteLine("Select Dice");
+        Console.Write("= ");
+      } while (!int.TryParse(Console.ReadLine(), out number) || (number < 1 || number > 5));
+      return number;
     }
   }
 }
