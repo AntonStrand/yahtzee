@@ -98,5 +98,19 @@ namespace YahtzeeTests
       Assert.Equal(expected, result);
       input.Close();
     }
+
+    [Fact]
+    public void SelectDiceWithInputFrstInvalidThenCorrectData()
+    {
+      int expected = 3;
+      var input = new StringReader("x\n6\n0\n" + expected.ToString());
+      Console.SetIn(input);
+
+      var v = new EnglishMainView();
+      int result = v.SelectDice();
+
+      Assert.Equal(expected, result);
+      input.Close();
+    }
   }
 }
