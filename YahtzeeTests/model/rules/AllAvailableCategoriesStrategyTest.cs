@@ -62,7 +62,7 @@ namespace YahtzeeTests
     }
 
     [Fact]
-    public void ShouldReturnEmptyList()
+    public void ShouldRemoveAllOccupiedCategories()
     {
       var diceValues = new List<int>() { 5, 1, 1, 2, 2 };
       var fakeDice = new Mock<Dice>();
@@ -70,7 +70,10 @@ namespace YahtzeeTests
 
       var fakePlayer = new Mock<ScoreBoard>();
       fakePlayer.Setup(p => p.GetOccupiedCategories())
-        .Returns(new List<Category> { new Pair(1, 1), new TwoPair(new Pair(5, 5), new Pair(6, 6)) });
+        .Returns(new List<Category> {
+          new Pair(1, 1),
+          new TwoPair(new Pair(5, 5), new Pair(6, 6))
+        });
 
       var sut = new AllAvailableCategoriesStrategy();
       var categories = sut.GetCategories(fakeDice.Object, fakePlayer.Object);
