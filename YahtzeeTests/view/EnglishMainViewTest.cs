@@ -84,5 +84,19 @@ namespace YahtzeeTests
       var v = new EnglishMainView();
       Assert.Equal("Int32 SelectDice()", v.GetType().GetMethod("SelectDice").ToString());
     }
+
+    [Fact]
+    public void SelectDiceWithInputThreeReturnsThree()
+    {
+      int expected = 3;
+      var input = new StringReader(expected.ToString());
+      Console.SetIn(input);
+
+      var v = new EnglishMainView();
+      int result = v.SelectDice();
+
+      Assert.Equal(expected, result);
+      input.Close();
+    }
   }
 }
