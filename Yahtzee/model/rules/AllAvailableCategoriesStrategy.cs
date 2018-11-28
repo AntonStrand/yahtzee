@@ -5,7 +5,7 @@ using YahtzeeApp.model.category;
 
 namespace YahtzeeApp.model.rules
 {
-  public class AllAvailableCategoriesStrategy
+  public class AllAvailableCategoriesStrategy : AvailableCategoriesStrategy
   {
     public List<Category> GetCategories(Dice dice, ScoreBoard scoreBoard)
     {
