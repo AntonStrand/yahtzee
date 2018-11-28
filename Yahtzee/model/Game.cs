@@ -5,7 +5,7 @@ namespace YahtzeeApp.model
 {
   public class Game
   {
-    public Game(AvailableCategoriesStrategy hjds)
+    public Game(AvailableCategoriesStrategy categoryRule)
     {
       throw new ArgumentNullException();
     }
