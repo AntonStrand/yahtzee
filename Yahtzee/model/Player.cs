@@ -16,6 +16,6 @@ namespace YahtzeeApp.model
       this.name = name;
     }
 
-    public List<Category> GetOccupiedCategories() => new List<Category> { new Pair(1, 2) };
+    public List<Category> GetOccupiedCategories() => new List<Category>();
   }
 }
