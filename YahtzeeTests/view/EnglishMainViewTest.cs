@@ -88,6 +88,7 @@ namespace YahtzeeTests
     [Fact]
     public void SelectDiceWithInputThreeReturnsThree()
     {
+      Console.SetOut(new StreamWriter(Console.OpenStandardOutput()));
       int expected = 3;
       var input = new StringReader(expected.ToString());
       Console.SetIn(input);
@@ -100,8 +101,9 @@ namespace YahtzeeTests
     }
 
     [Fact]
-    public void SelectDiceWithInputFrstInvalidThenCorrectData()
+    public void SelectDiceWithInputFirstInvalidThenCorrectData()
     {
+      Console.SetOut(new StreamWriter(Console.OpenStandardOutput()));
       int expected = 3;
       var input = new StringReader("x\n6\n0\n" + expected.ToString());
       Console.SetIn(input);
