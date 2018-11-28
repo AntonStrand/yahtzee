@@ -23,15 +23,7 @@ namespace YahtzeeApp.model.rules
             .Concat(GetChance(dice))
             .ToList();
 
-      return GetTwoPair(dice)
-        .Concat(GetThreeOfAKind(dice))
-        .Concat(GetFourOfAKind(dice))
-        .Concat(GetSmallStraight(dice))
-        .Concat(GetLargeStraight(dice))
-        .Concat(GetFullHouse(dice))
-        .Concat(GetYahtzee(dice))
-        .Concat(GetChance(dice))
-        .ToList();
+      return new List<Category>();
 
     }
 
