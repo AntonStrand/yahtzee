@@ -61,6 +61,22 @@ namespace YahtzeeTests
       Assert.IsType<TwoPair>(categories.Find(IsOfType<TwoPair>));
     }
 
+    [Fact]
+    public void ShouldReturnEmptyList()
+    {
+      var diceValues = new List<int>() { 5, 1, 1, 2, 2 };
+      var fakeDice = new Mock<Dice>();
+      fakeDice.Setup(d => d.GetValues()).Returns(diceValues);
+
+      var fakePlayer = new Mock<ScoreBoard>();
+      fakePlayer.Setup(p => p.GetOccupiedCategories())
+        .Returns(new List<Category> { new Pair(1, 1), new TwoPair(new Pair(5, 5), new Pair(6, 6)) });
+
+      var sut = new AllAvailableCategoriesStrategy();
+      var categories = sut.GetCategories(fakeDice.Object, fakePlayer.Object);
+      Assert.Empty(categories);
+    }
+
     [Theory]
     [InlineData(1, 1, 2, 2, 4)]
     [InlineData(1, 1, 1, 1, 4)]
