@@ -14,5 +14,15 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldAcceptAllAvailableCategoriesStrategy() =>
       new Game(new AllAvailableCategoriesStrategy());
+
+    [Fact]
+    public void ShouldReturnNumberOfThrowsLeft()
+    {
+
+      var sut = new Game(new AllAvailableCategoriesStrategy());
+      var expected = 3;
+      var actual = sut.GetNumberOfThrowsLeft();
+      Assert.Equal(expected, actual);
+    }
   }
 }
