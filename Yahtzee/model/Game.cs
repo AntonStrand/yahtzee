@@ -7,21 +7,18 @@ namespace YahtzeeApp.model
   {
     private Dice _dice;
 
-    public Game(AvailableCategoriesStrategy categoryRule)
-    {
-      _dice = new DiceImplemented(new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented());
-    }
+    public Game(AvailableCategoriesStrategy categoryRule) => _dice = initDice();
 
     public Game(AvailableCategoriesStrategy categoryRule, Dice dice)
     {
       if (categoryRule == null) throw new ArgumentNullException();
-      _dice = dice != null
-        ? dice
-        : new DiceImplemented(new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented());
+      _dice = dice != null ? dice : initDice();
     }
 
     public Dice GetDice() => _dice;
 
     public int GetNumberOfThrowsLeft() => 3;
+
+    private Dice initDice() => new DiceImplemented(new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented());
   }
 }
