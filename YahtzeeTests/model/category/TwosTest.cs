@@ -20,6 +20,16 @@ namespace YahtzeeTests
     }
 
     [Fact]
+    public void ShouldImplementCategoryInterface()
+    {
+      var fakeDice = new Mock<Dice>();
+      fakeDice.Setup(d => d.GetValues()).Returns(new List<int> { 2, 2, 2, 2, 2 });
+
+      var sut = new Twos(fakeDice.Object);
+      Assert.True(sut is Category);
+    }
+
+    [Fact]
     public void ShouldNotAcceptNullValues() =>
       Assert.Throws<ArgumentNullException>(() => new Twos(null));
   }
