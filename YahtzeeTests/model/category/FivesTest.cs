@@ -15,7 +15,7 @@ namespace YahtzeeTests
       var fakeDice = new Mock<Dice>();
       fakeDice.Setup(d => d.GetValues()).Returns(new List<int> { 5, 5, 5, 2, 3 });
       var sut = new Fives(fakeDice.Object);
-      Assert.Equal(15, sut.GetValue());
+      Assert.Equal(expected: 15, actual: sut.GetValue());
     }
 
     [Fact]
