@@ -9,7 +9,9 @@ namespace YahtzeeApp.model
 
     public Game(AvailableCategoriesStrategy categoryRule)
     {
+      _dice = new DiceImplemented(new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented());
     }
+
     public Game(AvailableCategoriesStrategy categoryRule, Dice dice)
     {
       if (categoryRule == null) throw new ArgumentNullException();
