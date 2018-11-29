@@ -20,6 +20,7 @@ namespace YahtzeeApp.model.rules
       GetAces(dice)
         .Concat(GetTwos(dice))
         .Concat(GetThrees(dice))
+        .Concat(new List<Category> { new Fours(dice) })
         .Concat(GetPairs(dice))
         .Concat(GetTwoPair(dice))
         .Concat(GetThreeOfAKind(dice))
