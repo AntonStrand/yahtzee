@@ -29,5 +29,7 @@ Within the `YahtzeeTests` folder run `dotnet test`
 
 ### Code coverage
 Within the `YahtzeeTests` folder run either command.
-*All files:* `dotnet test /p:CollectCoverage=true`
-*All files except Main(Program.cs):*`dotnet test /p:CollectCoverage=true /p:ExcludeByFile="../Yahtzee/Program.cs"`
+#### All files
+`dotnet test /p:CollectCoverage=true`
+#### All files except Main(Program.cs)
+`dotnet test /p:CollectCoverage=true /p:ExcludeByFile="../Yahtzee/Program.cs"`
