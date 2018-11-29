@@ -78,7 +78,8 @@ namespace YahtzeeTests
 
       var sut = new AllAvailableCategoriesStrategy();
       var categories = sut.GetCategories(fakeDice.Object, fakePlayer.Object);
-      Assert.Empty(categories);
+      Assert.IsNotType<Pair>(categories.Find(IsOfType<Pair>));
+      Assert.IsNotType<TwoPair>(categories.Find(IsOfType<TwoPair>));
     }
 
     [Fact]
@@ -100,15 +101,6 @@ namespace YahtzeeTests
       Assert.IsType<Pair>(categories.Find(IsOfType<Pair>));
       Assert.IsType<ThreeOfAKind>(categories.Find(IsOfType<ThreeOfAKind>));
     }
-
-    [Theory]
-    [InlineData(1, 1, 2, 2, 4)]
-    [InlineData(1, 1, 1, 1, 4)]
-    public void ShouldReturnTwoPair(int v1, int v2, int v3, int v4, int v5) =>
-      AssertType<TwoPair>(new List<int>() { v1, v2, v3, v4, v5 });
-
-    [Fact]
-    public void ShouldReturnThreeOfAKind() => AssertType<ThreeOfAKind>(new List<int>() { 1, 1, 1, 2, 4 });
 
     [Fact]
     public void ShouldReturnTwosWithCorrectValue() =>
