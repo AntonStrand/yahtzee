@@ -21,7 +21,7 @@ namespace YahtzeeApp.model.rules
         .Concat(GetTwos(dice))
         .Concat(GetThrees(dice))
         .Concat(GetFours(dice))
-        .Concat(new List<Category> { new Fives(dice) })
+        .Concat(GetFives(dice))
         .Concat(GetPairs(dice))
         .Concat(GetTwoPair(dice))
         .Concat(GetThreeOfAKind(dice))
@@ -45,6 +45,8 @@ namespace YahtzeeApp.model.rules
     private List<Category> GetThrees(Dice dice) => new List<Category> { new Threes(dice) };
 
     private List<Category> GetFours(Dice dice) => new List<Category> { new Fours(dice) };
+
+    private List<Category> GetFives(Dice dice) => new List<Category> { new Fives(dice) };
 
     private List<Pair> GetPairs(Dice dice) =>
       GetFrequencyTable(dice)
