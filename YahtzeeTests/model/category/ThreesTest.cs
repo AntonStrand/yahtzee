@@ -31,6 +31,7 @@ namespace YahtzeeTests
     public void ShouldImplementCategoryInterface()
     {
       var fakeDice = new Mock<Dice>();
+      fakeDice.Setup(d => d.GetValues()).Returns(new List<int> { 3, 2, 3, 4, 5 });
       var sut = new Threes(fakeDice.Object);
       Assert.True(sut is Category);
     }
