@@ -39,7 +39,6 @@ namespace YahtzeeApp.model.rules
         new Aces(dice),
         new Twos(dice),
         new Threes(dice),
-        new Fours(dice),
         new Fives(dice),
         new Sixes(dice)
       };
