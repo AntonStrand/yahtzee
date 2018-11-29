@@ -17,7 +17,8 @@ namespace YahtzeeApp.model.rules
       RemoveOccupiedCategories(GetPossibleCategories(dice), scoreBoard.GetOccupiedCategories());
 
     private List<Category> GetPossibleCategories(Dice dice) =>
-      GetPairs(dice)
+      GetAces(dice)
+        .Concat(GetPairs(dice))
         .Concat(GetTwoPair(dice))
         .Concat(GetThreeOfAKind(dice))
         .Concat(GetFourOfAKind(dice))
@@ -26,13 +27,14 @@ namespace YahtzeeApp.model.rules
         .Concat(GetFullHouse(dice))
         .Concat(GetYahtzee(dice))
         .Concat(GetChance(dice))
-        .Concat(new List<Category> { new Aces(dice) })
         .ToList();
 
     private List<Category> RemoveOccupiedCategories(List<Category> allPossible, List<Category> allOccupied) =>
       allPossible
         .Where(possible => allOccupied.All(taken => taken.GetType() != possible.GetType()))
         .ToList();
+
+    private List<Category> GetAces(Dice dice) => new List<Category> { new Aces(dice) };
 
     private List<Pair> GetPairs(Dice dice) =>
       GetFrequencyTable(dice)
