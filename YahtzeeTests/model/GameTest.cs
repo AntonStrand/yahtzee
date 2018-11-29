@@ -63,5 +63,13 @@ namespace YahtzeeTests
       var sut = new Game(new AllAvailableCategoriesStrategy());
       Assert.Equal(expected: 3, actual: sut.GetNumberOfThrowsLeft());
     }
+
+    [Fact]
+    public void ShouldDecreaseNumberOfThrowsAfterEachThrow()
+    {
+      var sut = new Game(new AllAvailableCategoriesStrategy());
+      sut.Throw();
+      Assert.Equal(expected: 2, actual: sut.GetNumberOfThrowsLeft());
+    }
   }
 }
