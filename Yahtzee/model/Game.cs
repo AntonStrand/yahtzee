@@ -15,6 +15,8 @@ namespace YahtzeeApp.model
 
     public int GetNumberOfThrowsLeft() => 3;
 
+    public void Throw() { }
+
     private void Init(AvailableCategoriesStrategy categoryRule, Dice dice)
     {
       if (IsNull(categoryRule)) throw new ArgumentNullException();

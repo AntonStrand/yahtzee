@@ -49,6 +49,15 @@ namespace YahtzeeTests
       new Game(new AllAvailableCategoriesStrategy());
 
     [Fact]
+    public void ShouldThrowDice()
+    {
+      var mockDice = new Mock<Dice>();
+      var sut = new Game(new AllAvailableCategoriesStrategy(), mockDice.Object);
+      sut.Throw();
+      mockDice.Verify(dice => dice.Throw(), Times.Once);
+    }
+
+    [Fact]
     public void ShouldReturnNumberOfThrowsLeft()
     {
       var sut = new Game(new AllAvailableCategoriesStrategy());
