@@ -9,19 +9,11 @@ namespace YahtzeeTests
 {
   public class TwosTest
   {
-    [Fact]
-    public void ShouldSumValuesOfAllTwos()
-    {
-      var sut = SetupSUT(2, 2, 2, 2, 2);
-      Assert.Equal(10, sut.GetValue());
-    }
-
-    [Fact]
-    public void ShouldSumValuesOfAllTwos2()
-    {
-      var sut = SetupSUT(3, 4, 1, 1, 2);
-      Assert.Equal(2, sut.GetValue());
-    }
+    [Theory]
+    [InlineData(2, 2, 2, 2, 2, 10)]
+    [InlineData(3, 4, 1, 1, 2, 2)]
+    public void ShouldSumValuesOfAllTwos(int v1, int v2, int v3, int v4, int v5, int expected) =>
+      Assert.Equal(expected, SetupSUT(v1, v2, v3, v4, v5).GetValue());
 
     [Fact]
     public void ShouldImplementCategoryInterface()
