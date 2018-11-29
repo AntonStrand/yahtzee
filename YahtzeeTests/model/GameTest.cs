@@ -104,7 +104,6 @@ namespace YahtzeeTests
     {
       var sut = new Game(new AllAvailableCategoriesStrategy());
       Assert.False(sut.IsRoundDone());
-
     }
   }
 }
