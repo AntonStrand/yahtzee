@@ -10,11 +10,7 @@ namespace YahtzeeApp.model.category
     public Fours(Dice dice)
     {
       if (dice == null) throw new ArgumentNullException();
-      _value = dice.GetValues().Where(x => x == 4).ToList().Count == 5
-        ? 20
-        : dice.GetValues().Where(x => x == 4).ToList().Count == 0
-          ? 0
-          : 4;
+      _value = dice.GetValues().Where(x => x == 4).Sum();
     }
 
     public int GetValue() => _value;
