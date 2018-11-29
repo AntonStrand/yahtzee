@@ -629,16 +629,16 @@
       "YahtzeeApp.model.Player": {
         "System.Void YahtzeeApp.model.Player::SetName(System.String)": {
           "Lines": {
-            "9": 5,
-            "10": 5,
-            "11": 1,
-            "12": 1,
-            "14": 4,
-            "15": 4
+            "11": 5,
+            "12": 5,
+            "13": 1,
+            "14": 1,
+            "16": 4,
+            "17": 4
           },
           "Branches": [
             {
-              "Line": 10,
+              "Line": 12,
               "Offset": 12,
               "EndOffset": 14,
               "Path": 0,
@@ -646,7 +646,7 @@
               "Hits": 1
             },
             {
-              "Line": 10,
+              "Line": 12,
               "Offset": 12,
               "EndOffset": 21,
               "Path": 1,
@@ -654,6 +654,12 @@
               "Hits": 4
             }
           ]
+        },
+        "System.Collections.Generic.List`1<YahtzeeApp.model.category.Category> YahtzeeApp.model.Player::GetOccupiedCategories()": {
+          "Lines": {
+            "19": 1
+          },
+          "Branches": []
         }
       }
     },
@@ -1155,6 +1161,16 @@
         }
       }
     },
+    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/Aces.cs": {
+      "YahtzeeApp.model.category.Aces": {
+        "System.Void YahtzeeApp.model.category.Aces::.ctor(YahtzeeApp.model.Dice)": {
+          "Lines": {
+            "5": 13
+          },
+          "Branches": []
+        }
+      }
+    },
     "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/Chance.cs": {
       "YahtzeeApp.model.category.Chance": {
         "System.Int32 YahtzeeApp.model.category.Chance::GetValue()": {
@@ -1175,18 +1191,18 @@
       "YahtzeeApp.model.category.FirstSection": {
         "System.Int32 YahtzeeApp.model.category.FirstSection::GetValue()": {
           "Lines": {
-            "17": 5
+            "17": 15
           },
           "Branches": []
         },
         "System.Void YahtzeeApp.model.category.FirstSection::.ctor(System.Int32,YahtzeeApp.model.Dice)": {
           "Lines": {
-            "11": 6,
-            "12": 6,
-            "13": 7,
-            "14": 5,
-            "15": 5,
-            "19": 36
+            "11": 22,
+            "12": 22,
+            "13": 26,
+            "14": 18,
+            "15": 18,
+            "19": 130
           },
           "Branches": [
             {
@@ -1203,7 +1219,7 @@
               "EndOffset": 32,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 6
+              "Hits": 22
             },
             {
               "Line": 13,
@@ -1211,7 +1227,7 @@
               "EndOffset": 53,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 1
+              "Hits": 4
             },
             {
               "Line": 13,
@@ -1219,7 +1235,7 @@
               "EndOffset": 59,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 5
+              "Hits": 18
             }
           ]
         }
@@ -1615,6 +1631,16 @@
         }
       }
     },
+    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/Threes.cs": {
+      "YahtzeeApp.model.category.Threes": {
+        "System.Void YahtzeeApp.model.category.Threes::.ctor(YahtzeeApp.model.Dice)": {
+          "Lines": {
+            "5": 16
+          },
+          "Branches": []
+        }
+      }
+    },
     "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/TwoPair.cs": {
       "YahtzeeApp.model.category.TwoPair": {
         "System.Int32 YahtzeeApp.model.category.TwoPair::GetValue()": {
@@ -1665,6 +1691,16 @@
               "Hits": 15
             }
           ]
+        }
+      }
+    },
+    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/Twos.cs": {
+      "YahtzeeApp.model.category.Twos": {
+        "System.Void YahtzeeApp.model.category.Twos::.ctor(YahtzeeApp.model.Dice)": {
+          "Lines": {
+            "5": 13
+          },
+          "Branches": []
         }
       }
     },
