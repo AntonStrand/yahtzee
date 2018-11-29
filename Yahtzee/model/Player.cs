@@ -1,10 +1,8 @@
 using System;
-using System.Collections.Generic;
-using YahtzeeApp.model.category;
 
 namespace YahtzeeApp.model
 {
-  public class Player : ScoreBoard
+  public class Player
   {
     internal string name;
     public void SetName(string name)
@@ -15,7 +13,5 @@ namespace YahtzeeApp.model
       }
       this.name = name;
     }
-
-    public List<Category> GetOccupiedCategories() => new List<Category>();
   }
 }
