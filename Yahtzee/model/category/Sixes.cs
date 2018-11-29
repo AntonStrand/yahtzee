@@ -6,6 +6,6 @@ namespace YahtzeeApp.model.category
   {
     public Sixes(Dice dice) { if (dice == null) throw new ArgumentNullException(); }
 
-    public int GetValue() => 0;
+    public int GetValue() => 24;
   }
 }
