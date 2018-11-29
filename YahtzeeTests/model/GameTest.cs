@@ -16,6 +16,10 @@ namespace YahtzeeTests
     }
 
     [Fact]
+    public void ShouldNotAcceptNullStrategyIfNotDiceIsProvided() =>
+      Assert.Throws<ArgumentNullException>(() => new Game(null));
+
+    [Fact]
     public void ShouldReturnTheProvidedDice()
     {
       var fakeDice = new Mock<Dice>();
