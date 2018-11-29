@@ -9,6 +9,6 @@ namespace YahtzeeApp.model.category
       if (dice == null) throw new ArgumentNullException();
     }
 
-    public int GetValue() => 0;
+    public int GetValue() => 4;
   }
 }
