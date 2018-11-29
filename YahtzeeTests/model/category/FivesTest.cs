@@ -9,33 +9,13 @@ namespace YahtzeeTests
 {
   public class FivesTest
   {
-    [Fact]
-    public void ShouldReturnSumOfAllFives()
-    {
-      var sut = SetupSUT(5, 5, 5, 2, 3);
-      Assert.Equal(expected: 15, actual: sut.GetValue());
-    }
-
-    [Fact]
-    public void ShouldReturnSumOfAllFives1()
-    {
-      var sut = SetupSUT(5, 5, 5, 5, 5);
-      Assert.Equal(expected: 25, actual: sut.GetValue());
-    }
-
-    [Fact]
-    public void ShouldReturnSumOfAllFives2()
-    {
-      var sut = SetupSUT(1, 2, 3, 4, 6);
-      Assert.Equal(expected: 0, actual: sut.GetValue());
-    }
-
-    [Fact]
-    public void ShouldReturnSumOfAllFives3()
-    {
-      var sut = SetupSUT(1, 2, 5, 5, 6);
-      Assert.Equal(expected: 10, actual: sut.GetValue());
-    }
+    [Theory]
+    [InlineData(5, 5, 5, 2, 3, 15)]
+    [InlineData(5, 5, 5, 5, 5, 25)]
+    [InlineData(1, 2, 3, 4, 6, 0)]
+    [InlineData(1, 2, 5, 5, 6, 10)]
+    public void ShouldReturnSumOfAllFives(int v1, int v2, int v3, int v4, int v5, int expected) =>
+      Assert.Equal(expected, actual: SetupSUT(v1, v2, v3, v4, v5).GetValue());
 
     [Fact]
     public void ShouldImplementCategoryInterface()
