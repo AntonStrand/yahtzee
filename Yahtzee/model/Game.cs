@@ -17,7 +17,7 @@ namespace YahtzeeApp.model
 
     public int GetNumberOfThrowsLeft() => NUMBER_OF_THROWS - _throwCount;
 
-    public void KeepDie(DiceList dieId) { }
+    public void KeepDie(DiceList dieId) => _dice.KeepDie((DiceList)0);
 
     public void Throw()
     {
