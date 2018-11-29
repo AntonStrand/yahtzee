@@ -58,6 +58,17 @@ namespace YahtzeeTests
     }
 
     [Fact]
+    public void ShouldThrowAnExceptionIfTheRoundIsDone()
+    {
+      var sut = new Game(new AllAvailableCategoriesStrategy());
+      sut.Throw();
+      sut.Throw();
+      sut.Throw();
+      Assert.Throws<InvalidOperationException>(() => sut.Throw());
+
+    }
+
+    [Fact]
     public void ShouldReturnNumberOfThrowsLeft()
     {
       var sut = new Game(new AllAvailableCategoriesStrategy());
