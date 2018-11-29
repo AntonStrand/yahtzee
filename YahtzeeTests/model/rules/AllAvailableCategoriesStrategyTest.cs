@@ -90,6 +90,11 @@ namespace YahtzeeTests
       AssertValueFromType<Fives>(new List<int>() { v1, v2, v3, v4, v5 }, expected);
 
     [Theory]
+    [InlineData(6, 5, 6, 2, 6, 18)]
+    public void ShouldReturnSixesWithCorrectValue(int v1, int v2, int v3, int v4, int v5, int expected) =>
+      AssertValueFromType<Sixes>(new List<int>() { v1, v2, v3, v4, v5 }, expected);
+
+    [Theory]
     [InlineData(5, 6, 6, 2, 4, 12)]
     [InlineData(4, 1, 6, 2, 4, 8)]
     public void ShouldReturnPairWithCorrectValue(int v1, int v2, int v3, int v4, int v5, int expected) =>
