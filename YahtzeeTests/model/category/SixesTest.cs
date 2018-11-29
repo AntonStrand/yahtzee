@@ -19,7 +19,6 @@ namespace YahtzeeTests
       Assert.True(sut is Category);
     }
 
-
     [Fact]
     public void ShouldNotAcceptNullValues() =>
       Assert.Throws<ArgumentNullException>(() => new Sixes(null));
