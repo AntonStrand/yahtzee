@@ -98,5 +98,13 @@ namespace YahtzeeTests
       mockDie1.Verify(die => die.Throw(), Times.Never);
       mockDie3.Verify(die => die.Throw(), Times.Never);
     }
+
+    [Fact]
+    public void ShouldReturnFalseIfThereIsStillAvailableThrowsForTheRound()
+    {
+      var sut = new Game(new AllAvailableCategoriesStrategy());
+      Assert.False(sut.IsRoundDone());
+
+    }
   }
 }
