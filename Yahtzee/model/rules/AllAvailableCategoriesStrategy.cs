@@ -26,6 +26,7 @@ namespace YahtzeeApp.model.rules
         .Concat(GetFullHouse(dice))
         .Concat(GetYahtzee(dice))
         .Concat(GetChance(dice))
+        .Concat(new List<Category> { new Aces(dice) })
         .ToList();
 
     private List<Category> RemoveOccupiedCategories(List<Category> allPossible, List<Category> allOccupied) =>
