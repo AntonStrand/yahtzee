@@ -5,8 +5,9 @@ namespace YahtzeeApp.model
 {
   public class Game
   {
+    private const int NUMBER_OF_THROWS = 3;
     private Dice _dice;
-    private int _numberOfThrowsLeft;
+    private int _throwCount;
 
     public Game(AvailableCategoriesStrategy categoryRule) => Init(categoryRule, null);
 
@@ -14,11 +15,11 @@ namespace YahtzeeApp.model
 
     public Dice GetDice() => _dice;
 
-    public int GetNumberOfThrowsLeft() => _numberOfThrowsLeft;
+    public int GetNumberOfThrowsLeft() => NUMBER_OF_THROWS - _throwCount;
 
     public void Throw()
     {
-      _numberOfThrowsLeft--;
+      _throwCount++;
       _dice.Throw();
     }
 
@@ -26,7 +27,6 @@ namespace YahtzeeApp.model
     {
       if (IsNull(categoryRule)) throw new ArgumentNullException();
       _dice = IsNull(dice) ? InitDice() : dice;
-      _numberOfThrowsLeft = 3;
     }
 
     private Dice InitDice() => new DiceImplemented(new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented());
