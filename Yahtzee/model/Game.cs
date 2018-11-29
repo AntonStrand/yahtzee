@@ -13,7 +13,7 @@ namespace YahtzeeApp.model
 
     public Game(AvailableCategoriesStrategy categoryRule, Dice dice) => Init(categoryRule, dice);
 
-    public bool IsRoundDone() => true;
+    public bool IsRoundDone() => false;
 
     public Dice GetDice() => _dice;
 
