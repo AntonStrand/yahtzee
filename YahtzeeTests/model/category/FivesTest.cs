@@ -19,6 +19,15 @@ namespace YahtzeeTests
     }
 
     [Fact]
+    public void ShouldReturnSumOfAllFives1()
+    {
+      var fakeDice = new Mock<Dice>();
+      fakeDice.Setup(d => d.GetValues()).Returns(new List<int> { 5, 5, 5, 5, 5 });
+      var sut = new Fives(fakeDice.Object);
+      Assert.Equal(expected: 25, actual: sut.GetValue());
+    }
+
+    [Fact]
     public void ShouldImplementCategoryInterface()
     {
       var fakeDice = new Mock<Dice>();
