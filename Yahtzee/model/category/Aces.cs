@@ -3,16 +3,8 @@ using System.Linq;
 
 namespace YahtzeeApp.model.category
 {
-  public class Aces : Category
+  public class Aces : FirstSection
   {
-
-    private int _value;
-    public Aces(Dice dice)
-    {
-      if (dice == null) throw new ArgumentNullException();
-      _value = dice.GetValues().Where(x => x == 1).Sum();
-    }
-
-    public int GetValue() => _value;
+    public Aces(Dice dice) : base(1, dice) { }
   }
 }
