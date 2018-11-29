@@ -5,12 +5,14 @@ namespace YahtzeeApp.model
 {
   public class Game
   {
+    private Dice _dice;
     public Game(AvailableCategoriesStrategy categoryRule, Dice dice)
     {
       if (categoryRule == null) throw new ArgumentNullException();
+      _dice = dice;
     }
 
-    public Dice GetDice() => new DiceImplemented(new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented());
+    public Dice GetDice() => _dice;
 
     public int GetNumberOfThrowsLeft() => 3;
   }
