@@ -13,6 +13,7 @@ namespace YahtzeeTests
     [InlineData(3, 4, 3, 2, 5, 4)]
     [InlineData(4, 4, 4, 4, 4, 20)]
     [InlineData(1, 2, 3, 5, 6, 0)]
+    [InlineData(4, 2, 4, 5, 6, 8)]
     public void ShouldReturnSumOfAllFours(int v1, int v2, int v3, int v4, int v5, int expected) =>
       Assert.Equal(expected, actual: SetupSUT(v1, v2, v3, v4, v5).GetValue());
 
