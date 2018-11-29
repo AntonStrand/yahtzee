@@ -16,6 +16,15 @@ namespace YahtzeeTests
     }
 
     [Fact]
+    public void ShouldReturnTheProvidedDice()
+    {
+      var fakeDice = new Mock<Dice>();
+      var sut = new Game(new AllAvailableCategoriesStrategy(), fakeDice.Object);
+      var actual = sut.GetDice();
+      Assert.Equal(fakeDice.Object, actual);
+    }
+
+    [Fact]
     public void ShouldAcceptAllAvailableCategoriesStrategy() =>
       new Game(new AllAvailableCategoriesStrategy(), null);
 
