@@ -24,6 +24,13 @@ namespace YahtzeeTests
     }
 
     [Fact]
+    public void ShouldReturnSumOfAllFours2()
+    {
+      var sut = SetupSUT(1, 1, 1, 1, 3);
+      Assert.Equal(0, sut.GetValue());
+    }
+
+    [Fact]
     public void ShouldImplementCategoryInterface()
     {
       var sut = SetupSUT(3, 4, 3, 2, 5);
