@@ -10,9 +10,7 @@ namespace YahtzeeApp.model.category
     public Sixes(Dice dice)
     {
       if (dice == null) throw new ArgumentNullException();
-      _value = dice.GetValues().Where(x => x == 6).ToList().Count > 0
-        ? 24
-        : 0;
+      _value = dice.GetValues().Where(x => x == 6).Sum();
     }
 
     public int GetValue() => _value;
