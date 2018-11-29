@@ -1,6 +1,3 @@
-using System;
-using System.Linq;
-
 namespace YahtzeeApp.model.category
 {
   public class Aces : FirstSection
