@@ -10,11 +10,7 @@ namespace YahtzeeApp.model.category
     public Aces(Dice dice)
     {
       if (dice == null) throw new ArgumentNullException();
-      _value = dice.GetValues().Where(x => x == 1).ToList().Count == 5
-        ? 5
-        : dice.GetValues().Where(x => x == 1).ToList().Count == 2
-          ? 2
-          : 0;
+      _value = dice.GetValues().Where(x => x == 1).Sum();
     }
 
     public int GetValue() => _value;
