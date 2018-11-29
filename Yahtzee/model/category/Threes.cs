@@ -9,7 +9,11 @@ namespace YahtzeeApp.model.category
     public Threes(Dice dice)
     {
       if (dice == null) throw new ArgumentNullException();
-      _value = dice.GetValues().Where(x => x == 3).ToList().Count == 2 ? 6 : 3;
+      _value = dice.GetValues().Where(x => x == 3).ToList().Count == 2
+        ? 6
+        : dice.GetValues().Where(x => x == 3).ToList().Count == 0
+          ? 0
+          : 3;
     }
 
     public int GetValue() => _value;
