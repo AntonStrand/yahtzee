@@ -33,6 +33,14 @@ namespace YahtzeeTests
     }
 
     [Fact]
+    public void ShouldNoNeedToProvideDiceAsNull()
+    {
+      var sut = new Game(new AllAvailableCategoriesStrategy());
+      var output = sut.GetDice();
+      Assert.True(output is Dice);
+    }
+
+    [Fact]
     public void ShouldAcceptAllAvailableCategoriesStrategy() =>
       new Game(new AllAvailableCategoriesStrategy(), null);
 
