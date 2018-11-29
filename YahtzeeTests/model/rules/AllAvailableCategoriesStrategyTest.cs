@@ -64,35 +64,29 @@ namespace YahtzeeTests
       Assert.Equal(2, actual);
     }
 
-    [Theory]
-    [InlineData(1, 1, 4, 1, 3, 3)]
-    public void ShouldReturnAcesWithCorrectValue(int v1, int v2, int v3, int v4, int v5, int expected) =>
-      AssertValueFromType<Aces>(new List<int>() { v1, v2, v3, v4, v5 }, expected);
+    [Fact]
+    public void ShouldReturnAcesWithCorrectValue() =>
+      AssertValueFromType<Aces>(new List<int>() { 1, 1, 4, 1, 3 }, expected: 3);
 
-    [Theory]
-    [InlineData(1, 2, 4, 2, 2, 6)]
-    public void ShouldReturnTwosWithCorrectValue(int v1, int v2, int v3, int v4, int v5, int expected) =>
-      AssertValueFromType<Twos>(new List<int>() { v1, v2, v3, v4, v5 }, expected);
+    [Fact]
+    public void ShouldReturnTwosWithCorrectValue() =>
+      AssertValueFromType<Twos>(new List<int>() { 1, 2, 4, 2, 2 }, expected: 6);
 
-    [Theory]
-    [InlineData(3, 3, 3, 2, 1, 9)]
-    public void ShouldReturnThreesWithCorrectValue(int v1, int v2, int v3, int v4, int v5, int expected) =>
-      AssertValueFromType<Threes>(new List<int>() { v1, v2, v3, v4, v5 }, expected);
+    [Fact]
+    public void ShouldReturnThreesWithCorrectValue() =>
+      AssertValueFromType<Threes>(new List<int>() { 3, 3, 3, 2, 1 }, expected: 9);
 
-    [Theory]
-    [InlineData(4, 3, 4, 2, 4, 12)]
-    public void ShouldReturnFoursWithCorrectValue(int v1, int v2, int v3, int v4, int v5, int expected) =>
-      AssertValueFromType<Fours>(new List<int>() { v1, v2, v3, v4, v5 }, expected);
+    [Fact]
+    public void ShouldReturnFoursWithCorrectValue() =>
+      AssertValueFromType<Fours>(new List<int>() { 4, 3, 4, 2, 4 }, expected: 12);
 
-    [Theory]
-    [InlineData(4, 5, 5, 2, 5, 15)]
-    public void ShouldReturnFivesWithCorrectValue(int v1, int v2, int v3, int v4, int v5, int expected) =>
-      AssertValueFromType<Fives>(new List<int>() { v1, v2, v3, v4, v5 }, expected);
+    [Fact]
+    public void ShouldReturnFivesWithCorrectValue() =>
+      AssertValueFromType<Fives>(new List<int>() { 4, 5, 5, 2, 5 }, expected: 15);
 
-    [Theory]
-    [InlineData(6, 5, 6, 2, 6, 18)]
-    public void ShouldReturnSixesWithCorrectValue(int v1, int v2, int v3, int v4, int v5, int expected) =>
-      AssertValueFromType<Sixes>(new List<int>() { v1, v2, v3, v4, v5 }, expected);
+    [Fact]
+    public void ShouldReturnSixesWithCorrectValue() =>
+      AssertValueFromType<Sixes>(new List<int>() { 6, 5, 6, 2, 6 }, expected: 18);
 
     [Theory]
     [InlineData(5, 6, 6, 2, 4, 12)]
