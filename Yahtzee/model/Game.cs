@@ -27,6 +27,8 @@ namespace YahtzeeApp.model
       _dice.Throw();
     }
 
+    public void StartNextRound() { }
+
     private void Init(AvailableCategoriesStrategy categoryRule, Dice dice)
     {
       if (IsNull(categoryRule)) throw new ArgumentNullException();

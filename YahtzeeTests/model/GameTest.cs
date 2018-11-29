@@ -115,5 +115,16 @@ namespace YahtzeeTests
       sut.Throw();
       Assert.True(sut.IsRoundDone());
     }
+
+    [Fact]
+    public void ShouldResetTheNumberOfThrows()
+    {
+      var sut = new Game(new AllAvailableCategoriesStrategy());
+      sut.Throw();
+      sut.Throw();
+      sut.Throw();
+      sut.StartNextRound();
+      Assert.False(sut.IsRoundDone());
+    }
   }
 }
