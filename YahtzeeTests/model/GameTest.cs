@@ -71,5 +71,17 @@ namespace YahtzeeTests
       sut.Throw();
       Assert.Equal(expected: 2, actual: sut.GetNumberOfThrowsLeft());
     }
+
+    [Fact]
+    public void ShouldKeepSpecifiedDie()
+    {
+      var mockDie = new Mock<Die>();
+      var stubDie = new Mock<Die>();
+      var dice = new DiceImplemented(mockDie.Object, stubDie.Object, stubDie.Object, stubDie.Object, stubDie.Object);
+      var sut = new Game(new AllAvailableCategoriesStrategy(), dice);
+      sut.KeepDie(DiceList.Die1);
+      sut.Throw();
+      mockDie.Verify(die => die.Throw(), Times.Never);
+    }
   }
 }
