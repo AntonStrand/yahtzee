@@ -7,7 +7,11 @@ namespace YahtzeeApp.model
   {
     private Dice _dice;
 
-    public Game(AvailableCategoriesStrategy categoryRule) => _dice = initDice();
+    public Game(AvailableCategoriesStrategy categoryRule)
+    {
+      if (categoryRule == null) throw new ArgumentNullException();
+      _dice = initDice();
+    }
 
     public Game(AvailableCategoriesStrategy categoryRule, Dice dice)
     {
