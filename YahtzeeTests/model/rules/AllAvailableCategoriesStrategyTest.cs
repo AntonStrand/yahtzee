@@ -33,27 +33,27 @@ namespace YahtzeeTests
 
     [Fact]
     public void ShouldReturnAcesWithCorrectValue() =>
-      AssertValueFromType<Aces>(new List<int>() { 1, 1, 4, 1, 3 }, expected: 3);
+      AssertValueFromType<Aces>(new List<int>() { 1, 1, 4, 1, 3 }, 3);
 
     [Fact]
     public void ShouldReturnTwosWithCorrectValue() =>
-      AssertValueFromType<Twos>(new List<int>() { 1, 2, 4, 2, 2 }, expected: 6);
+      AssertValueFromType<Twos>(new List<int>() { 1, 2, 4, 2, 2 }, 6);
 
     [Fact]
     public void ShouldReturnThreesWithCorrectValue() =>
-      AssertValueFromType<Threes>(new List<int>() { 3, 3, 3, 2, 1 }, expected: 9);
+      AssertValueFromType<Threes>(new List<int>() { 3, 3, 3, 2, 1 }, 9);
 
     [Fact]
     public void ShouldReturnFoursWithCorrectValue() =>
-      AssertValueFromType<Fours>(new List<int>() { 4, 3, 4, 2, 4 }, expected: 12);
+      AssertValueFromType<Fours>(new List<int>() { 4, 3, 4, 2, 4 }, 12);
 
     [Fact]
     public void ShouldReturnFivesWithCorrectValue() =>
-      AssertValueFromType<Fives>(new List<int>() { 4, 5, 5, 2, 5 }, expected: 15);
+      AssertValueFromType<Fives>(new List<int>() { 4, 5, 5, 2, 5 }, 15);
 
     [Fact]
     public void ShouldReturnSixesWithCorrectValue() =>
-      AssertValueFromType<Sixes>(new List<int>() { 6, 5, 6, 2, 6 }, expected: 18);
+      AssertValueFromType<Sixes>(new List<int>() { 6, 5, 6, 2, 6 }, 18);
 
     [Theory]
     [InlineData(5, 6, 6, 2, 4, 12)]
@@ -134,11 +134,14 @@ namespace YahtzeeTests
 
     private List<Category> ExersciseSUTWithScoreBoard(List<int> diceValues, List<Category> occupied)
     {
+      var fakePlayer = new Mock<ScoreBoard>();
+      fakePlayer.Setup(p => p.GetOccupiedCategories()).Returns(occupied);
+
       var fakeDice = new Mock<Dice>();
       fakeDice.Setup(d => d.GetValues()).Returns(diceValues);
 
       var sut = new AllAvailableCategoriesStrategy();
-      return sut.GetCategories(fakeDice.Object, player);
+      return sut.GetCategories(fakeDice.Object, fakePlayer.Object);
     }
 
     private bool IsOfType<T>(Category c) => c.GetType() == typeof(T);
