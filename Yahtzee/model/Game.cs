@@ -15,7 +15,7 @@ namespace YahtzeeApp.model
 
     public int GetNumberOfThrowsLeft() => 3;
 
-    public void Throw() { }
+    public void Throw() => _dice.Throw();
 
     private void Init(AvailableCategoriesStrategy categoryRule, Dice dice)
     {
