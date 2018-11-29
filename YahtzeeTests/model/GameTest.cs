@@ -88,15 +88,15 @@ namespace YahtzeeTests
     public void ShouldKeepSpecifiedDice()
     {
       var mockDie1 = new Mock<Die>();
-      var mockDie2 = new Mock<Die>();
+      var mockDie3 = new Mock<Die>();
       var stubDie = new Mock<Die>();
-      var dice = new DiceImplemented(mockDie1.Object, stubDie.Object, mockDie2.Object, stubDie.Object, stubDie.Object);
+      var dice = new DiceImplemented(mockDie1.Object, stubDie.Object, mockDie3.Object, stubDie.Object, stubDie.Object);
       var sut = new Game(new AllAvailableCategoriesStrategy(), dice);
       sut.KeepDie(DiceList.Die1);
       sut.KeepDie(DiceList.Die3);
       sut.Throw();
       mockDie1.Verify(die => die.Throw(), Times.Never);
-      mockDie2.Verify(die => die.Throw(), Times.Never);
+      mockDie3.Verify(die => die.Throw(), Times.Never);
     }
   }
 }
