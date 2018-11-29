@@ -1,7 +1,9 @@
 namespace YahtzeeApp.model.category
 {
-  public class Sixes
+  public class Sixes : Category
   {
     public Sixes(Dice dice) { }
+
+    public int GetValue() => 0;
   }
 }
