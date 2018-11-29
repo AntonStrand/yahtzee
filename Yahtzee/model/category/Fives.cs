@@ -10,7 +10,7 @@ namespace YahtzeeApp.model.category
     {
       if (dice == null) throw new ArgumentNullException();
       _value = dice.GetValues().Where(x => x == 5).ToList().Count == 5
-       ? 25 : 15;
+       ? 25 : dice.GetValues().Where(x => x == 5).ToList().Count == 0 ? 0 : 15;
     }
 
     public int GetValue() => _value;
