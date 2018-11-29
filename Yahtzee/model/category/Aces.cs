@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace YahtzeeApp.model.category
 {
-  public class Aces
+  public class Aces : Category
   {
 
     private int _value;
