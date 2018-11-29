@@ -12,6 +12,7 @@ namespace YahtzeeTests
     [Theory]
     [InlineData(1, 2, 3, 4, 5, 3)]
     [InlineData(3, 2, 3, 4, 5, 6)]
+    [InlineData(1, 2, 2, 4, 5, 0)]
     public void ShouldReturnTheSumOfAllThrees(int v1, int v2, int v3, int v4, int v5, int expected) =>
       Assert.Equal(expected, actual: SetupSUT(v1, v2, v3, v4, v5).GetValue());
 
