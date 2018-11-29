@@ -28,41 +28,32 @@ namespace YahtzeeTests
     }
 
     [Fact]
-    public void ShouldReturnPair() => AssertType<Pair>(new List<int>() { 5, 5, 1, 2, 4 });
-
-    [Theory]
-    [InlineData(1, 1, 2, 2, 4)]
-    [InlineData(1, 1, 1, 1, 4)]
-    public void ShouldReturnTwoPair(int v1, int v2, int v3, int v4, int v5) =>
-      AssertType<TwoPair>(new List<int>() { v1, v2, v3, v4, v5 });
+    public void ShouldReturnOnlyFirstSectionPairAndChance() =>
+      Assert.Equal(expected: 8, actual: ExerciseSUT(new List<int>() { 1, 1, 2, 5, 6 }).Count);
 
     [Fact]
-    public void ShouldReturnThreeOfAKind() => AssertType<ThreeOfAKind>(new List<int>() { 1, 1, 1, 2, 4 });
+    public void ShouldReturnAcesWithCorrectValue() =>
+      AssertValueFromType<Aces>(new List<int>() { 1, 1, 4, 1, 3 }, expected: 3);
 
     [Fact]
-    public void ShouldReturnFourOfAKind() => AssertType<FourOfAKind>(new List<int>() { 1, 1, 1, 1, 4 });
-
-
-    [Fact]
-    public void ShouldReturnSmallStraight() => AssertType<SmallStraight>(new List<int>() { 1, 2, 3, 4, 5 });
+    public void ShouldReturnTwosWithCorrectValue() =>
+      AssertValueFromType<Twos>(new List<int>() { 1, 2, 4, 2, 2 }, expected: 6);
 
     [Fact]
-    public void ShouldReturnLargeStraight() => AssertType<LargeStraight>(new List<int>() { 2, 3, 4, 5, 6 });
+    public void ShouldReturnThreesWithCorrectValue() =>
+      AssertValueFromType<Threes>(new List<int>() { 3, 3, 3, 2, 1 }, expected: 9);
 
     [Fact]
-    public void ShouldReturnFullHouse() => AssertType<FullHouse>(new List<int>() { 1, 1, 1, 4, 4 });
+    public void ShouldReturnFoursWithCorrectValue() =>
+      AssertValueFromType<Fours>(new List<int>() { 4, 3, 4, 2, 4 }, expected: 12);
 
     [Fact]
-    public void ShouldReturnYahtzee() => AssertType<Yahtzee>(new List<int>() { 1, 1, 1, 1, 1 });
+    public void ShouldReturnFivesWithCorrectValue() =>
+      AssertValueFromType<Fives>(new List<int>() { 4, 5, 5, 2, 5 }, expected: 15);
 
     [Fact]
-    public void ShouldOnlyReturnAPairAndChance()
-    {
-      var actual = ExerciseSUT(new List<int>() { 1, 1, 2, 4, 6 })
-        .Where(c => IsOfType<Pair>(c) || IsOfType<Chance>(c))
-        .ToList().Count;
-      Assert.Equal(2, actual);
-    }
+    public void ShouldReturnSixesWithCorrectValue() =>
+      AssertValueFromType<Sixes>(new List<int>() { 6, 5, 6, 2, 6 }, expected: 18);
 
     [Theory]
     [InlineData(5, 6, 6, 2, 4, 12)]
@@ -128,12 +119,8 @@ namespace YahtzeeTests
       Assert.Equal(expected, actual);
     }
 
-
     private void AssertValueFromType<T>(List<int> diceValues, int expected) =>
       Assert.Equal(expected, ExerciseSUT(diceValues).Find(IsOfType<T>).GetValue());
-
-    private void AssertType<T>(List<int> diceValues) =>
-      Assert.IsType<T>(ExerciseSUT(diceValues).Find(IsOfType<T>));
 
     private List<Category> ExerciseSUT(List<int> diceValues)
     {
