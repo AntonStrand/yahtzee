@@ -12,24 +12,27 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldReturnSumOfAllSixes()
     {
-      var fakeDice = new Mock<Dice>();
-      fakeDice.Setup(d => d.GetValues()).Returns(new List<int> { 6, 6, 6, 6, 1 });
-      var sut = new Sixes(fakeDice.Object);
+      var sut = SetupSUT();
       Assert.Equal(24, sut.GetValue());
     }
 
     [Fact]
     public void ShouldImplementCategoryInterface()
     {
-      var fakeDice = new Mock<Dice>();
-      fakeDice.Setup(d => d.GetValues()).Returns(new List<int> { 6, 6, 6, 6, 1 });
-
-      var sut = new Sixes(fakeDice.Object);
+      var sut = SetupSUT();
       Assert.True(sut is Category);
     }
 
     [Fact]
     public void ShouldNotAcceptNullValues() =>
       Assert.Throws<ArgumentNullException>(() => new Sixes(null));
+
+    private Sixes SetupSUT()
+    {
+      var fakeDice = new Mock<Dice>();
+      fakeDice.Setup(d => d.GetValues()).Returns(new List<int> { 6, 6, 6, 6, 1 });
+
+      return new Sixes(fakeDice.Object);
+    }
   }
 }
