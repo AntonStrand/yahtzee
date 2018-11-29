@@ -4,8 +4,11 @@ namespace YahtzeeApp.model.category
 {
   public class Aces
   {
-    public Aces(Dice dice) { throw new ArgumentNullException(); }
+    public Aces(Dice dice)
+    {
+      if (dice == null) throw new ArgumentNullException();
+    }
 
-    public int GetValue() => 0;
+    public int GetValue() => 5;
   }
 }
