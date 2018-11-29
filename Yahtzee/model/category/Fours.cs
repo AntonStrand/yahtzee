@@ -1,18 +1,7 @@
-using System;
-using System.Linq;
-
 namespace YahtzeeApp.model.category
 {
-  public class Fours : Category
+  public class Fours : FirstSection
   {
-    private int _value;
-
-    public Fours(Dice dice)
-    {
-      if (dice == null) throw new ArgumentNullException();
-      _value = dice.GetValues().Where(x => x == 4).Sum();
-    }
-
-    public int GetValue() => _value;
+    public Fours(Dice dice) : base(4, dice) { }
   }
 }
