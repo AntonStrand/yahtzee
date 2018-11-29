@@ -17,12 +17,7 @@ namespace YahtzeeApp.model.rules
       RemoveOccupiedCategories(GetPossibleCategories(dice), scoreBoard.GetOccupiedCategories());
 
     private List<Category> GetPossibleCategories(Dice dice) =>
-      GetAces(dice)
-        .Concat(GetTwos(dice))
-        .Concat(GetThrees(dice))
-        .Concat(GetFours(dice))
-        .Concat(GetFives(dice))
-        .Concat(GetSixes(dice))
+      GetFirstSectionCategories(dice)
         .Concat(GetPairs(dice))
         .Concat(GetTwoPair(dice))
         .Concat(GetThreeOfAKind(dice))
@@ -39,17 +34,15 @@ namespace YahtzeeApp.model.rules
         .Where(possible => allOccupied.All(taken => taken.GetType() != possible.GetType()))
         .ToList();
 
-    private List<Category> GetAces(Dice dice) => new List<Category> { new Aces(dice) };
-
-    private List<Category> GetTwos(Dice dice) => new List<Category> { new Twos(dice) };
-
-    private List<Category> GetThrees(Dice dice) => new List<Category> { new Threes(dice) };
-
-    private List<Category> GetFours(Dice dice) => new List<Category> { new Fours(dice) };
-
-    private List<Category> GetFives(Dice dice) => new List<Category> { new Fives(dice) };
-
-    private List<Category> GetSixes(Dice dice) => new List<Category> { new Sixes(dice) };
+    private List<Category> GetFirstSectionCategories(Dice dice) =>
+      new List<Category> {
+        new Aces(dice),
+        new Twos(dice),
+        new Threes(dice),
+        new Fours(dice),
+        new Fives(dice),
+        new Sixes(dice)
+      };
 
     private List<Pair> GetPairs(Dice dice) =>
       GetFrequencyTable(dice)
