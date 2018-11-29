@@ -25,6 +25,14 @@ namespace YahtzeeTests
     }
 
     [Fact]
+    public void ShouldInitDiceIfNotProvided()
+    {
+      var sut = new Game(new AllAvailableCategoriesStrategy(), null);
+      var output = sut.GetDice();
+      Assert.True(output is Dice);
+    }
+
+    [Fact]
     public void ShouldAcceptAllAvailableCategoriesStrategy() =>
       new Game(new AllAvailableCategoriesStrategy(), null);
 
