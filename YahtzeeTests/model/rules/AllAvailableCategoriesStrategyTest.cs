@@ -28,34 +28,6 @@ namespace YahtzeeTests
     }
 
     [Fact]
-    public void ShouldReturnPair() => AssertType<Pair>(new List<int>() { 5, 5, 1, 2, 4 });
-
-    [Theory]
-    [InlineData(1, 1, 2, 2, 4)]
-    [InlineData(1, 1, 1, 1, 4)]
-    public void ShouldReturnTwoPair(int v1, int v2, int v3, int v4, int v5) =>
-      AssertType<TwoPair>(new List<int>() { v1, v2, v3, v4, v5 });
-
-    [Fact]
-    public void ShouldReturnThreeOfAKind() => AssertType<ThreeOfAKind>(new List<int>() { 1, 1, 1, 2, 4 });
-
-    [Fact]
-    public void ShouldReturnFourOfAKind() => AssertType<FourOfAKind>(new List<int>() { 1, 1, 1, 1, 4 });
-
-
-    [Fact]
-    public void ShouldReturnSmallStraight() => AssertType<SmallStraight>(new List<int>() { 1, 2, 3, 4, 5 });
-
-    [Fact]
-    public void ShouldReturnLargeStraight() => AssertType<LargeStraight>(new List<int>() { 2, 3, 4, 5, 6 });
-
-    [Fact]
-    public void ShouldReturnFullHouse() => AssertType<FullHouse>(new List<int>() { 1, 1, 1, 4, 4 });
-
-    [Fact]
-    public void ShouldReturnYahtzee() => AssertType<Yahtzee>(new List<int>() { 1, 1, 1, 1, 1 });
-
-    [Fact]
     public void ShouldReturnOnlyFirstSectionPairAndChance() =>
       Assert.Equal(expected: 8, actual: ExerciseSUT(new List<int>() { 1, 1, 2, 5, 6 }).Count);
 
@@ -147,12 +119,8 @@ namespace YahtzeeTests
       Assert.Equal(expected, actual);
     }
 
-
     private void AssertValueFromType<T>(List<int> diceValues, int expected) =>
       Assert.Equal(expected, ExerciseSUT(diceValues).Find(IsOfType<T>).GetValue());
-
-    private void AssertType<T>(List<int> diceValues) =>
-      Assert.IsType<T>(ExerciseSUT(diceValues).Find(IsOfType<T>));
 
     private List<Category> ExerciseSUT(List<int> diceValues)
     {
@@ -165,8 +133,6 @@ namespace YahtzeeTests
     }
 
     private bool IsOfType<T>(Category c) => c.GetType() == typeof(T);
-
-    private bool IsNotOfType<T>(Category c) => !IsOfType<T>(c);
   }
 }
 
