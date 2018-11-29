@@ -17,5 +17,9 @@ namespace YahtzeeTests
       var sut = new Fives(fakeDice.Object);
       Assert.True(sut is Category);
     }
+
+    [Fact]
+    public void ShouldNotAcceptNullValues() =>
+      Assert.Throws<ArgumentNullException>(() => new Fives(null));
   }
 }
