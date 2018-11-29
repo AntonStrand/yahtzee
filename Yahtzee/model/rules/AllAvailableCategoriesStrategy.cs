@@ -10,18 +10,28 @@ namespace YahtzeeApp.model.rules
     public List<Category> GetCategories(Dice dice, ScoreBoard scoreBoard)
     {
       if (IsAnyNull(dice, scoreBoard)) throw new ArgumentNullException();
-
-      return GetPairs(dice)
-          .Concat(GetTwoPair(dice))
-          .Concat(GetThreeOfAKind(dice))
-          .Concat(GetFourOfAKind(dice))
-          .Concat(GetSmallStraight(dice))
-          .Concat(GetLargeStraight(dice))
-          .Concat(GetFullHouse(dice))
-          .Concat(GetYahtzee(dice))
-          .Concat(GetChance(dice))
-          .ToList();
+      return GetAvailableCategories(dice, scoreBoard);
     }
+
+    private List<Category> GetAvailableCategories(Dice dice, ScoreBoard scoreBoard) =>
+      RemoveOccupiedCategories(GetPossibleCategories(dice), scoreBoard.GetOccupiedCategories());
+
+    private List<Category> GetPossibleCategories(Dice dice) =>
+      GetPairs(dice)
+        .Concat(GetTwoPair(dice))
+        .Concat(GetThreeOfAKind(dice))
+        .Concat(GetFourOfAKind(dice))
+        .Concat(GetSmallStraight(dice))
+        .Concat(GetLargeStraight(dice))
+        .Concat(GetFullHouse(dice))
+        .Concat(GetYahtzee(dice))
+        .Concat(GetChance(dice))
+        .ToList();
+
+    private List<Category> RemoveOccupiedCategories(List<Category> allPossible, List<Category> allOccupied) =>
+      allPossible
+        .Where(possible => allOccupied.All(taken => taken.GetType() != possible.GetType()))
+        .ToList();
 
     private List<Pair> GetPairs(Dice dice) =>
       GetFrequencyTable(dice)

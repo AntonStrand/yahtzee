@@ -137,12 +137,12 @@ namespace YahtzeeTests
 
     private List<Category> ExerciseSUT(List<int> diceValues)
     {
-      var fakePlayer = new Mock<ScoreBoard>();
+      var player = new Player();
       var fakeDice = new Mock<Dice>();
       fakeDice.Setup(d => d.GetValues()).Returns(diceValues);
 
       var sut = new AllAvailableCategoriesStrategy();
-      return sut.GetCategories(fakeDice.Object, fakePlayer.Object);
+      return sut.GetCategories(fakeDice.Object, player);
     }
 
     private bool IsOfType<T>(Category c) => c.GetType() == typeof(T);
