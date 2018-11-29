@@ -9,26 +9,12 @@ namespace YahtzeeTests
 {
   public class FoursTest
   {
-    [Fact]
-    public void ShouldReturnSumOfAllFours()
-    {
-      var sut = SetupSUT(3, 4, 3, 2, 5);
-      Assert.Equal(4, sut.GetValue());
-    }
-
-    [Fact]
-    public void ShouldReturnSumOfAllFours1()
-    {
-      var sut = SetupSUT(4, 4, 4, 4, 4);
-      Assert.Equal(20, sut.GetValue());
-    }
-
-    [Fact]
-    public void ShouldReturnSumOfAllFours2()
-    {
-      var sut = SetupSUT(1, 1, 1, 1, 3);
-      Assert.Equal(0, sut.GetValue());
-    }
+    [Theory]
+    [InlineData(3, 4, 3, 2, 5, 4)]
+    [InlineData(4, 4, 4, 4, 4, 20)]
+    [InlineData(1, 2, 3, 5, 6, 0)]
+    public void ShouldReturnSumOfAllFours(int v1, int v2, int v3, int v4, int v5, int expected) =>
+      Assert.Equal(expected, actual: SetupSUT(v1, v2, v3, v4, v5).GetValue());
 
     [Fact]
     public void ShouldImplementCategoryInterface()
@@ -45,7 +31,6 @@ namespace YahtzeeTests
     {
       var fakeDice = new Mock<Dice>();
       fakeDice.Setup(d => d.GetValues()).Returns(new List<int> { v1, v2, v3, v4, v5 });
-
       return new Fours(fakeDice.Object);
     }
   }
