@@ -23,6 +23,10 @@ namespace YahtzeeApp.model
 
     public List<Category> GetOccupiedCategories() => _occupied;
 
-    public void AddCategory(Category category) => _occupied.Add(category);
+    public void AddCategory(Category category)
+    {
+      if (_occupied.Count == 1) throw new ArgumentException();
+      _occupied.Add(category);
+    }
   }
 }
