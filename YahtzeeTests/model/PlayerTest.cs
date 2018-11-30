@@ -120,5 +120,20 @@ namespace YahtzeeTests
       var actual = sut.GetResult();
       Assert.Equal(expected, actual);
     }
+
+    [Fact]
+    public void ShouldReturnSumOfMultipleCategories1()
+    {
+      var value = 3;
+      var expected = value * 13;
+      var sut = new Player();
+
+      sut.AddCategory(new FourOfAKind(value, value, value, value));
+      sut.AddCategory(new ThreeOfAKind(value, value, value));
+      sut.AddCategory(new Pair(value, value));
+      sut.AddCategory(new TwoPair(new Pair(value, value), new Pair(value, value)));
+      var actual = sut.GetResult();
+      Assert.Equal(expected, actual);
+    }
   }
 }
