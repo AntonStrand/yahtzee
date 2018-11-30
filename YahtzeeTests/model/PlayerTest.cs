@@ -114,13 +114,9 @@ namespace YahtzeeTests
       var expected = value * 9;
       var sut = new Player();
 
-      var foak = new FourOfAKind(value, value, value, value);
-      var toak = new ThreeOfAKind(value, value, value);
-      var pair = new Pair(value, value);
-
-      sut.AddCategory(foak);
-      sut.AddCategory(toak);
-      sut.AddCategory(pair);
+      sut.AddCategory(new FourOfAKind(value, value, value, value));
+      sut.AddCategory(new ThreeOfAKind(value, value, value));
+      sut.AddCategory(new Pair(value, value));
       var actual = sut.GetResult();
       Assert.Equal(expected, actual);
     }

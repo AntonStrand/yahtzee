@@ -24,11 +24,9 @@ namespace YahtzeeApp.model
 
     public List<Category> GetOccupiedCategories() => _occupied;
 
-    public int GetResult() => _occupied.Count == 0
-      ? 0
-      : _occupied.Count == 3
-        ? 45
-        : 10;
+    public int GetResult() => _occupied.Count == 0 ? 0
+                            : _occupied.Count == 3 ? 45
+                            /* Otherwise */        : 10;
 
     public void AddCategory(Category category)
     {
