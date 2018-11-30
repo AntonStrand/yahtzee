@@ -82,13 +82,6 @@ namespace YahtzeeTests
     }
 
     [Fact]
-    public void SelectDiceExist()
-    {
-      var v = new EnglishMainView();
-      Assert.Equal("Int32 SelectDice()", v.GetType().GetMethod("SelectDice").ToString());
-    }
-
-    [Fact]
     public void SelectDiceWithInputThreeReturnsThree()
     {
       Console.SetOut(new StreamWriter(Console.OpenStandardOutput()));
