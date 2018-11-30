@@ -94,5 +94,19 @@ namespace YahtzeeTests
 
       c.ThrowDie();
     }
+ 
+    [Fact]
+    public void WhenRunningThrowDieSelectDiceIsCalled()
+    {
+      var mockView = new Mock<EnglishMainView>();
+      var player = new Player();
+      var mockCategory = new Mock<AvailableCategoriesStrategy>();
+      var mockGame = new Mock<Game>(mockCategory.Object);
+      var c = new MainController(mockView.Object, player, mockGame.Object);
+
+      mockView.Setup(v => v.SelectDice()).Returns(3);
+      c.ThrowDie();
+      mockView.Verify(v => v.SelectDice(), Times.AtLeastOnce());
+    }
   }
 }

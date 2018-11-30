@@ -25,7 +25,6 @@ namespace YahtzeeApp.controller
 
     public void ThrowDie()
     {
-
     }
   }
 }
