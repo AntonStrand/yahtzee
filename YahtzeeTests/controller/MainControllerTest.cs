@@ -33,7 +33,7 @@ namespace YahtzeeTests
     }
 
     [Fact]
-    public void WhenRunningPlayViewInstructionsIsCalled()
+    public void WhenRunningStartViewInstructionsIsCalled()
     {
       var mockView = new Mock<MainView>();
       var mockPlayer = new Mock<Player>();
@@ -48,7 +48,7 @@ namespace YahtzeeTests
     }
 
     [Fact]
-    public void WhenRunningPlayViewGetUsernameIsCalled()
+    public void WhenRunningStartViewGetUsernameIsCalled()
     {
       var mockView = new Mock<MainView>();
       var mockPlayer = new Mock<Player>();
@@ -63,7 +63,7 @@ namespace YahtzeeTests
     }
 
     [Fact]
-    public void WhenRunningPlayViewUserNameIsSetInPlayer()
+    public void WhenRunningStartViewUserNameIsSetInPlayer()
     {
       Console.SetOut(new StreamWriter(Console.OpenStandardOutput()));
 
