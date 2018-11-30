@@ -11,7 +11,6 @@ namespace YahtzeeApp
   {
     static void Main(string[] args)
     {
-      var view = new EnglishMainView();
       var player = new Player();
 
       var category = new AllAvailableCategoriesStrategy();
@@ -24,6 +23,8 @@ namespace YahtzeeApp
 
       var dice = new DiceImplemented(die1, die2, die3, die4, die5);
       var game = new Game(category, dice);
+      var diceView = new DiceView(dice);
+      var view = new EnglishMainView(diceView);
       var controller = new MainController(view, player, game);
 
       controller.Start();

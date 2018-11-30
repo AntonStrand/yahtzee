@@ -14,7 +14,6 @@ namespace YahtzeeTests
     [Fact]
     public void NewMainController()
     {
-      var view = new EnglishMainView();
       var player = new Player();
 
       var category = new AllAvailableCategoriesStrategy();
@@ -24,8 +23,10 @@ namespace YahtzeeTests
       var die3 = new DieImplemented();
       var die4 = new DieImplemented();
       var die5 = new DieImplemented();
-
       var dice = new DiceImplemented(die1, die2, die3, die4, die5);
+
+      var diceView = new DiceView(dice);
+      var view = new EnglishMainView(diceView);
       var game = new Game(category, dice);
       var controller = new MainController(view, player, game);
 
@@ -65,34 +66,17 @@ namespace YahtzeeTests
     [Fact]
     public void WhenRunningStartViewUserNameIsSetInPlayer()
     {
-      Console.SetOut(new StreamWriter(Console.OpenStandardOutput()));
-
-      var view = new EnglishMainView();
+      var mockView = new Mock<MainView>();
       var player = new Player();
       var mockCategory = new Mock<AvailableCategoriesStrategy>();
       var mockGame = new Mock<Game>(mockCategory.Object);
-      var c = new MainController(view, player, mockGame.Object);
+      var c = new MainController(mockView.Object, player, mockGame.Object);
 
       string expected = "Test";
-      var input = new StringReader(expected);
-      Console.SetIn(input);
-
+      mockView.Setup(v => v.GetUsername()).Returns(expected);
       c.Start();
 
       Assert.Equal(expected, player.name);
-      input.Close();
-    }
-
-    [Fact]
-    public void ThrowDieExist()
-    {
-      var view = new EnglishMainView();
-      var player = new Player();
-      var mockCategory = new Mock<AvailableCategoriesStrategy>();
-      var mockGame = new Mock<Game>(mockCategory.Object);
-      var c = new MainController(view, player, mockGame.Object);
-
-      c.ThrowDie();
     }
 
     [Fact]

@@ -7,6 +7,12 @@ namespace YahtzeeApp.view
   {
     internal string welcomeMsg = "Welcome to Yahtzee";
     internal string enterUsername = "Enter username: ";
+    private DiceView diceView;
+
+    public EnglishMainView(DiceView diceView)
+    {
+      this.diceView = diceView;
+    }
     public void DisplayWelcomeMessage()
     {
       Console.WriteLine(welcomeMsg);
