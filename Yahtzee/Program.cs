@@ -26,7 +26,7 @@ namespace YahtzeeApp
       var game = new Game(category, dice);
       var controller = new MainController(view, player, game);
 
-      controller.Play();
+      controller.Start();
     }
   }
 }

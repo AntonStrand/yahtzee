@@ -8,13 +8,15 @@ namespace YahtzeeApp.controller
   {
     private MainView mainView;
     private Player player;
+    private Game game;
     public MainController(MainView v, Player p, Game g)
     {
       this.mainView = v;
       this.player = p;
+      this.game = g;
     }
 
-    public void Play()
+    public void Start()
     {
       mainView.DisplayWelcomeMessage();
       string name = mainView.GetUsername();

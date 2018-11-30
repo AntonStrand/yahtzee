@@ -43,7 +43,7 @@ namespace YahtzeeTests
       var c = new MainController(mockView.Object, mockPlayer.Object, mockGame.Object);
       mockView.Setup(view => view.GetUsername()).Returns("test");
 
-      c.Play();
+      c.Start();
       mockView.Verify(view => view.DisplayWelcomeMessage(), Times.Once());
     }
 
@@ -58,7 +58,7 @@ namespace YahtzeeTests
       mockView.Setup(view => view.GetUsername()).Returns("test");
       var c = new MainController(mockView.Object, mockPlayer.Object, mockGame.Object);
 
-      c.Play();
+      c.Start();
       mockView.Verify(view => view.GetUsername(), Times.Once());
     }
 
@@ -77,7 +77,7 @@ namespace YahtzeeTests
       var input = new StringReader(expected);
       Console.SetIn(input);
 
-      c.Play();
+      c.Start();
 
       Assert.Equal(expected, player.name);
       input.Close();
