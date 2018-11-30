@@ -137,5 +137,24 @@ namespace YahtzeeTests
       sut.StartNextRound();
       Assert.False(sut.IsRoundDone());
     }
+
+    [Fact]
+    public void ShouldReturnAllPossibleCategories()
+    {
+      var fakeDie = new Mock<Die>();
+      var fakeDie1 = new Mock<Die>();
+      var fakeDie2 = new Mock<Die>();
+      var fakeDie3 = new Mock<Die>();
+      var fakeDie4 = new Mock<Die>();
+      fakeDie.Setup(die => die.GetValue()).Returns(1);
+      fakeDie1.Setup(die => die.GetValue()).Returns(1);
+      fakeDie2.Setup(die => die.GetValue()).Returns(1);
+      fakeDie3.Setup(die => die.GetValue()).Returns(1);
+      fakeDie4.Setup(die => die.GetValue()).Returns(1);
+      var dice = new DiceImplemented(fakeDie.Object, fakeDie1.Object, fakeDie2.Object, fakeDie3.Object, fakeDie4.Object);
+      var sut = new Game(new AllAvailableCategoriesStrategy());
+      var categories = sut.GetAvailableCategories();
+      Assert.Equal(8, categories.Count);
+    }
   }
 }
