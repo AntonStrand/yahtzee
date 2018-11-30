@@ -31,12 +31,15 @@ namespace YahtzeeApp.model
     public void Throw()
     {
       if (IsRoundDone()) throw new InvalidOperationException();
-      _player = new Player();
       _throwCount++;
       _dice.Throw();
     }
 
-    public void StartNextRound() => _throwCount = 0;
+    public void StartNextRound()
+    {
+      _throwCount = 0;
+      _player = new Player();
+    }
 
     private void Init(AvailableCategoriesStrategy categoryRule, Dice dice)
     {
