@@ -3,6 +3,7 @@ using Xunit;
 using YahtzeeApp.controller;
 using YahtzeeApp.view;
 using YahtzeeApp.model;
+using YahtzeeApp.model.rules;
 using Moq;
 using System.IO;
 
@@ -15,7 +16,11 @@ namespace YahtzeeTests
     {
       var v = new EnglishMainView();
       var p = new Player();
-      var c = new MainController(v, p);
+      var c = new AllAvailableCategoriesStrategy();
+      var d = new DieImplemented();
+      var dI = new DiceImplemented(d, d, d, d, d);
+      var g = new Game(c, dI);
+      var c = new MainController(v, p, g);
 
       Assert.IsType<MainController>(c);
     }
