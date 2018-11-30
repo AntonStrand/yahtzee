@@ -38,7 +38,6 @@ namespace YahtzeeApp.model
     public void StartNextRound()
     {
       _throwCount = 0;
-      _player = new Player();
     }
 
     private void Init(AvailableCategoriesStrategy categoryRule, Dice dice)
