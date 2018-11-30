@@ -36,12 +36,12 @@ namespace YahtzeeApp.model
 
     private void Init(AvailableCategoriesStrategy categoryRule, Dice dice)
     {
-      _categoryRule = IsNull(categoryRule) ? throw new ArgumentNullException() : categoryRule;
-      _dice = IsNull(dice) ? InitDice() : dice;
+      _categoryRule = IsNotNull(categoryRule) ? categoryRule : throw new ArgumentNullException();
+      _dice = IsNotNull(dice) ? dice : InitDice();
     }
 
     private Dice InitDice() => new DiceImplemented(new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented());
 
-    private bool IsNull(object o) => o == null;
+    private bool IsNotNull(object o) => o != null;
   }
 }

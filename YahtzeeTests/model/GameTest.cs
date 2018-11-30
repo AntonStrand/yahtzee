@@ -3,6 +3,8 @@ using Xunit;
 using Moq;
 using YahtzeeApp.model;
 using YahtzeeApp.model.rules;
+using System.Collections.Generic;
+using YahtzeeApp.model.category;
 
 namespace YahtzeeTests
 {
@@ -141,20 +143,11 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldReturnAllPossibleCategories()
     {
-      var fakeDie = new Mock<Die>();
-      var fakeDie1 = new Mock<Die>();
-      var fakeDie2 = new Mock<Die>();
-      var fakeDie3 = new Mock<Die>();
-      var fakeDie4 = new Mock<Die>();
-      fakeDie.Setup(die => die.GetValue()).Returns(1);
-      fakeDie1.Setup(die => die.GetValue()).Returns(1);
-      fakeDie2.Setup(die => die.GetValue()).Returns(1);
-      fakeDie3.Setup(die => die.GetValue()).Returns(1);
-      fakeDie4.Setup(die => die.GetValue()).Returns(1);
-      var dice = new DiceImplemented(fakeDie.Object, fakeDie1.Object, fakeDie2.Object, fakeDie3.Object, fakeDie4.Object);
-      var sut = new Game(new AllAvailableCategoriesStrategy());
+      var dice = new Mock<Dice>();
+      dice.Setup(d => d.GetValues()).Returns(new List<int> { 1, 1, 1, 1, 1 });
+      var sut = new Game(new AllAvailableCategoriesStrategy(), dice.Object);
       var categories = sut.GetAvailableCategories();
-      Assert.Equal(8, categories.Count);
+      Assert.Equal(10, categories.Count);
     }
   }
 }
