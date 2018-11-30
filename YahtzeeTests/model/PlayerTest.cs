@@ -94,10 +94,7 @@ namespace YahtzeeTests
     }
 
     [Fact]
-    public void ShouldReturnZeroIfNoCategories()
-    {
-      var sut = new Player();
-      Assert.Equal(0, sut.GetResult());
-    }
+    public void ShouldReturnZeroIfNoCategories() =>
+      Assert.Equal(0, new Player().GetResult());
   }
 }
