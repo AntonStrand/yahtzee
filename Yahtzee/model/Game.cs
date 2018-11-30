@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using YahtzeeApp.model.category;
 using YahtzeeApp.model.rules;
 
 namespace YahtzeeApp.model
@@ -7,6 +9,7 @@ namespace YahtzeeApp.model
   {
     private const int NUMBER_OF_THROWS = 3;
     private Dice _dice;
+    private AvailableCategoriesStrategy _categoryRule;
     private int _throwCount;
 
     public Game(AvailableCategoriesStrategy categoryRule) => Init(categoryRule, null);
@@ -15,6 +18,7 @@ namespace YahtzeeApp.model
 
     public bool IsRoundDone() => NUMBER_OF_THROWS == _throwCount;
 
+    public List<Category> GetAvailableCategories() => _categoryRule.GetCategories(_dice, new Player());
     public Dice GetDice() => _dice;
 
     public int GetNumberOfThrowsLeft() => NUMBER_OF_THROWS - _throwCount;
@@ -32,7 +36,7 @@ namespace YahtzeeApp.model
 
     private void Init(AvailableCategoriesStrategy categoryRule, Dice dice)
     {
-      if (IsNull(categoryRule)) throw new ArgumentNullException();
+      _categoryRule = IsNull(categoryRule) ? throw new ArgumentNullException() : categoryRule;
       _dice = IsNull(dice) ? InitDice() : dice;
     }
 
