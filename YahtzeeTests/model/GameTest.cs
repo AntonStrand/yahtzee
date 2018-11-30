@@ -144,9 +144,7 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldReturnAllPossibleCategories()
     {
-      var dice = new Mock<Dice>();
-      dice.Setup(d => d.GetValues()).Returns(new List<int> { 1, 1, 1, 1, 1 });
-      var sut = new Game(new AllAvailableCategoriesStrategy(), dice.Object);
+      var sut = SetupSUT(1, 1, 1, 1, 1);
       var categories = sut.GetAvailableCategories();
       Assert.Equal(10, categories.Count);
     }
@@ -154,9 +152,7 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldReturnNotReturnOccupiedCategory()
     {
-      var dice = new Mock<Dice>();
-      dice.Setup(d => d.GetValues()).Returns(new List<int> { 2, 3, 5, 5, 1 });
-      var sut = new Game(new AllAvailableCategoriesStrategy(), dice.Object);
+      var sut = SetupSUT(2, 3, 5, 5, 1);
       sut.KeepCategory(new Pair(4, 4));
       var categories = sut.GetAvailableCategories();
       Assert.Null(categories.Find(IsOfType<Pair>));
@@ -165,9 +161,7 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldReturnNotReturnOccupiedCategories()
     {
-      var dice = new Mock<Dice>();
-      dice.Setup(d => d.GetValues()).Returns(new List<int> { 5, 5, 5, 5, 5 });
-      var sut = new Game(new AllAvailableCategoriesStrategy(), dice.Object);
+      var sut = SetupSUT(5, 5, 5, 5, 5);
       sut.KeepCategory(new Pair(4, 4));
       sut.KeepCategory(new Yahtzee(5, 5, 5, 5, 5));
       var categories = sut.GetAvailableCategories();
@@ -177,9 +171,7 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldKeepCategoriesBetweenThrows()
     {
-      var dice = new Mock<Dice>();
-      dice.Setup(d => d.GetValues()).Returns(new List<int> { 2, 3, 5, 5, 1 });
-      var sut = new Game(new AllAvailableCategoriesStrategy(), dice.Object);
+      var sut = SetupSUT(2, 3, 5, 5, 1);
       sut.KeepCategory(new Pair(4, 4));
       sut.Throw();
       var categories = sut.GetAvailableCategories();
@@ -189,13 +181,18 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldKeepCategoriesBetweenRounds()
     {
-      var dice = new Mock<Dice>();
-      dice.Setup(d => d.GetValues()).Returns(new List<int> { 2, 3, 5, 5, 1 });
-      var sut = new Game(new AllAvailableCategoriesStrategy(), dice.Object);
+      var sut = SetupSUT(2, 3, 5, 5, 1);
       sut.KeepCategory(new Pair(4, 4));
       sut.StartNextRound();
       var categories = sut.GetAvailableCategories();
       Assert.Null(categories.Find(IsOfType<Pair>));
+    }
+
+    private Game SetupSUT(int v1, int v2, int v3, int v4, int v5)
+    {
+      var dice = new Mock<Dice>();
+      dice.Setup(d => d.GetValues()).Returns(new List<int> { v1, v2, v3, v4, v5 });
+      return new Game(new AllAvailableCategoriesStrategy(), dice.Object);
     }
 
     private bool IsOfType<T>(Object o) => o.GetType() == typeof(T);

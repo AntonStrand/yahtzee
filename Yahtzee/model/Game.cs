@@ -35,10 +35,7 @@ namespace YahtzeeApp.model
       _dice.Throw();
     }
 
-    public void StartNextRound()
-    {
-      _throwCount = 0;
-    }
+    public void StartNextRound() => _throwCount = 0;
 
     private void Init(AvailableCategoriesStrategy categoryRule, Dice dice)
     {
