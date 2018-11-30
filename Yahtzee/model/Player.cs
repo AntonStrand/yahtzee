@@ -26,7 +26,9 @@ namespace YahtzeeApp.model
     public string GetName() => _name;
 
     public void SetName(string name) =>
-      _name = (name == null || name.Length == 0) ? throw new ArgumentException() : name;
+      _name = IsValidName(name) ? name : throw new ArgumentException();
+
+    private bool IsValidName(string name) => (name != null && name.Length > 0);
 
     private bool IsTaken(Category category) =>
       _occupied.Any(taken => taken.GetType() == category.GetType());
