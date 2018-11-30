@@ -55,20 +55,14 @@ namespace YahtzeeTests
       Assert.IsType<Pair>(sut.GetOccupiedCategories()[0]);
     }
 
-    [Fact]
-    public void ShouldStoreCorrectValueOfCategory()
+    [Theory]
+    [InlineData(5, 10)]
+    [InlineData(2, 4)]
+    public void ShouldStoreCorrectValueOfCategory(int value, int expected)
     {
       var sut = new Player();
-      sut.AddCategory(new Pair(5, 5));
-      Assert.Equal(expected: 10, actual: sut.GetOccupiedCategories()[0].GetValue());
-    }
-
-    [Fact]
-    public void ShouldStoreCorrectValueOfCategory1()
-    {
-      var sut = new Player();
-      sut.AddCategory(new Pair(2, 2));
-      Assert.Equal(expected: 4, actual: sut.GetOccupiedCategories()[0].GetValue());
+      sut.AddCategory(new Pair(value, value));
+      Assert.Equal(expected, actual: sut.GetOccupiedCategories()[0].GetValue());
     }
   }
 }
