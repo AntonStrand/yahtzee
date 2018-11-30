@@ -62,5 +62,13 @@ namespace YahtzeeTests
       sut.AddCategory(new Pair(5, 5));
       Assert.Equal(expected: 10, actual: sut.GetOccupiedCategories()[0].GetValue());
     }
+
+    [Fact]
+    public void ShouldStoreCorrectValueOfCategory1()
+    {
+      var sut = new Player();
+      sut.AddCategory(new Pair(2, 2));
+      Assert.Equal(expected: 4, actual: sut.GetOccupiedCategories()[0].GetValue());
+    }
   }
 }
