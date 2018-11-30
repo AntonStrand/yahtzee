@@ -106,5 +106,23 @@ namespace YahtzeeTests
       sut.AddCategory(new Pair(value, value));
       Assert.Equal(expected: 10, actual: sut.GetResult());
     }
+
+    [Fact]
+    public void ShouldReturnSumOfMultipleCategories()
+    {
+      var value = 5;
+      var expected = value * 9;
+      var sut = new Player();
+
+      var foak = new FourOfAKind(value, value, value, value);
+      var toak = new ThreeOfAKind(value, value, value);
+      var pair = new Pair(value, value);
+
+      sut.AddCategory(foak);
+      sut.AddCategory(toak);
+      sut.AddCategory(pair);
+      var actual = sut.GetResult();
+      Assert.Equal(expected, actual);
+    }
   }
 }
