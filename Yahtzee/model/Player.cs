@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using YahtzeeApp.model.category;
 
 namespace YahtzeeApp.model
@@ -25,7 +26,7 @@ namespace YahtzeeApp.model
 
     public void AddCategory(Category category)
     {
-      if (_occupied.Count == 1) throw new ArgumentException();
+      if (_occupied.Any(taken => taken.GetType() == category.GetType())) throw new ArgumentException();
       _occupied.Add(category);
     }
   }
