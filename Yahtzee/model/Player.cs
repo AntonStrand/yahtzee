@@ -24,6 +24,8 @@ namespace YahtzeeApp.model
 
     public List<Category> GetOccupiedCategories() => _occupied;
 
+    public int GetResult() => 15;
+
     public void AddCategory(Category category)
     {
       if (IsTaken(category)) throw new ArgumentException();

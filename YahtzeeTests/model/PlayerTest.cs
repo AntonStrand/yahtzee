@@ -92,5 +92,12 @@ namespace YahtzeeTests
       var actual = sut.GetOccupiedCategories();
       Assert.Equal(expected, actual);
     }
+
+    [Fact]
+    public void ShouldReturnZeroIfNoCategories()
+    {
+      var sut = new Player();
+      Assert.Equal(0, sut.GetResult());
+    }
   }
 }
