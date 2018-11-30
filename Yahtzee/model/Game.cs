@@ -25,6 +25,8 @@ namespace YahtzeeApp.model
 
     public void KeepDie(DiceList dieId) => _dice.KeepDie(dieId);
 
+    public void KeepCategory(Category category) { }
+
     public void Throw()
     {
       if (IsRoundDone()) throw new InvalidOperationException();

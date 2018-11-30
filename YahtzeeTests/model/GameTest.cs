@@ -149,5 +149,16 @@ namespace YahtzeeTests
       var categories = sut.GetAvailableCategories();
       Assert.Equal(10, categories.Count);
     }
+
+    [Fact]
+    public void ShouldReturnNotReturnOccupiedCategory()
+    {
+      var dice = new Mock<Dice>();
+      dice.Setup(d => d.GetValues()).Returns(new List<int> { 1, 1, 1, 1, 1 });
+      var sut = new Game(new AllAvailableCategoriesStrategy(), dice.Object);
+      sut.KeepCategory(new Pair(4, 4));
+      var categories = sut.GetAvailableCategories();
+      Assert.Null(categories.Find(x => x.GetType() == typeof(Pair)));
+    }
   }
 }
