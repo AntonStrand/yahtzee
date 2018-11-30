@@ -169,12 +169,14 @@ namespace YahtzeeTests
 
     private List<Category> ExerciseSUT(List<int> diceValues)
     {
-      var player = new Player();
+      var fakePlayer = new Mock<ScoreBoard>();
+      fakePlayer.Setup(p => p.GetOccupiedCategories()).Returns(new List<Category>());
+
       var fakeDice = new Mock<Dice>();
       fakeDice.Setup(d => d.GetValues()).Returns(diceValues);
 
       var sut = new AllAvailableCategoriesStrategy();
-      return sut.GetCategories(fakeDice.Object, player);
+      return sut.GetCategories(fakeDice.Object, fakePlayer.Object);
     }
 
     private List<Category> ExersciseSUTWithScoreBoard(List<int> diceValues, List<Category> occupied)
