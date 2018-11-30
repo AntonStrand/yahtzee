@@ -8,7 +8,7 @@ namespace YahtzeeApp.controller
   {
     private MainView mainView;
     private Player player;
-    public MainController(MainView v, Player p)
+    public MainController(MainView v, Player p, Game g)
     {
       this.mainView = v;
       this.player = p;
