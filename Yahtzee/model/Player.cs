@@ -24,7 +24,7 @@ namespace YahtzeeApp.model
 
     public List<Category> GetOccupiedCategories() => _occupied;
 
-    public int GetResult() => 15;
+    public int GetResult() => 0;
 
     public void AddCategory(Category category)
     {
