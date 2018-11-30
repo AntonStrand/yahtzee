@@ -6,9 +6,12 @@ namespace YahtzeeApp.model
 {
   public class Player : ScoreBoard
   {
-    private List<Category> _occupied = new List<Category>();
-
     internal string name;
+
+    private List<Category> _occupied;
+
+    public Player() => _occupied = new List<Category>();
+
     public void SetName(string name)
     {
       if (name.Length == 0)
@@ -20,9 +23,6 @@ namespace YahtzeeApp.model
 
     public List<Category> GetOccupiedCategories() => _occupied;
 
-    public void AddCategory(Category category)
-    {
-      _occupied.Add(category);
-    }
+    public void AddCategory(Category category) => _occupied.Add(new Pair(1, 1));
   }
 }
