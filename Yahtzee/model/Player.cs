@@ -24,7 +24,7 @@ namespace YahtzeeApp.model
 
     public List<Category> GetOccupiedCategories() => _occupied;
 
-    public int GetResult() => _occupied.Select(x => x.GetValue()).Sum();
+    public int GetResult() => _occupied.Select(category => category.GetValue()).Sum();
 
     public void AddCategory(Category category)
     {
