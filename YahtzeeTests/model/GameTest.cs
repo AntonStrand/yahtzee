@@ -174,6 +174,18 @@ namespace YahtzeeTests
       Assert.Empty(categories.Where(c => IsOfType<Pair>(c) || IsOfType<Yahtzee>(c)));
     }
 
+    [Fact]
+    public void ShouldKeepCategoriesBetweenThrows()
+    {
+      var dice = new Mock<Dice>();
+      dice.Setup(d => d.GetValues()).Returns(new List<int> { 2, 3, 5, 5, 1 });
+      var sut = new Game(new AllAvailableCategoriesStrategy(), dice.Object);
+      sut.KeepCategory(new Pair(4, 4));
+      sut.Throw();
+      var categories = sut.GetAvailableCategories();
+      Assert.Null(categories.Find(IsOfType<Pair>));
+    }
+
     private bool IsOfType<T>(Object o) => o.GetType() == typeof(T);
   }
 }

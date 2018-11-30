@@ -31,6 +31,7 @@ namespace YahtzeeApp.model
     public void Throw()
     {
       if (IsRoundDone()) throw new InvalidOperationException();
+      _player = new Player();
       _throwCount++;
       _dice.Throw();
     }
