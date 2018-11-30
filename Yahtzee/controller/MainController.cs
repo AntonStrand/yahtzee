@@ -25,6 +25,7 @@ namespace YahtzeeApp.controller
 
     public void ThrowDie()
     {
+      mainView.SelectDice();
     }
   }
 }

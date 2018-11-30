@@ -94,11 +94,11 @@ namespace YahtzeeTests
 
       c.ThrowDie();
     }
- 
+
     [Fact]
     public void WhenRunningThrowDieSelectDiceIsCalled()
     {
-      var mockView = new Mock<EnglishMainView>();
+      var mockView = new Mock<MainView>();
       var player = new Player();
       var mockCategory = new Mock<AvailableCategoriesStrategy>();
       var mockGame = new Mock<Game>(mockCategory.Object);
