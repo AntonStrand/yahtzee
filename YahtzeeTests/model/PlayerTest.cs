@@ -25,11 +25,8 @@ namespace YahtzeeTests
     [Fact]
     public void SetEmptyNameShouldThrowException()
     {
-      Assert.Throws<ArgumentException>(() =>
-      {
-        var player = new Player();
-        player.SetName("");
-      });
+      var player = new Player();
+      Assert.Throws<ArgumentException>(() => player.SetName(""));
     }
 
     [Fact]
@@ -38,7 +35,7 @@ namespace YahtzeeTests
       string name = "test";
       var player = new Player();
       player.SetName(name);
-      Assert.Equal(name, player.name);
+      Assert.Equal(name, player.GetName());
     }
 
     [Fact]
