@@ -122,6 +122,20 @@ namespace YahtzeeTests
     }
 
     [Fact]
+    public void ShouldUseValuesToSumCategories()
+    {
+      var value = 3;
+      var expected = value * 9;
+      var sut = new Player();
+
+      sut.AddCategory(new FourOfAKind(value, value, value, value));
+      sut.AddCategory(new ThreeOfAKind(value, value, value));
+      sut.AddCategory(new Pair(value, value));
+      var actual = sut.GetResult();
+      Assert.Equal(expected, actual);
+    }
+
+    [Fact]
     public void ShouldReturnSumOfMultipleCategories1()
     {
       var value = 3;
