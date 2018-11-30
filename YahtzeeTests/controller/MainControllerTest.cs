@@ -92,5 +92,18 @@ namespace YahtzeeTests
       c.ThrowDie();
       mockView.Verify(v => v.SelectDice(), Times.AtLeastOnce());
     }
+
+    [Fact]
+    public void WhenRunningThrowDiePrintDiceIsCalled()
+    {
+      var mockView = new Mock<MainView>();
+      var player = new Player();
+      var mockCategory = new Mock<AvailableCategoriesStrategy>();
+      var mockGame = new Mock<Game>(mockCategory.Object);
+      var c = new MainController(mockView.Object, player, mockGame.Object);
+
+      c.ThrowDie();
+      mockView.Verify(v => v.PrintDice(), Times.AtLeastOnce());
+    }
   }
 }

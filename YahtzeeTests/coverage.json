@@ -6,18 +6,19 @@
           "Lines": {
             "13": 0,
             "14": 0,
-            "15": 0,
-            "17": 0,
+            "16": 0,
+            "18": 0,
             "19": 0,
             "20": 0,
             "21": 0,
             "22": 0,
-            "23": 0,
+            "24": 0,
             "25": 0,
             "26": 0,
             "27": 0,
-            "29": 0,
-            "30": 0
+            "28": 0,
+            "30": 0,
+            "31": 0
           },
           "Branches": []
         }
@@ -386,18 +387,18 @@
         },
         "System.Void YahtzeeApp.view.DiceView::.ctor(YahtzeeApp.model.Dice)": {
           "Lines": {
-            "13": 5,
-            "14": 5,
-            "15": 5,
+            "13": 14,
+            "14": 14,
+            "15": 14,
             "16": 1,
             "17": 1,
-            "20": 4,
-            "21": 4,
-            "23": 48,
-            "24": 20,
-            "25": 20,
-            "26": 20,
-            "27": 4
+            "20": 13,
+            "21": 13,
+            "23": 156,
+            "24": 65,
+            "25": 65,
+            "26": 65,
+            "27": 13
           },
           "Branches": [
             {
@@ -414,7 +415,7 @@
               "EndOffset": 23,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 4
+              "Hits": 13
             },
             {
               "Line": 23,
@@ -422,7 +423,7 @@
               "EndOffset": 46,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 20
+              "Hits": 65
             },
             {
               "Line": 23,
@@ -430,7 +431,7 @@
               "EndOffset": 77,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 4
+              "Hits": 13
             }
           ]
         }
@@ -440,34 +441,34 @@
       "YahtzeeApp.view.EnglishMainView": {
         "System.Void YahtzeeApp.view.EnglishMainView::DisplayWelcomeMessage()": {
           "Lines": {
-            "11": 2,
-            "12": 2,
-            "13": 2
+            "17": 1,
+            "18": 1,
+            "19": 1
           },
           "Branches": []
         },
         "System.String YahtzeeApp.view.EnglishMainView::GetUsername()": {
           "Lines": {
-            "16": 3,
-            "17": 3,
-            "18": 3,
-            "19": 3
+            "22": 2,
+            "23": 2,
+            "24": 2,
+            "25": 2
           },
           "Branches": []
         },
         "System.Int32 YahtzeeApp.view.EnglishMainView::SelectDice()": {
           "Lines": {
-            "22": 2,
-            "25": 5,
-            "26": 5,
-            "27": 5,
-            "28": 10,
-            "29": 2,
-            "30": 2
+            "28": 2,
+            "31": 5,
+            "32": 5,
+            "33": 5,
+            "34": 10,
+            "35": 2,
+            "36": 2
           },
           "Branches": [
             {
-              "Line": 28,
+              "Line": 34,
               "Offset": 55,
               "EndOffset": 1,
               "Path": 1,
@@ -475,7 +476,7 @@
               "Hits": 5
             },
             {
-              "Line": 28,
+              "Line": 34,
               "Offset": 37,
               "EndOffset": 39,
               "Path": 0,
@@ -483,7 +484,7 @@
               "Hits": 4
             },
             {
-              "Line": 28,
+              "Line": 34,
               "Offset": 41,
               "EndOffset": 43,
               "Path": 0,
@@ -491,7 +492,7 @@
               "Hits": 3
             },
             {
-              "Line": 28,
+              "Line": 34,
               "Offset": 41,
               "EndOffset": 49,
               "Path": 1,
@@ -499,7 +500,7 @@
               "Hits": 1
             },
             {
-              "Line": 28,
+              "Line": 34,
               "Offset": 37,
               "EndOffset": 52,
               "Path": 1,
@@ -507,7 +508,7 @@
               "Hits": 1
             },
             {
-              "Line": 28,
+              "Line": 34,
               "Offset": 55,
               "EndOffset": 57,
               "Path": 0,
@@ -516,10 +517,22 @@
             }
           ]
         },
-        "System.Void YahtzeeApp.view.EnglishMainView::.ctor()": {
+        "System.Void YahtzeeApp.view.EnglishMainView::PrintDice()": {
           "Lines": {
-            "8": 11,
-            "9": 11
+            "39": 1,
+            "40": 1,
+            "41": 1
+          },
+          "Branches": []
+        },
+        "System.Void YahtzeeApp.view.EnglishMainView::.ctor(YahtzeeApp.view.DiceView)": {
+          "Lines": {
+            "8": 9,
+            "9": 9,
+            "12": 9,
+            "13": 9,
+            "14": 9,
+            "15": 9
           },
           "Branches": []
         }
@@ -576,11 +589,11 @@
         },
         "System.Void YahtzeeApp.model.DiceImplemented::.ctor(YahtzeeApp.model.Die,YahtzeeApp.model.Die,YahtzeeApp.model.Die,YahtzeeApp.model.Die,YahtzeeApp.model.Die)": {
           "Lines": {
-            "12": 21,
-            "13": 21,
-            "14": 21,
-            "15": 21,
-            "16": 21
+            "12": 30,
+            "13": 30,
+            "14": 30,
+            "15": 30,
+            "16": 30
           },
           "Branches": []
         }
@@ -596,17 +609,17 @@
         },
         "System.Void YahtzeeApp.model.DieImplemented::Throw()": {
           "Lines": {
-            "19": 102126
+            "19": 102139
           },
           "Branches": []
         },
         "System.Void YahtzeeApp.model.DieImplemented::.ctor()": {
           "Lines": {
-            "11": 76,
-            "12": 76,
-            "13": 76,
-            "14": 76,
-            "15": 76
+            "11": 89,
+            "12": 89,
+            "13": 89,
+            "14": 89,
+            "15": 89
           },
           "Branches": []
         }
@@ -679,10 +692,10 @@
         },
         "System.Void YahtzeeApp.model.Game::Init(YahtzeeApp.model.rules.AvailableCategoriesStrategy,YahtzeeApp.model.Dice)": {
           "Lines": {
-            "38": 20,
-            "39": 20,
-            "40": 18,
-            "41": 18
+            "38": 21,
+            "39": 21,
+            "40": 19,
+            "41": 19
           },
           "Branches": [
             {
@@ -699,7 +712,7 @@
               "EndOffset": 17,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 18
+              "Hits": 19
             },
             {
               "Line": 40,
@@ -707,7 +720,7 @@
               "EndOffset": 33,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 12
+              "Hits": 13
             },
             {
               "Line": 40,
@@ -721,19 +734,19 @@
         },
         "YahtzeeApp.model.Dice YahtzeeApp.model.Game::InitDice()": {
           "Lines": {
-            "43": 12
+            "43": 13
           },
           "Branches": []
         },
         "System.Boolean YahtzeeApp.model.Game::IsNotNull(System.Object)": {
           "Lines": {
-            "45": 38
+            "45": 40
           },
           "Branches": []
         },
         "System.Void YahtzeeApp.model.Game::.ctor(YahtzeeApp.model.rules.AvailableCategoriesStrategy)": {
           "Lines": {
-            "15": 24
+            "15": 26
           },
           "Branches": []
         },
@@ -1353,11 +1366,11 @@
         "System.Void YahtzeeApp.model.category.FirstSection::.ctor(System.Int32,YahtzeeApp.model.Dice)": {
           "Lines": {
             "11": 237,
-            "12": 237,
-            "13": 244,
+            "12": 235,
+            "13": 243,
             "14": 230,
-            "15": 230,
-            "19": 1617
+            "15": 229,
+            "19": 1612
           },
           "Branches": [
             {
@@ -1943,14 +1956,22 @@
           },
           "Branches": []
         },
+        "System.Void YahtzeeApp.controller.MainController::ThrowDie()": {
+          "Lines": {
+            "27": 1,
+            "28": 1,
+            "29": 1
+          },
+          "Branches": []
+        },
         "System.Void YahtzeeApp.controller.MainController::.ctor(YahtzeeApp.view.MainView,YahtzeeApp.model.Player,YahtzeeApp.model.Game)": {
           "Lines": {
-            "12": 4,
-            "13": 4,
-            "14": 4,
-            "15": 4,
-            "16": 4,
-            "17": 4
+            "12": 5,
+            "13": 5,
+            "14": 5,
+            "15": 5,
+            "16": 5,
+            "17": 5
           },
           "Branches": []
         }
