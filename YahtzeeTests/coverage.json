@@ -1,5 +1,6 @@
 {
   "Yahtzee.dll": {
+<<<<<<< HEAD
     "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/Program.cs": {
       "YahtzeeApp.Program": {
         "System.Void YahtzeeApp.Program::Main(System.String[])": {
@@ -10,12 +11,37 @@
             "15": 0,
             "16": 0,
             "17": 0
+=======
+    "/home/emil/code/yahtzee/Yahtzee/Program.cs": {
+      "YahtzeeApp.Program": {
+        "System.Void YahtzeeApp.Program::Main(System.String[])": {
+          "Lines": {
+            "13": 0,
+            "14": 0,
+            "16": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "30": 0,
+            "31": 0
+>>>>>>> origin/view
           },
           "Branches": []
         }
       }
     },
+<<<<<<< HEAD
     "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/view/DiceView.cs": {
+=======
+    "/home/emil/code/yahtzee/Yahtzee/view/DiceView.cs": {
+>>>>>>> origin/view
       "YahtzeeApp.view.DiceView": {
         "System.Void YahtzeeApp.view.DiceView::Print()": {
           "Lines": {
@@ -378,18 +404,18 @@
         },
         "System.Void YahtzeeApp.view.DiceView::.ctor(YahtzeeApp.model.Dice)": {
           "Lines": {
-            "13": 5,
-            "14": 5,
-            "15": 5,
+            "13": 14,
+            "14": 14,
+            "15": 14,
             "16": 1,
             "17": 1,
-            "20": 4,
-            "21": 4,
-            "23": 48,
-            "24": 20,
-            "25": 20,
-            "26": 20,
-            "27": 4
+            "20": 13,
+            "21": 13,
+            "23": 156,
+            "24": 65,
+            "25": 65,
+            "26": 65,
+            "27": 13
           },
           "Branches": [
             {
@@ -406,7 +432,7 @@
               "EndOffset": 23,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 4
+              "Hits": 13
             },
             {
               "Line": 23,
@@ -414,7 +440,7 @@
               "EndOffset": 46,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 20
+              "Hits": 65
             },
             {
               "Line": 23,
@@ -422,44 +448,44 @@
               "EndOffset": 77,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 4
+              "Hits": 13
             }
           ]
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/view/EnglishMainView.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/view/EnglishMainView.cs": {
       "YahtzeeApp.view.EnglishMainView": {
         "System.Void YahtzeeApp.view.EnglishMainView::DisplayWelcomeMessage()": {
           "Lines": {
-            "11": 2,
-            "12": 2,
-            "13": 2
+            "17": 1,
+            "18": 1,
+            "19": 1
           },
           "Branches": []
         },
         "System.String YahtzeeApp.view.EnglishMainView::GetUsername()": {
           "Lines": {
-            "16": 3,
-            "17": 3,
-            "18": 3,
-            "19": 3
+            "22": 2,
+            "23": 2,
+            "24": 2,
+            "25": 2
           },
           "Branches": []
         },
         "System.Int32 YahtzeeApp.view.EnglishMainView::SelectDice()": {
           "Lines": {
-            "22": 2,
-            "25": 5,
-            "26": 5,
-            "27": 5,
-            "28": 10,
-            "29": 2,
-            "30": 2
+            "28": 2,
+            "31": 5,
+            "32": 5,
+            "33": 5,
+            "34": 10,
+            "35": 2,
+            "36": 2
           },
           "Branches": [
             {
-              "Line": 28,
+              "Line": 34,
               "Offset": 55,
               "EndOffset": 1,
               "Path": 1,
@@ -467,7 +493,7 @@
               "Hits": 5
             },
             {
-              "Line": 28,
+              "Line": 34,
               "Offset": 37,
               "EndOffset": 39,
               "Path": 0,
@@ -475,7 +501,7 @@
               "Hits": 4
             },
             {
-              "Line": 28,
+              "Line": 34,
               "Offset": 41,
               "EndOffset": 43,
               "Path": 0,
@@ -483,7 +509,7 @@
               "Hits": 3
             },
             {
-              "Line": 28,
+              "Line": 34,
               "Offset": 41,
               "EndOffset": 49,
               "Path": 1,
@@ -491,7 +517,7 @@
               "Hits": 1
             },
             {
-              "Line": 28,
+              "Line": 34,
               "Offset": 37,
               "EndOffset": 52,
               "Path": 1,
@@ -499,7 +525,7 @@
               "Hits": 1
             },
             {
-              "Line": 28,
+              "Line": 34,
               "Offset": 55,
               "EndOffset": 57,
               "Path": 0,
@@ -508,16 +534,28 @@
             }
           ]
         },
-        "System.Void YahtzeeApp.view.EnglishMainView::.ctor()": {
+        "System.Void YahtzeeApp.view.EnglishMainView::PrintDice()": {
           "Lines": {
-            "8": 12,
-            "9": 12
+            "39": 1,
+            "40": 1,
+            "41": 1
+          },
+          "Branches": []
+        },
+        "System.Void YahtzeeApp.view.EnglishMainView::.ctor(YahtzeeApp.view.DiceView)": {
+          "Lines": {
+            "8": 9,
+            "9": 9,
+            "12": 9,
+            "13": 9,
+            "14": 9,
+            "15": 9
           },
           "Branches": []
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/DiceImplemented.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/DiceImplemented.cs": {
       "YahtzeeApp.model.DiceImplemented": {
         "System.Void YahtzeeApp.model.DiceImplemented::Throw()": {
           "Lines": {
@@ -568,17 +606,17 @@
         },
         "System.Void YahtzeeApp.model.DiceImplemented::.ctor(YahtzeeApp.model.Die,YahtzeeApp.model.Die,YahtzeeApp.model.Die,YahtzeeApp.model.Die,YahtzeeApp.model.Die)": {
           "Lines": {
-            "12": 17,
-            "13": 17,
-            "14": 17,
-            "15": 17,
-            "16": 17
+            "12": 30,
+            "13": 30,
+            "14": 30,
+            "15": 30,
+            "16": 30
           },
           "Branches": []
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/DieImplemented.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/DieImplemented.cs": {
       "YahtzeeApp.model.DieImplemented": {
         "System.Int32 YahtzeeApp.model.DieImplemented::GetValue()": {
           "Lines": {
@@ -588,23 +626,23 @@
         },
         "System.Void YahtzeeApp.model.DieImplemented::Throw()": {
           "Lines": {
-            "19": 102106
+            "19": 102139
           },
           "Branches": []
         },
         "System.Void YahtzeeApp.model.DieImplemented::.ctor()": {
           "Lines": {
-            "11": 56,
-            "12": 56,
-            "13": 56,
-            "14": 56,
-            "15": 56
+            "11": 89,
+            "12": 89,
+            "13": 89,
+            "14": 89,
+            "15": 89
           },
           "Branches": []
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/Game.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/Game.cs": {
       "YahtzeeApp.model.Game": {
         "System.Boolean YahtzeeApp.model.Game::IsRoundDone()": {
           "Lines": {
@@ -677,11 +715,18 @@
         },
         "System.Void YahtzeeApp.model.Game::Init(YahtzeeApp.model.rules.AvailableCategoriesStrategy,YahtzeeApp.model.Dice)": {
           "Lines": {
+<<<<<<< HEAD
             "41": 20,
             "42": 20,
             "43": 18,
             "44": 18,
             "45": 18
+=======
+            "38": 21,
+            "39": 21,
+            "40": 19,
+            "41": 19
+>>>>>>> origin/view
           },
           "Branches": [
             {
@@ -698,7 +743,11 @@
               "EndOffset": 17,
               "Path": 1,
               "Ordinal": 1,
+<<<<<<< HEAD
               "Hits": 18
+=======
+              "Hits": 19
+>>>>>>> origin/view
             },
             {
               "Line": 43,
@@ -706,7 +755,7 @@
               "EndOffset": 33,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 9
+              "Hits": 13
             },
             {
               "Line": 43,
@@ -714,37 +763,57 @@
               "EndOffset": 41,
               "Path": 1,
               "Ordinal": 3,
+<<<<<<< HEAD
               "Hits": 9
+=======
+              "Hits": 6
+>>>>>>> origin/view
             }
           ]
         },
         "YahtzeeApp.model.Dice YahtzeeApp.model.Game::InitDice()": {
           "Lines": {
+<<<<<<< HEAD
             "47": 9
+=======
+            "43": 13
+>>>>>>> origin/view
           },
           "Branches": []
         },
         "System.Boolean YahtzeeApp.model.Game::IsNotNull(System.Object)": {
           "Lines": {
+<<<<<<< HEAD
             "49": 38
+=======
+            "45": 40
+>>>>>>> origin/view
           },
           "Branches": []
         },
         "System.Void YahtzeeApp.model.Game::.ctor(YahtzeeApp.model.rules.AvailableCategoriesStrategy)": {
           "Lines": {
+<<<<<<< HEAD
             "16": 18
+=======
+            "15": 26
+>>>>>>> origin/view
           },
           "Branches": []
         },
         "System.Void YahtzeeApp.model.Game::.ctor(YahtzeeApp.model.rules.AvailableCategoriesStrategy,YahtzeeApp.model.Dice)": {
           "Lines": {
+<<<<<<< HEAD
             "18": 22
+=======
+            "17": 16
+>>>>>>> origin/view
           },
           "Branches": []
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/Player.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/Player.cs": {
       "YahtzeeApp.model.Player": {
         "System.Void YahtzeeApp.model.Player::AddCategory(YahtzeeApp.model.category.Category)": {
           "Lines": {
@@ -856,7 +925,7 @@
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/rules/AllAvailableCategoriesStrategy.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/rules/AllAvailableCategoriesStrategy.cs": {
       "YahtzeeApp.model.rules.AllAvailableCategoriesStrategy": {
         "System.Collections.Generic.List`1<YahtzeeApp.model.category.Category> YahtzeeApp.model.rules.AllAvailableCategoriesStrategy::GetCategories(YahtzeeApp.model.Dice,YahtzeeApp.model.ScoreBoard)": {
           "Lines": {
@@ -1349,8 +1418,13 @@
         },
         "System.Void YahtzeeApp.model.rules.AllAvailableCategoriesStrategy::.ctor()": {
           "Lines": {
+<<<<<<< HEAD
             "113": 728,
             "115": 470
+=======
+            "113": 645,
+            "115": 416
+>>>>>>> origin/view
           },
           "Branches": [
             {
@@ -1367,7 +1441,11 @@
               "EndOffset": 32,
               "Path": 1,
               "Ordinal": 1,
+<<<<<<< HEAD
               "Hits": 52
+=======
+              "Hits": 49
+>>>>>>> origin/view
             },
             {
               "Line": 115,
@@ -1383,13 +1461,17 @@
               "EndOffset": 69,
               "Path": 1,
               "Ordinal": 3,
+<<<<<<< HEAD
               "Hits": 52
+=======
+              "Hits": 49
+>>>>>>> origin/view
             }
           ]
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/Aces.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/category/Aces.cs": {
       "YahtzeeApp.model.category.Aces": {
         "System.Void YahtzeeApp.model.category.Aces::.ctor(YahtzeeApp.model.Dice)": {
           "Lines": {
@@ -1399,7 +1481,7 @@
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/Chance.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/category/Chance.cs": {
       "YahtzeeApp.model.category.Chance": {
         "System.Int32 YahtzeeApp.model.category.Chance::GetValue()": {
           "Lines": {
@@ -1415,7 +1497,7 @@
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/FirstSection.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/category/FirstSection.cs": {
       "YahtzeeApp.model.category.FirstSection": {
         "System.Int32 YahtzeeApp.model.category.FirstSection::GetValue()": {
           "Lines": {
@@ -1425,12 +1507,21 @@
         },
         "System.Void YahtzeeApp.model.category.FirstSection::.ctor(System.Int32,YahtzeeApp.model.Dice)": {
           "Lines": {
+<<<<<<< HEAD
             "11": 261,
             "12": 261,
             "13": 268,
             "14": 254,
             "15": 254,
             "19": 1785
+=======
+            "11": 237,
+            "12": 235,
+            "13": 243,
+            "14": 230,
+            "15": 229,
+            "19": 1612
+>>>>>>> origin/view
           },
           "Branches": [
             {
@@ -1469,7 +1560,7 @@
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/Fives.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/category/Fives.cs": {
       "YahtzeeApp.model.category.Fives": {
         "System.Void YahtzeeApp.model.category.Fives::.ctor(YahtzeeApp.model.Dice)": {
           "Lines": {
@@ -1479,7 +1570,7 @@
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/FourOfAKind.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/category/FourOfAKind.cs": {
       "YahtzeeApp.model.category.FourOfAKind": {
         "System.Int32 YahtzeeApp.model.category.FourOfAKind::GetValue()": {
           "Lines": {
@@ -1555,7 +1646,7 @@
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/Fours.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/category/Fours.cs": {
       "YahtzeeApp.model.category.Fours": {
         "System.Void YahtzeeApp.model.category.Fours::.ctor(YahtzeeApp.model.Dice)": {
           "Lines": {
@@ -1565,7 +1656,7 @@
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/FullHouse.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/category/FullHouse.cs": {
       "YahtzeeApp.model.category.FullHouse": {
         "System.Int32 YahtzeeApp.model.category.FullHouse::GetValue()": {
           "Lines": {
@@ -1625,7 +1716,7 @@
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/LargeStraight.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/category/LargeStraight.cs": {
       "YahtzeeApp.model.category.LargeStraight": {
         "System.Int32 YahtzeeApp.model.category.LargeStraight::GetValue()": {
           "Lines": {
@@ -1700,7 +1791,7 @@
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/Pair.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/category/Pair.cs": {
       "YahtzeeApp.model.category.Pair": {
         "System.Int32 YahtzeeApp.model.category.Pair::GetValue()": {
           "Lines": {
@@ -1743,7 +1834,7 @@
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/Sixes.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/category/Sixes.cs": {
       "YahtzeeApp.model.category.Sixes": {
         "System.Void YahtzeeApp.model.category.Sixes::.ctor(YahtzeeApp.model.Dice)": {
           "Lines": {
@@ -1753,7 +1844,7 @@
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/SmallStraight.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/category/SmallStraight.cs": {
       "YahtzeeApp.model.category.SmallStraight": {
         "System.Int32 YahtzeeApp.model.category.SmallStraight::GetValue()": {
           "Lines": {
@@ -1829,7 +1920,7 @@
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/ThreeOfAKind.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/category/ThreeOfAKind.cs": {
       "YahtzeeApp.model.category.ThreeOfAKind": {
         "System.Int32 YahtzeeApp.model.category.ThreeOfAKind::GetValue()": {
           "Lines": {
@@ -1889,7 +1980,7 @@
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/Threes.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/category/Threes.cs": {
       "YahtzeeApp.model.category.Threes": {
         "System.Void YahtzeeApp.model.category.Threes::.ctor(YahtzeeApp.model.Dice)": {
           "Lines": {
@@ -1899,7 +1990,7 @@
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/TwoPair.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/category/TwoPair.cs": {
       "YahtzeeApp.model.category.TwoPair": {
         "System.Int32 YahtzeeApp.model.category.TwoPair::GetValue()": {
           "Lines": {
@@ -1952,7 +2043,7 @@
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/Twos.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/category/Twos.cs": {
       "YahtzeeApp.model.category.Twos": {
         "System.Void YahtzeeApp.model.category.Twos::.ctor(YahtzeeApp.model.Dice)": {
           "Lines": {
@@ -1962,7 +2053,7 @@
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/model/category/Yahtzee.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/model/category/Yahtzee.cs": {
       "YahtzeeApp.model.category.Yahtzee": {
         "System.Int32 YahtzeeApp.model.category.Yahtzee::GetValue()": {
           "Lines": {
@@ -2004,25 +2095,34 @@
         }
       }
     },
-    "/Users/anton/School/Year 2/2dv610/assignment-1/yahtzee/Yahtzee/controller/MainController.cs": {
+    "/home/emil/code/yahtzee/Yahtzee/controller/MainController.cs": {
       "YahtzeeApp.controller.MainController": {
-        "System.Void YahtzeeApp.controller.MainController::Play()": {
+        "System.Void YahtzeeApp.controller.MainController::Start()": {
           "Lines": {
-            "18": 3,
-            "19": 3,
             "20": 3,
             "21": 3,
-            "22": 3
+            "22": 3,
+            "23": 3,
+            "24": 3
           },
           "Branches": []
         },
-        "System.Void YahtzeeApp.controller.MainController::.ctor(YahtzeeApp.view.MainView,YahtzeeApp.model.Player)": {
+        "System.Void YahtzeeApp.controller.MainController::ThrowDie()": {
           "Lines": {
-            "11": 5,
+            "27": 1,
+            "28": 1,
+            "29": 1
+          },
+          "Branches": []
+        },
+        "System.Void YahtzeeApp.controller.MainController::.ctor(YahtzeeApp.view.MainView,YahtzeeApp.model.Player,YahtzeeApp.model.Game)": {
+          "Lines": {
             "12": 5,
             "13": 5,
             "14": 5,
-            "15": 5
+            "15": 5,
+            "16": 5,
+            "17": 5
           },
           "Branches": []
         }

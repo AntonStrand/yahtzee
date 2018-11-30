@@ -3,6 +3,7 @@ using Xunit;
 using YahtzeeApp.controller;
 using YahtzeeApp.view;
 using YahtzeeApp.model;
+using YahtzeeApp.model.rules;
 using Moq;
 using System.IO;
 
@@ -13,63 +14,96 @@ namespace YahtzeeTests
     [Fact]
     public void NewMainController()
     {
-      var v = new EnglishMainView();
-      var p = new Player();
-      var c = new MainController(v, p);
+      var player = new Player();
 
-      Assert.IsType<MainController>(c);
+      var category = new AllAvailableCategoriesStrategy();
+
+      var die1 = new DieImplemented();
+      var die2 = new DieImplemented();
+      var die3 = new DieImplemented();
+      var die4 = new DieImplemented();
+      var die5 = new DieImplemented();
+      var dice = new DiceImplemented(die1, die2, die3, die4, die5);
+
+      var diceView = new DiceView(dice);
+      var view = new EnglishMainView(diceView);
+      var game = new Game(category, dice);
+      var controller = new MainController(view, player, game);
+
+      Assert.IsType<MainController>(controller);
     }
 
     [Fact]
-    public void MethodPlayExist()
-    {
-      var v = new EnglishMainView();
-      var p = new Player();
-      var c = new MainController(v, p);
-
-      Assert.Equal("Void Play()", c.GetType().GetMethod("Play").ToString());
-    }
-
-    [Fact]
-    public void WhenRunningPlayViewInstructionsIsCalled()
+    public void WhenRunningStartViewInstructionsIsCalled()
     {
       var mockView = new Mock<MainView>();
-      var p = new Player();
-      var c = new MainController(mockView.Object, p);
+      var mockPlayer = new Mock<Player>();
+      var mockCategory = new Mock<AvailableCategoriesStrategy>();
+      var mockGame = new Mock<Game>(mockCategory.Object);
+
+      var c = new MainController(mockView.Object, mockPlayer.Object, mockGame.Object);
       mockView.Setup(view => view.GetUsername()).Returns("test");
 
-      c.Play();
+      c.Start();
       mockView.Verify(view => view.DisplayWelcomeMessage(), Times.Once());
     }
 
     [Fact]
-    public void WhenRunningPlayViewGetUsernameIsCalled()
+    public void WhenRunningStartViewGetUsernameIsCalled()
     {
       var mockView = new Mock<MainView>();
       var mockPlayer = new Mock<Player>();
-      mockView.Setup(view => view.GetUsername()).Returns("test");
-      var c = new MainController(mockView.Object, mockPlayer.Object);
+      var mockCategory = new Mock<AvailableCategoriesStrategy>();
+      var mockGame = new Mock<Game>(mockCategory.Object);
 
-      c.Play();
+      mockView.Setup(view => view.GetUsername()).Returns("test");
+      var c = new MainController(mockView.Object, mockPlayer.Object, mockGame.Object);
+
+      c.Start();
       mockView.Verify(view => view.GetUsername(), Times.Once());
     }
 
     [Fact]
-    public void WhenRunningPlayViewUserNameIsSetInPlayer()
+    public void WhenRunningStartViewUserNameIsSetInPlayer()
     {
-      Console.SetOut(new StreamWriter(Console.OpenStandardOutput()));
-      var view = new EnglishMainView();
+      var mockView = new Mock<MainView>();
       var player = new Player();
-      var c = new MainController(view, player);
+      var mockCategory = new Mock<AvailableCategoriesStrategy>();
+      var mockGame = new Mock<Game>(mockCategory.Object);
+      var c = new MainController(mockView.Object, player, mockGame.Object);
 
       string expected = "Test";
-      var input = new StringReader(expected);
-      Console.SetIn(input);
-
-      c.Play();
+      mockView.Setup(v => v.GetUsername()).Returns(expected);
+      c.Start();
 
       Assert.Equal(expected, player.GetName());
-      input.Close();
+    }
+
+    [Fact]
+    public void WhenRunningThrowDieSelectDiceIsCalled()
+    {
+      var mockView = new Mock<MainView>();
+      var player = new Player();
+      var mockCategory = new Mock<AvailableCategoriesStrategy>();
+      var mockGame = new Mock<Game>(mockCategory.Object);
+      var c = new MainController(mockView.Object, player, mockGame.Object);
+
+      mockView.Setup(v => v.SelectDice()).Returns(3);
+      c.ThrowDie();
+      mockView.Verify(v => v.SelectDice(), Times.AtLeastOnce());
+    }
+
+    [Fact]
+    public void WhenRunningThrowDiePrintDiceIsCalled()
+    {
+      var mockView = new Mock<MainView>();
+      var player = new Player();
+      var mockCategory = new Mock<AvailableCategoriesStrategy>();
+      var mockGame = new Mock<Game>(mockCategory.Object);
+      var c = new MainController(mockView.Object, player, mockGame.Object);
+
+      c.ThrowDie();
+      mockView.Verify(v => v.PrintDice(), Times.AtLeastOnce());
     }
   }
 }
