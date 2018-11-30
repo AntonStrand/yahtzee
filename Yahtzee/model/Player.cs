@@ -13,24 +13,27 @@ namespace YahtzeeApp.model
 
     public Player() => _occupied = new List<Category>();
 
-    public void SetName(string name)
-    {
-      if (name.Length == 0) throw new ArgumentException();
-      _name = name;
-    }
-
-    public string GetName() => _name;
-
-    public List<Category> GetOccupiedCategories() => _occupied;
-
-    public int GetResult() => _occupied.Select(category => category.GetValue()).Sum();
-
     public void AddCategory(Category category)
     {
       if (IsTaken(category)) throw new ArgumentException();
       _occupied.Add(category);
     }
 
-    private bool IsTaken(Category category) => _occupied.Any(taken => taken.GetType() == category.GetType());
+    public List<Category> GetOccupiedCategories() => _occupied;
+
+    public int GetResult() => _occupied.Select(GetValue).Sum();
+
+    public string GetName() => _name;
+
+    public void SetName(string name)
+    {
+      if (name.Length == 0) throw new ArgumentException();
+      _name = name;
+    }
+
+    private bool IsTaken(Category category) =>
+      _occupied.Any(taken => taken.GetType() == category.GetType());
+
+    private int GetValue(Category category) => category.GetValue();
   }
 }
