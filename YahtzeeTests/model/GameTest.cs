@@ -155,7 +155,7 @@ namespace YahtzeeTests
     public void ShouldReturnNotReturnOccupiedCategory()
     {
       var dice = new Mock<Dice>();
-      dice.Setup(d => d.GetValues()).Returns(new List<int> { 1, 1, 1, 1, 1 });
+      dice.Setup(d => d.GetValues()).Returns(new List<int> { 2, 3, 5, 5, 1 });
       var sut = new Game(new AllAvailableCategoriesStrategy(), dice.Object);
       sut.KeepCategory(new Pair(4, 4));
       var categories = sut.GetAvailableCategories();
