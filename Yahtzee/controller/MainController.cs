@@ -22,6 +22,11 @@ namespace YahtzeeApp.controller
       string name = mainView.GetUsername();
       player.SetName(name);
     }
+
+    public void ThrowDie()
+    {
+
+    }
   }
 }
 
