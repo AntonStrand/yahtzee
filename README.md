@@ -33,3 +33,14 @@ Within the `YahtzeeTests` folder run either command.
 `dotnet test /p:CollectCoverage=true`
 #### All files except Main(Program.cs)
 `dotnet test /p:CollectCoverage=true /p:ExcludeByFile="../Yahtzee/Program.cs"`
+
+
+## Current coverage
+#### Number of tests
+![number-of-tests](https://github.com/AntonStrand/yahtzee/blob/master/coverage-screenshots/num-of-tests.png)
+
+#### Coverage with main included
+![coverage-w-main](https://github.com/AntonStrand/yahtzee/blob/master/coverage-screenshots/coverage-w-main.png)
+
+#### Coverage with main excluded
+![coverage-wo-main](https://github.com/AntonStrand/yahtzee/blob/master/coverage-screenshots/coverage-wo-main.png)
