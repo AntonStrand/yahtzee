@@ -55,7 +55,7 @@ namespace YahtzeeApp.model.rules
       var twoDifferentPair = GetPairs(dice);
       if (twoDifferentPair.Count == 2) return new List<Category>() { new TwoPair(twoDifferentPair[0], twoDifferentPair[1]) };
 
-      var twoSamePair = GetFrequencyTable(dice).Where(ValueIs(4)).Select(x => new Pair(x.Key, x.Key)).ToList();
+      var twoSamePair = GetFrequencyTable(dice).Where(ValueIs(5)).Select(x => new Pair(x.Key, x.Key)).ToList();
       if (twoSamePair.Count == 1) return new List<Category>() { new TwoPair(twoSamePair[0], twoSamePair[0]) };
 
       return new List<Category>();
