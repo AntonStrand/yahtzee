@@ -56,7 +56,7 @@ namespace YahtzeeTests
     }
 
     [Fact]
-    public void ShouldStoreCorrectValueOfCategpry()
+    public void ShouldStoreCorrectValueOfCategory()
     {
       var sut = new Player();
       sut.AddCategory(new Pair(5, 5));
