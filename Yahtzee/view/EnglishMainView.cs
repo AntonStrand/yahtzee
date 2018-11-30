@@ -28,5 +28,10 @@ namespace YahtzeeApp.view
       } while (!int.TryParse(Console.ReadLine(), out number) || (number < 1 || number > 5));
       return number;
     }
+
+    public void PrintDice()
+    {
+
+    }
   }
 }
