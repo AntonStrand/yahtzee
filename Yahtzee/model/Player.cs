@@ -17,5 +17,7 @@ namespace YahtzeeApp.model
     }
 
     public List<Category> GetOccupiedCategories() => new List<Category>();
+
+    public void AddCategory(Category category) { }
   }
 }

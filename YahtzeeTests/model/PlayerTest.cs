@@ -1,6 +1,7 @@
 using System;
 using Xunit;
 using YahtzeeApp.model;
+using YahtzeeApp.model.category;
 
 namespace YahtzeeTests
 {
@@ -44,6 +45,14 @@ namespace YahtzeeTests
     {
       var sut = new Player();
       Assert.Empty(sut.GetOccupiedCategories());
+    }
+
+    [Fact]
+    public void ShouldStoreGivenCategory()
+    {
+      var sut = new Player();
+      sut.AddCategory(new Pair(1, 1));
+      Assert.IsType<Pair>(sut.GetOccupiedCategories()[0]);
     }
   }
 }
