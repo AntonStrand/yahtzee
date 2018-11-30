@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+using Moq;
 using Xunit;
+using YahtzeeApp.model;
 using YahtzeeApp.view;
 
 namespace YahtzeeTests
@@ -119,8 +122,27 @@ namespace YahtzeeTests
     public void MainViewCanPrintDice()
     {
       var v = new EnglishMainView();
+      var fakeDice = new Mock<Dice>();
+      fakeDice.Setup(d => d.GetValues()).Returns(new List<int>() { 2, 3, 4, 5, 6 });
 
-      v.PrintDice();
+      string expected =
+          " _____    _____    _____    _____    _____   \n"
+       + "|o    |  |o    |  |o   o|  |o   o|  |o   o|  \n"
+       + "|     |  |  o  |  |     |  |  o  |  |o   o|  \n"
+       + "|____o|  |____o|  |o___o|  |o___o|  |o___o|  \n"
+       + "  (1)      (2)      (3)      (4)      (5)    \n";
+
+      var diceView = new DiceView(fakeDice.Object);
+
+      using (StringWriter sw = new StringWriter())
+      {
+        Console.SetOut(sw);
+
+        v.PrintDice();
+
+        Assert.Equal(expected, sw.ToString());
+        sw.Close();
+      }
     }
   }
 }
