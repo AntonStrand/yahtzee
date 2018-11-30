@@ -64,5 +64,14 @@ namespace YahtzeeTests
       sut.AddCategory(new Pair(value, value));
       Assert.Equal(expected, actual: sut.GetOccupiedCategories()[0].GetValue());
     }
+
+    [Fact]
+    public void ShouldThrowArgumentExceptionIfCategoryExists()
+    {
+      var value = 5;
+      var sut = new Player();
+      sut.AddCategory(new FourOfAKind(value, value, value, value));
+      Assert.Throws<ArgumentException>(() => sut.AddCategory(new FourOfAKind(value, value, value, value)));
+    }
   }
 }
