@@ -82,5 +82,17 @@ namespace YahtzeeTests
       Assert.Equal(expected, player.name);
       input.Close();
     }
+
+    [Fact]
+    public void ThrowDieExist()
+    {
+      var view = new EnglishMainView();
+      var player = new Player();
+      var mockCategory = new Mock<AvailableCategoriesStrategy>();
+      var mockGame = new Mock<Game>(mockCategory.Object);
+      var c = new MainController(view, player, mockGame.Object);
+
+      c.ThrowDie();
+    }
   }
 }
