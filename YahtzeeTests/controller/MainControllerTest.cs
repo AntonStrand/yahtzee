@@ -68,7 +68,7 @@ namespace YahtzeeTests
 
       c.Play();
 
-      Assert.Equal(expected, player.name);
+      Assert.Equal(expected, player.GetName());
       input.Close();
     }
   }
