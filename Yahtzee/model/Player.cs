@@ -23,6 +23,6 @@ namespace YahtzeeApp.model
 
     public List<Category> GetOccupiedCategories() => _occupied;
 
-    public void AddCategory(Category category) => _occupied.Add(new Pair(1, 1));
+    public void AddCategory(Category category) => _occupied.Add(new Pair(5, 5));
   }
 }
