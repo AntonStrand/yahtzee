@@ -37,7 +37,7 @@ namespace YahtzeeApp.view
 
     public void PrintDice()
     {
-
+      // diceView.Print();
     }
   }
 }

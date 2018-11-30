@@ -107,29 +107,14 @@ namespace YahtzeeTests
     [Fact]
     public void MainViewCanPrintDice()
     {
-      Console.SetOut(new StreamWriter(Console.OpenStandardOutput()));
-      var v = getEnglishMainMenu();
-      var fakeDice = new Mock<Dice>();
-      fakeDice.Setup(d => d.GetValues()).Returns(new List<int>() { 2, 3, 4, 5, 6 });
+      var mockDie = new Mock<DieImplemented>();
+      var mockDice = new Mock<DiceImplemented>(mockDie.Object, mockDie.Object, mockDie.Object, mockDie.Object, mockDie.Object);
+      var mockDiceView = new Mock<DiceView>(mockDice.Object);
+      var englishView = new EnglishMainView(mockDiceView.Object);
 
-      string expected =
-          " _____    _____    _____    _____    _____   \n"
-       + "|o    |  |o    |  |o   o|  |o   o|  |o   o|  \n"
-       + "|     |  |  o  |  |     |  |  o  |  |o   o|  \n"
-       + "|____o|  |____o|  |o___o|  |o___o|  |o___o|  \n"
-       + "  (1)      (2)      (3)      (4)      (5)    \n";
+      englishView.PrintDice();
 
-      var diceView = new DiceView(fakeDice.Object);
-
-      using (StringWriter sw = new StringWriter())
-      {
-        Console.SetOut(sw);
-
-        v.PrintDice();
-
-        Assert.Equal(expected, sw.ToString());
-        sw.Close();
-      }
+      mockDiceView.Verify(d => d.Print(), Times.AtLeastOnce());
     }
 
     private EnglishMainView getEnglishMainMenu()
