@@ -14,33 +14,33 @@ namespace YahtzeeTests
     [Fact]
     public void NewMainController()
     {
-      var v = new EnglishMainView();
-      var p = new Player();
-      var c = new AllAvailableCategoriesStrategy();
-      var d = new DieImplemented();
-      var dI = new DiceImplemented(d, d, d, d, d);
-      var g = new Game(c, dI);
-      var c = new MainController(v, p, g);
+      var view = new EnglishMainView();
+      var player = new Player();
 
-      Assert.IsType<MainController>(c);
-    }
+      var category = new AllAvailableCategoriesStrategy();
 
-    [Fact]
-    public void MethodPlayExist()
-    {
-      var v = new EnglishMainView();
-      var p = new Player();
-      var c = new MainController(v, p);
+      var die1 = new DieImplemented();
+      var die2 = new DieImplemented();
+      var die3 = new DieImplemented();
+      var die4 = new DieImplemented();
+      var die5 = new DieImplemented();
 
-      Assert.Equal("Void Play()", c.GetType().GetMethod("Play").ToString());
+      var dice = new DiceImplemented(die1, die2, die3, die4, die5);
+      var game = new Game(category, dice);
+      var controller = new MainController(view, player, game);
+
+      Assert.IsType<MainController>(controller);
     }
 
     [Fact]
     public void WhenRunningPlayViewInstructionsIsCalled()
     {
       var mockView = new Mock<MainView>();
-      var p = new Player();
-      var c = new MainController(mockView.Object, p);
+      var mockPlayer = new Mock<Player>();
+      var mockCategory = new Mock<AvailableCategoriesStrategy>();
+      var mockGame = new Mock<Game>(mockCategory.Object);
+
+      var c = new MainController(mockView.Object, mockPlayer.Object, mockGame.Object);
       mockView.Setup(view => view.GetUsername()).Returns("test");
 
       c.Play();
@@ -52,8 +52,11 @@ namespace YahtzeeTests
     {
       var mockView = new Mock<MainView>();
       var mockPlayer = new Mock<Player>();
+      var mockCategory = new Mock<AvailableCategoriesStrategy>();
+      var mockGame = new Mock<Game>(mockCategory.Object);
+
       mockView.Setup(view => view.GetUsername()).Returns("test");
-      var c = new MainController(mockView.Object, mockPlayer.Object);
+      var c = new MainController(mockView.Object, mockPlayer.Object, mockGame.Object);
 
       c.Play();
       mockView.Verify(view => view.GetUsername(), Times.Once());
@@ -63,9 +66,12 @@ namespace YahtzeeTests
     public void WhenRunningPlayViewUserNameIsSetInPlayer()
     {
       Console.SetOut(new StreamWriter(Console.OpenStandardOutput()));
+
       var view = new EnglishMainView();
       var player = new Player();
-      var c = new MainController(view, player);
+      var mockCategory = new Mock<AvailableCategoriesStrategy>();
+      var mockGame = new Mock<Game>(mockCategory.Object);
+      var c = new MainController(view, player, mockGame.Object);
 
       string expected = "Test";
       var input = new StringReader(expected);
