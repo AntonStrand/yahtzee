@@ -5,6 +5,7 @@ using YahtzeeApp.model;
 using YahtzeeApp.model.rules;
 using System.Collections.Generic;
 using YahtzeeApp.model.category;
+using System.Linq;
 
 namespace YahtzeeTests
 {
@@ -159,6 +160,18 @@ namespace YahtzeeTests
       sut.KeepCategory(new Pair(4, 4));
       var categories = sut.GetAvailableCategories();
       Assert.Null(categories.Find(x => x.GetType() == typeof(Pair)));
+    }
+
+    [Fact]
+    public void ShouldReturnNotReturnOccupiedCategories()
+    {
+      var dice = new Mock<Dice>();
+      dice.Setup(d => d.GetValues()).Returns(new List<int> { 5, 5, 5, 5, 5 });
+      var sut = new Game(new AllAvailableCategoriesStrategy(), dice.Object);
+      sut.KeepCategory(new Pair(4, 4));
+      sut.KeepCategory(new Yahtzee(5, 5, 5, 5, 5));
+      var categories = sut.GetAvailableCategories();
+      Assert.Empty(categories.Where(x => x.GetType() == typeof(Pair) || x.GetType() == typeof(Yahtzee)));
     }
   }
 }
