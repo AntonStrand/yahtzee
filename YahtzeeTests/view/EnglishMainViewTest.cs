@@ -121,6 +121,7 @@ namespace YahtzeeTests
     [Fact]
     public void MainViewCanPrintDice()
     {
+      Console.SetOut(new StreamWriter(Console.OpenStandardOutput()));
       var v = new EnglishMainView();
       var fakeDice = new Mock<Dice>();
       fakeDice.Setup(d => d.GetValues()).Returns(new List<int>() { 2, 3, 4, 5, 6 });
