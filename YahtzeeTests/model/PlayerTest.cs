@@ -9,25 +9,11 @@ namespace YahtzeeTests
   public class PlayerTest
   {
     [Fact]
-    public void NewPlayer()
-    {
-      var player = new Player();
-    }
+    public void NewPlayer() => new Player();
 
     [Fact]
-    public void MethodSetNameExist()
-    {
-      var player = new Player();
-
-      Assert.Equal("Void SetName(System.String)", player.GetType().GetMethod("SetName").ToString());
-    }
-
-    [Fact]
-    public void SetEmptyNameShouldThrowException()
-    {
-      var player = new Player();
-      Assert.Throws<ArgumentException>(() => player.SetName(""));
-    }
+    public void SetEmptyNameShouldThrowException() =>
+      Assert.Throws<ArgumentException>(() => new Player().SetName(""));
 
     [Fact]
     public void ShouldGetUsername()
@@ -95,56 +81,43 @@ namespace YahtzeeTests
       Assert.Equal(0, new Player().GetResult());
 
     [Fact]
-    public void ShouldReturnSumOfCategories()
-    {
-      var value = 5;
-      var sut = new Player();
+    public void ShouldReturnSumOfCategories() =>
+      AssertGetValue(new List<Category> { new Pair(5, 5) }, 10);
 
-      sut.AddCategory(new Pair(value, value));
-      Assert.Equal(expected: 10, actual: sut.GetResult());
+    [Theory]
+    [InlineData(5)]
+    [InlineData(3)]
+    public void ShouldUseValuesToSumCategories(int value)
+    {
+      var categories = new List<Category> {
+        new FourOfAKind(value, value, value, value),
+        new ThreeOfAKind(value, value, value),
+        new Pair(value, value),
+      };
+
+      AssertGetValue(categories, expected: value * 9);
     }
 
-    [Fact]
-    public void ShouldReturnSumOfMultipleCategories()
+    [Theory]
+    [InlineData(1)]
+    [InlineData(4)]
+    public void ShouldReturnSumOfMultipleCategories(int value)
     {
-      var value = 5;
-      var expected = value * 9;
-      var sut = new Player();
+      var categories = new List<Category> {
+        new FourOfAKind(value, value, value, value),
+        new ThreeOfAKind(value, value, value),
+        new Pair(value, value),
+        new TwoPair(new Pair(value, value), new Pair(value, value))
+      };
 
-      sut.AddCategory(new FourOfAKind(value, value, value, value));
-      sut.AddCategory(new ThreeOfAKind(value, value, value));
-      sut.AddCategory(new Pair(value, value));
-      var actual = sut.GetResult();
-      Assert.Equal(expected, actual);
+      AssertGetValue(categories, expected: value * 13);
     }
 
-    [Fact]
-    public void ShouldUseValuesToSumCategories()
+    private void AssertGetValue(List<Category> categories, int expected)
     {
-      var value = 3;
-      var expected = value * 9;
       var sut = new Player();
-
-      sut.AddCategory(new FourOfAKind(value, value, value, value));
-      sut.AddCategory(new ThreeOfAKind(value, value, value));
-      sut.AddCategory(new Pair(value, value));
-      var actual = sut.GetResult();
-      Assert.Equal(expected, actual);
-    }
-
-    [Fact]
-    public void ShouldReturnSumOfMultipleCategories1()
-    {
-      var value = 3;
-      var expected = value * 13;
-      var sut = new Player();
-
-      sut.AddCategory(new FourOfAKind(value, value, value, value));
-      sut.AddCategory(new ThreeOfAKind(value, value, value));
-      sut.AddCategory(new Pair(value, value));
-      sut.AddCategory(new TwoPair(new Pair(value, value), new Pair(value, value)));
-      var actual = sut.GetResult();
-      Assert.Equal(expected, actual);
+      categories.ForEach(sut.AddCategory);
+      Assert.Equal(expected, actual: sut.GetResult());
     }
   }
 }
