@@ -46,7 +46,7 @@ namespace YahtzeeApp.model.rules
 
     private List<Pair> GetPairs(Dice dice) =>
       GetFrequencyTable(dice)
-        .Where(x => x.Value >= 2)
+        .Where(ValueIsEqOrGt(2))
         .Select(x => new Pair(x.Key, x.Key))
         .ToList();
 
@@ -55,7 +55,7 @@ namespace YahtzeeApp.model.rules
       var twoDifferentPair = GetPairs(dice);
       if (twoDifferentPair.Count == 2) return new List<Category>() { new TwoPair(twoDifferentPair[0], twoDifferentPair[1]) };
 
-      var twoSamePair = GetFrequencyTable(dice).Where(ValueIs(4)).Select(x => new Pair(x.Key, x.Key)).ToList();
+      var twoSamePair = GetFrequencyTable(dice).Where(ValueIsEqOrGt(4)).Select(x => new Pair(x.Key, x.Key)).ToList();
       if (twoSamePair.Count == 1) return new List<Category>() { new TwoPair(twoSamePair[0], twoSamePair[0]) };
 
       return new List<Category>();
@@ -111,6 +111,8 @@ namespace YahtzeeApp.model.rules
     private bool IsAnyNull(params Object[] objects) => objects.Any(o => o == null);
 
     private Func<int, Func<KeyValuePair<int, int>, bool>> ValueIs = comparedTo => x => x.Value == comparedTo;
+    
+    private Func<int, Func<KeyValuePair<int, int>, bool>> ValueIsEqOrGt= comparedTo => x => x.Value >= comparedTo;
 
     private bool IsASmallStraight(Dice dice) => IsAStraight(1, dice);
 
