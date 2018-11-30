@@ -8,10 +8,10 @@ namespace YahtzeeApp.model
   public class Game
   {
     private const int NUMBER_OF_THROWS = 3;
-    private Dice _dice;
-    private AvailableCategoriesStrategy _categoryRule;
     private int _throwCount;
+    private Dice _dice;
     private Player _player;
+    private AvailableCategoriesStrategy _categoryRule;
 
     public Game(AvailableCategoriesStrategy categoryRule) => Init(categoryRule, null);
 
