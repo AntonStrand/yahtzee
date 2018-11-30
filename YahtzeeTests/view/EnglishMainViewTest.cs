@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+using Moq;
 using Xunit;
+using YahtzeeApp.model;
 using YahtzeeApp.view;
 
 namespace YahtzeeTests
@@ -10,15 +13,8 @@ namespace YahtzeeTests
     [Fact]
     public void NewMainView()
     {
-      var view = new EnglishMainView();
+      var view = getEnglishMainMenu();
       Assert.IsType<EnglishMainView>(view);
-    }
-
-    [Fact]
-    public void DisplayWelcomeMessageTest()
-    {
-      var v = new EnglishMainView();
-      Assert.Equal("Void DisplayWelcomeMessage()", v.GetType().GetMethod("DisplayWelcomeMessage").ToString());
     }
 
     [Fact]
@@ -28,7 +24,7 @@ namespace YahtzeeTests
       {
         Console.SetOut(sw);
 
-        var v = new EnglishMainView();
+        var v = getEnglishMainMenu();
         v.DisplayWelcomeMessage();
 
         string expected = v.welcomeMsg + "\n";
@@ -40,7 +36,7 @@ namespace YahtzeeTests
     [Fact]
     public void GetUserNameExist()
     {
-      var v = new EnglishMainView();
+      var v = getEnglishMainMenu();
       Assert.Equal("System.String GetUsername()", v.GetType().GetMethod("GetUsername").ToString());
     }
 
@@ -53,7 +49,7 @@ namespace YahtzeeTests
         var input = new StringReader("Test");
         Console.SetIn(input);
 
-        var v = new EnglishMainView();
+        var v = getEnglishMainMenu();
         v.GetUsername();
 
         string expected = v.enterUsername + "\n";
@@ -71,18 +67,11 @@ namespace YahtzeeTests
       var input = new StringReader(expected);
       Console.SetIn(input);
 
-      var v = new EnglishMainView();
+      var v = getEnglishMainMenu();
       string result = v.GetUsername();
 
       Assert.Equal(expected, result);
       input.Close();
-    }
-
-    [Fact]
-    public void SelectDiceExist()
-    {
-      var v = new EnglishMainView();
-      Assert.Equal("Int32 SelectDice()", v.GetType().GetMethod("SelectDice").ToString());
     }
 
     [Fact]
@@ -93,7 +82,7 @@ namespace YahtzeeTests
       var input = new StringReader(expected.ToString());
       Console.SetIn(input);
 
-      var v = new EnglishMainView();
+      var v = getEnglishMainMenu();
       int result = v.SelectDice();
 
       Assert.Equal(expected, result);
@@ -108,11 +97,33 @@ namespace YahtzeeTests
       var input = new StringReader("x\n6\n0\n" + expected.ToString());
       Console.SetIn(input);
 
-      var v = new EnglishMainView();
+      var v = getEnglishMainMenu();
       int result = v.SelectDice();
 
       Assert.Equal(expected, result);
       input.Close();
+    }
+
+    [Fact]
+    public void MainViewCanPrintDice()
+    {
+      var mockDie = new Mock<DieImplemented>();
+      var mockDice = new Mock<DiceImplemented>(mockDie.Object, mockDie.Object, mockDie.Object, mockDie.Object, mockDie.Object);
+      var mockDiceView = new Mock<DiceView>(mockDice.Object);
+      var englishView = new EnglishMainView(mockDiceView.Object);
+
+      englishView.PrintDice();
+
+      mockDiceView.Verify(d => d.Print(), Times.AtLeastOnce());
+    }
+
+    private EnglishMainView getEnglishMainMenu()
+    {
+      var mockDie = new Mock<DieImplemented>();
+      var mockDice = new Mock<DiceImplemented>(mockDie.Object, mockDie.Object, mockDie.Object, mockDie.Object, mockDie.Object);
+      var mockDiceView = new Mock<DiceView>(mockDice.Object);
+      var englishView = new EnglishMainView(mockDiceView.Object);
+      return englishView;
     }
   }
 }

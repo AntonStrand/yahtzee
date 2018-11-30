@@ -26,7 +26,7 @@ namespace YahtzeeApp.view
       }
     }
 
-    public void Print()
+    public virtual void Print()
     {
       ClearQueue();
       var dice = _dice.GetValues();
