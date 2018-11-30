@@ -16,6 +16,10 @@ namespace YahtzeeTests
       Assert.Throws<ArgumentException>(() => new Player().SetName(""));
 
     [Fact]
+    public void SetNullNameShouldThrowException() =>
+      Assert.Throws<ArgumentException>(() => new Player().SetName(null));
+
+    [Fact]
     public void ShouldGetUsername()
     {
       string name = "test";
