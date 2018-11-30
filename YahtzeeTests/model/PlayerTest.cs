@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Xunit;
 using YahtzeeApp.model;
 using YahtzeeApp.model.category;
@@ -72,6 +73,24 @@ namespace YahtzeeTests
       var sut = new Player();
       sut.AddCategory(new FourOfAKind(value, value, value, value));
       Assert.Throws<ArgumentException>(() => sut.AddCategory(new FourOfAKind(value, value, value, value)));
+    }
+
+    [Fact]
+    public void ShouldAcceptDifferentCategories()
+    {
+      var value = 5;
+      var sut = new Player();
+
+      var foak = new FourOfAKind(value, value, value, value);
+      var toak = new ThreeOfAKind(value, value, value);
+      var pair = new Pair(value, value);
+      var expected = new List<Category> { foak, toak, pair };
+
+      sut.AddCategory(foak);
+      sut.AddCategory(toak);
+      sut.AddCategory(pair);
+      var actual = sut.GetOccupiedCategories();
+      Assert.Equal(expected, actual);
     }
   }
 }
