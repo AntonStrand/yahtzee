@@ -11,7 +11,7 @@ namespace YahtzeeApp.model
     private Dice _dice;
     private AvailableCategoriesStrategy _categoryRule;
     private int _throwCount;
-    private bool _shouldKeep;
+    private Player _player;
 
     public Game(AvailableCategoriesStrategy categoryRule) => Init(categoryRule, null);
 
@@ -21,9 +21,7 @@ namespace YahtzeeApp.model
 
     public List<Category> GetAvailableCategories()
     {
-      var player = new Player();
-      if (_shouldKeep) player.AddCategory(new Pair(1, 1));
-      return _categoryRule.GetCategories(_dice, player);
+      return _categoryRule.GetCategories(_dice, _player);
     }
     public Dice GetDice() => _dice;
 
@@ -31,7 +29,7 @@ namespace YahtzeeApp.model
 
     public void KeepDie(DiceList dieId) => _dice.KeepDie(dieId);
 
-    public void KeepCategory(Category category) => _shouldKeep = true;
+    public void KeepCategory(Category category) => _player.AddCategory(category);
 
     public void Throw()
     {
@@ -46,6 +44,7 @@ namespace YahtzeeApp.model
     {
       _categoryRule = IsNotNull(categoryRule) ? categoryRule : throw new ArgumentNullException();
       _dice = IsNotNull(dice) ? dice : InitDice();
+      _player = new Player();
     }
 
     private Dice InitDice() => new DiceImplemented(new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented(), new DieImplemented());
