@@ -11,6 +11,7 @@ namespace YahtzeeApp.model
     private Dice _dice;
     private AvailableCategoriesStrategy _categoryRule;
     private int _throwCount;
+    private bool _shouldKeep;
 
     public Game(AvailableCategoriesStrategy categoryRule) => Init(categoryRule, null);
 
@@ -18,14 +19,19 @@ namespace YahtzeeApp.model
 
     public bool IsRoundDone() => NUMBER_OF_THROWS == _throwCount;
 
-    public List<Category> GetAvailableCategories() => _categoryRule.GetCategories(_dice, new Player());
+    public List<Category> GetAvailableCategories()
+    {
+      var player = new Player();
+      if (_shouldKeep) player.AddCategory(new Pair(1, 1));
+      return _categoryRule.GetCategories(_dice, player);
+    }
     public Dice GetDice() => _dice;
 
     public int GetNumberOfThrowsLeft() => NUMBER_OF_THROWS - _throwCount;
 
     public void KeepDie(DiceList dieId) => _dice.KeepDie(dieId);
 
-    public void KeepCategory(Category category) { }
+    public void KeepCategory(Category category) => _shouldKeep = true;
 
     public void Throw()
     {
