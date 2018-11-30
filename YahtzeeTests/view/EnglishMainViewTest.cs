@@ -114,5 +114,13 @@ namespace YahtzeeTests
       Assert.Equal(expected, result);
       input.Close();
     }
+
+    [Fact]
+    public void MainViewCanPrintDice()
+    {
+      var v = new EnglishMainView();
+
+      v.PrintDice();
+    }
   }
 }
