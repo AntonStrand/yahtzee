@@ -96,5 +96,15 @@ namespace YahtzeeTests
     [Fact]
     public void ShouldReturnZeroIfNoCategories() =>
       Assert.Equal(0, new Player().GetResult());
+
+    [Fact]
+    public void ShouldReturnSumOfCategories()
+    {
+      var value = 5;
+      var sut = new Player();
+
+      sut.AddCategory(new Pair(value, value));
+      Assert.Equal(expected: 10, actual: sut.GetResult());
+    }
   }
 }
