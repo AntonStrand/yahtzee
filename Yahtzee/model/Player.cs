@@ -26,8 +26,10 @@ namespace YahtzeeApp.model
 
     public void AddCategory(Category category)
     {
-      if (_occupied.Any(taken => taken.GetType() == category.GetType())) throw new ArgumentException();
+      if (IsTaken(category)) throw new ArgumentException();
       _occupied.Add(category);
     }
+
+    private bool IsTaken(Category category) => _occupied.Any(taken => taken.GetType() == category.GetType());
   }
 }
