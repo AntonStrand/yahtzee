@@ -19,10 +19,7 @@ namespace YahtzeeApp.model
 
     public bool IsRoundDone() => NUMBER_OF_THROWS == _throwCount;
 
-    public List<Category> GetAvailableCategories()
-    {
-      return _categoryRule.GetCategories(_dice, _player);
-    }
+    public List<Category> GetAvailableCategories() => _categoryRule.GetCategories(_dice, _player);
     public Dice GetDice() => _dice;
 
     public int GetNumberOfThrowsLeft() => NUMBER_OF_THROWS - _throwCount;

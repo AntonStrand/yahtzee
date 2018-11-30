@@ -159,7 +159,7 @@ namespace YahtzeeTests
       var sut = new Game(new AllAvailableCategoriesStrategy(), dice.Object);
       sut.KeepCategory(new Pair(4, 4));
       var categories = sut.GetAvailableCategories();
-      Assert.Null(categories.Find(x => x.GetType() == typeof(Pair)));
+      Assert.Null(categories.Find(IsOfType<Pair>));
     }
 
     [Fact]
@@ -171,7 +171,9 @@ namespace YahtzeeTests
       sut.KeepCategory(new Pair(4, 4));
       sut.KeepCategory(new Yahtzee(5, 5, 5, 5, 5));
       var categories = sut.GetAvailableCategories();
-      Assert.Empty(categories.Where(x => x.GetType() == typeof(Pair) || x.GetType() == typeof(Yahtzee)));
+      Assert.Empty(categories.Where(c => IsOfType<Pair>(c) || IsOfType<Yahtzee>(c)));
     }
+
+    private bool IsOfType<T>(Object o) => o.GetType() == typeof(T);
   }
 }
