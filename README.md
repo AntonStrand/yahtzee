@@ -1,4 +1,4 @@
-# yahtzee
+# yahtzee Testing
 
 TDD project for our course [2dv610](https://coursepress.lnu.se/kurs/mjukvarutestning/labs/assignment-2-xunit-testing/) at [Linnæus university](https://coursepress.lnu.se/kurs/mjukvarutestning/)
 
